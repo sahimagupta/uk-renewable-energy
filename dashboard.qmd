@@ -1,0 +1,432 @@
+---
+title: "UK Renewable Energy Dashboard"
+subtitle: "Electricity Generation, Capacity & Trends — Department for Energy Security & Net Zero (2009-2024)"
+author: "Sahima Gupta"
+format:
+  dashboard:
+    orientation: columns
+    theme: flatly
+    nav-buttons:
+      - icon: github
+        href: https://github.com/sahimagupta/uk-renewable-energy
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(plotly)
+library(DT)
+library(scales)
+
+# Load cleaned data
+gen <- read_csv("data/cleaned/uk_generation_by_source.csv", show_col_types = FALSE)
+cap <- read_csv("data/cleaned/uk_capacity_by_source.csv", show_col_types = FALSE)
+lf <- read_csv("data/cleaned/uk_load_factors.csv", show_col_types = FALSE)
+country <- read_csv("data/cleaned/country_generation_comparison.csv", show_col_types = FALSE)
+totals <- read_csv("data/cleaned/uk_annual_totals.csv", show_col_types = FALSE)
+
+# UK-inspired colour palette (blues, greens, teals)
+colors_source <- c(
+  "Onshore Wind" = "#1B4F72", "Offshore Wind (Seabed)" = "#2E86C1",
+  "Offshore Wind (Floating)" = "#85C1E9", "Offshore Wind" = "#2E86C1",
+  "Solar PV" = "#F39C12", "Large Hydro" = "#27AE60", "Small Hydro" = "#82E0AA",
+  "Hydro" = "#27AE60", "Hydro (Total)" = "#27AE60",
+  "Plant Biomass" = "#8E44AD", "Landfill Gas" = "#E74C3C",
+  "Anaerobic Digestion" = "#F1948A", "Energy from Waste" = "#D35400",
+  "Sewage Gas" = "#A04000", "Animal Biomass" = "#DC7633",
+  "Co-firing" = "#95A5A6", "Bioenergy" = "#8E44AD",
+  "Wave & Tidal" = "#17A589", "Marine" = "#17A589",
+  "Liquid Biofuels" = "#BDC3C7"
+)
+
+colors_category <- c(
+  "Wind" = "#2E86C1", "Solar" = "#F39C12", "Hydro" = "#27AE60",
+  "Bioenergy" = "#8E44AD", "Waste" = "#D35400", "Marine" = "#17A589"
+)
+
+colors_country <- c(
+  "England" = "#C0392B", "Scotland" = "#2E86C1",
+  "Wales" = "#27AE60", "Northern Ireland" = "#F39C12"
+)
+
+# Latest year data
+latest_year <- max(totals$year)
+latest <- totals %>% filter(year == latest_year)
+prev <- totals %>% filter(year == latest_year - 1)
+```
+
+# ⚡ Overview
+
+## Row {height=20%}
+
+### Total Generation
+```{r}
+#| content: valuebox
+#| title: "Total Generation (2024)"
+val <- round(latest$electricity_generated_g_wh / 1000, 1)
+list(icon = "lightning-charge-fill", color = "primary", value = paste0(val, " TWh"))
+```
+
+### Installed Capacity
+```{r}
+#| content: valuebox
+#| title: "Installed Capacity (2024)"
+val <- round(latest$installed_capacity_mw / 1000, 1)
+list(icon = "gear-fill", color = "success", value = paste0(val, " GW"))
+```
+
+### Growth vs 2009
+```{r}
+#| content: valuebox
+#| title: "Generation Growth (vs 2009)"
+first <- totals %>% filter(year == min(year))
+growth <- round((latest$electricity_generated_g_wh / first$electricity_generated_g_wh - 1) * 100, 0)
+list(icon = "graph-up-arrow", color = "info", value = paste0("+", growth, "%"))
+```
+
+### YoY Change
+```{r}
+#| content: valuebox
+#| title: "Year-on-Year Change"
+yoy <- round((latest$electricity_generated_g_wh / prev$electricity_generated_g_wh - 1) * 100, 1)
+clr <- if(yoy >= 0) "success" else "danger"
+list(icon = "arrow-up-right", color = clr, value = paste0(ifelse(yoy >= 0, "+", ""), yoy, "%"))
+```
+
+### Years of Data
+```{r}
+#| content: valuebox
+#| title: "Data Coverage"
+list(icon = "calendar-range", color = "warning", value = paste0("2009–", latest_year))
+```
+
+## Row
+
+### Total UK Renewable Electricity Generation {width=60%}
+```{r}
+gen_by_cat <- gen %>%
+  group_by(year, category) %>%
+  summarise(total_gwh = sum(generation_gwh, na.rm = TRUE), .groups = "drop") %>%
+  filter(category != "Other")
+
+p <- ggplot(gen_by_cat, aes(x = year, y = total_gwh / 1000, fill = category)) +
+  geom_area(alpha = 0.85) +
+  scale_fill_manual(values = colors_category) +
+  scale_x_continuous(breaks = seq(2009, 2024, 2)) +
+  labs(x = NULL, y = "Generation (TWh)", fill = "Source",
+       title = "UK Renewable Electricity Generation by Category (TWh)") +
+  theme_minimal(base_size = 12) +
+  theme(plot.title = element_text(face = "bold"), legend.position = "bottom")
+
+ggplotly(p, tooltip = c("x", "y", "fill")) %>%
+  layout(legend = list(orientation = "h", y = -0.15))
+```
+
+### Generation Mix (Latest Year) {width=40%}
+```{r}
+mix_latest <- gen %>%
+  filter(year == latest_year) %>%
+  group_by(category) %>%
+  summarise(total = sum(generation_gwh, na.rm = TRUE), .groups = "drop") %>%
+  filter(category != "Other") %>%
+  mutate(pct = round(total / sum(total) * 100, 1))
+
+p <- plot_ly(mix_latest, labels = ~category, values = ~total,
+             type = "pie",
+             marker = list(colors = unname(colors_category[mix_latest$category])),
+             textposition = "inside",
+             textinfo = "label+percent",
+             hoverinfo = "label+value+percent") %>%
+  layout(title = list(text = paste0("Generation Mix ", latest_year), font = list(size = 14)),
+         showlegend = FALSE)
+p
+```
+
+## Row
+
+### Installed Capacity Growth {width=50%}
+```{r}
+cap_total <- cap %>%
+  group_by(year, category) %>%
+  summarise(total_mw = sum(capacity_mw, na.rm = TRUE), .groups = "drop") %>%
+  filter(category != "Other")
+
+p <- ggplot(cap_total, aes(x = year, y = total_mw / 1000, fill = category)) +
+  geom_area(alpha = 0.85) +
+  scale_fill_manual(values = colors_category) +
+  scale_x_continuous(breaks = seq(2009, 2024, 2)) +
+  labs(x = NULL, y = "Capacity (GW)", fill = "Source",
+       title = "Cumulative Installed Capacity (GW)") +
+  theme_minimal(base_size = 12) +
+  theme(plot.title = element_text(face = "bold"), legend.position = "bottom")
+
+ggplotly(p, tooltip = c("x", "y", "fill")) %>%
+  layout(legend = list(orientation = "h", y = -0.15))
+```
+
+### Top Sources — Generation Trend {width=50%}
+```{r}
+top_sources <- gen %>%
+  filter(year == latest_year) %>%
+  slice_max(generation_gwh, n = 6) %>%
+  pull(source)
+
+gen_top <- gen %>% filter(source %in% top_sources)
+
+p <- ggplot(gen_top, aes(x = year, y = generation_gwh / 1000, color = source)) +
+  geom_line(linewidth = 1.1) +
+  geom_point(size = 1.5) +
+  scale_color_manual(values = colors_source) +
+  scale_x_continuous(breaks = seq(2009, 2024, 2)) +
+  labs(x = NULL, y = "Generation (TWh)", color = "Source",
+       title = "Top 6 Renewable Sources — Generation Trend") +
+  theme_minimal(base_size = 12) +
+  theme(plot.title = element_text(face = "bold"), legend.position = "bottom")
+
+ggplotly(p, tooltip = c("x", "y", "colour")) %>%
+  layout(legend = list(orientation = "h", y = -0.2))
+```
+
+
+# 🌊 Wind & Solar
+
+## Row {height=20%}
+
+### Wind Generation
+```{r}
+#| content: valuebox
+#| title: "Wind Generation (2024)"
+wind_val <- gen %>% filter(year == latest_year, category == "Wind") %>%
+  summarise(t = sum(generation_gwh, na.rm = TRUE)) %>% pull(t)
+list(icon = "wind", color = "primary", value = paste0(round(wind_val / 1000, 1), " TWh"))
+```
+
+### Solar Generation
+```{r}
+#| content: valuebox
+#| title: "Solar PV Generation (2024)"
+solar_val <- gen %>% filter(year == latest_year, source == "Solar PV") %>% pull(generation_gwh)
+list(icon = "sun-fill", color = "warning", value = paste0(round(solar_val / 1000, 1), " TWh"))
+```
+
+### Wind Capacity
+```{r}
+#| content: valuebox
+#| title: "Wind Capacity (2024)"
+wind_cap <- cap %>% filter(year == latest_year, category == "Wind") %>%
+  summarise(t = sum(capacity_mw, na.rm = TRUE)) %>% pull(t)
+list(icon = "gear-fill", color = "info", value = paste0(round(wind_cap / 1000, 1), " GW"))
+```
+
+### Solar Capacity
+```{r}
+#| content: valuebox
+#| title: "Solar PV Capacity (2024)"
+solar_cap <- cap %>% filter(year == latest_year, source == "Solar PV") %>% pull(capacity_mw)
+list(icon = "brightness-high-fill", color = "success", value = paste0(round(solar_cap / 1000, 1), " GW"))
+```
+
+## Row
+
+### Wind: Onshore vs Offshore {width=50%}
+```{r}
+wind_data <- gen %>%
+  filter(str_detect(source, "(?i)wind")) %>%
+  mutate(source = ifelse(str_detect(source, "Offshore"), "Offshore Wind", source))
+
+wind_agg <- wind_data %>%
+  group_by(year, source) %>%
+  summarise(gwh = sum(generation_gwh, na.rm = TRUE), .groups = "drop")
+
+p <- ggplot(wind_agg, aes(x = year, y = gwh / 1000, fill = source)) +
+  geom_area(alpha = 0.85) +
+  scale_fill_manual(values = c("Onshore Wind" = "#1B4F72", "Offshore Wind" = "#2E86C1")) +
+  scale_x_continuous(breaks = seq(2009, 2024, 2)) +
+  labs(x = NULL, y = "Generation (TWh)", fill = NULL,
+       title = "Wind Generation: Onshore vs Offshore") +
+  theme_minimal(base_size = 12) +
+  theme(plot.title = element_text(face = "bold"), legend.position = "bottom")
+
+ggplotly(p, tooltip = c("x", "y", "fill")) %>%
+  layout(legend = list(orientation = "h", y = -0.15))
+```
+
+### Solar PV: Capacity & Generation Growth {width=50%}
+```{r}
+solar_gen <- gen %>% filter(source == "Solar PV") %>% select(year, generation_gwh)
+solar_cap_df <- cap %>% filter(source == "Solar PV") %>% select(year, capacity_mw)
+
+solar_combined <- left_join(solar_cap_df, solar_gen, by = "year") %>%
+  filter(!is.na(capacity_mw))
+
+p <- plot_ly(solar_combined, x = ~year) %>%
+  add_bars(y = ~capacity_mw / 1000, name = "Capacity (GW)",
+           marker = list(color = "#F39C12", opacity = 0.7)) %>%
+  add_lines(y = ~generation_gwh / 1000, name = "Generation (TWh)",
+            yaxis = "y2", line = list(color = "#E74C3C", width = 2.5)) %>%
+  layout(
+    title = list(text = "Solar PV Growth: Capacity & Generation", font = list(size = 14)),
+    yaxis = list(title = "Capacity (GW)"),
+    yaxis2 = list(title = "Generation (TWh)", overlaying = "y", side = "right"),
+    legend = list(orientation = "h", y = -0.15),
+    xaxis = list(title = "")
+  )
+p
+```
+
+## Row
+
+### Load Factors by Source {width=50%}
+```{r}
+lf_main <- lf %>%
+  filter(source %in% c("Onshore Wind", "Offshore Wind", "Solar PV",
+                        "Hydro", "Landfill Gas", "Plant Biomass")) %>%
+  filter(!is.na(load_factor_pct))
+
+# Use source column mapping
+lf_main <- lf_main %>%
+  mutate(source = case_when(
+    str_detect(source, "(?i)onshore") ~ "Onshore Wind",
+    str_detect(source, "(?i)offshore") ~ "Offshore Wind",
+    str_detect(source, "(?i)solar") ~ "Solar PV",
+    str_detect(source, "(?i)hydro") ~ "Hydro",
+    str_detect(source, "(?i)landfill") ~ "Landfill Gas",
+    str_detect(source, "(?i)plant") ~ "Plant Biomass",
+    TRUE ~ source
+  ))
+
+p <- ggplot(lf_main, aes(x = year, y = load_factor_pct, color = source)) +
+  geom_line(linewidth = 1) +
+  geom_point(size = 1.5) +
+  scale_color_manual(values = colors_source) +
+  scale_x_continuous(breaks = seq(2009, 2024, 2)) +
+  labs(x = NULL, y = "Load Factor (%)", color = "Source",
+       title = "Load Factors — How Efficiently Are Sources Used?") +
+  theme_minimal(base_size = 12) +
+  theme(plot.title = element_text(face = "bold"), legend.position = "bottom")
+
+ggplotly(p, tooltip = c("x", "y", "colour")) %>%
+  layout(legend = list(orientation = "h", y = -0.2))
+```
+
+### Capacity vs Generation Scatter {width=50%}
+```{r}
+cap_gen <- cap %>%
+  filter(year == latest_year, category != "Other") %>%
+  left_join(
+    gen %>% filter(year == latest_year) %>% select(source, generation_gwh),
+    by = "source"
+  ) %>%
+  filter(!is.na(generation_gwh), !is.na(capacity_mw))
+
+p <- ggplot(cap_gen, aes(x = capacity_mw / 1000, y = generation_gwh / 1000,
+                          color = category, size = generation_gwh)) +
+  geom_point(alpha = 0.7) +
+  geom_text(aes(label = source), size = 2.5, vjust = -1, show.legend = FALSE) +
+  scale_color_manual(values = colors_category) +
+  scale_size_continuous(guide = "none") +
+  labs(x = "Installed Capacity (GW)", y = "Generation (TWh)", color = "Category",
+       title = paste0("Capacity vs Generation (", latest_year, ")")) +
+  theme_minimal(base_size = 12) +
+  theme(plot.title = element_text(face = "bold"), legend.position = "bottom")
+
+ggplotly(p, tooltip = c("x", "y", "colour")) %>%
+  layout(legend = list(orientation = "h", y = -0.15))
+```
+
+
+# 🏴󠁧󠁢󠁥󠁮󠁧󠁿 Nations
+
+## Row
+
+### Country Comparison — Total Generation {width=50%}
+```{r}
+country_totals <- country %>%
+  filter(source == "TOTAL") %>%
+  select(year, country, generation_gwh)
+
+p <- ggplot(country_totals, aes(x = year, y = generation_gwh / 1000, fill = country)) +
+  geom_area(alpha = 0.85, position = "stack") +
+  scale_fill_manual(values = colors_country) +
+  scale_x_continuous(breaks = seq(2009, 2024, 2)) +
+  labs(x = NULL, y = "Generation (TWh)", fill = "Nation",
+       title = "Renewable Generation by UK Nation") +
+  theme_minimal(base_size = 12) +
+  theme(plot.title = element_text(face = "bold"), legend.position = "bottom")
+
+ggplotly(p, tooltip = c("x", "y", "fill")) %>%
+  layout(legend = list(orientation = "h", y = -0.15))
+```
+
+### Nation Share (Latest Year) {width=50%}
+```{r}
+country_latest <- country_totals %>%
+  filter(year == max(year)) %>%
+  mutate(pct = round(generation_gwh / sum(generation_gwh) * 100, 1))
+
+p <- plot_ly(country_latest, labels = ~country, values = ~generation_gwh,
+             type = "pie", hole = 0.45,
+             marker = list(colors = unname(colors_country[country_latest$country])),
+             textposition = "outside",
+             textinfo = "label+percent") %>%
+  layout(title = list(text = paste0("Nation Share (", max(country_totals$year), ")"),
+                      font = list(size = 14)),
+         showlegend = FALSE,
+         annotations = list(text = paste0(round(sum(country_latest$generation_gwh)/1000, 1), "\nTWh"),
+                           showarrow = FALSE, font = list(size = 16)))
+p
+```
+
+## Row
+
+### Energy Mix by Nation {width=100%}
+```{r}
+country_mix <- country %>%
+  filter(source != "TOTAL", year == max(year)) %>%
+  group_by(country, category) %>%
+  summarise(total = sum(generation_gwh, na.rm = TRUE), .groups = "drop")
+
+p <- ggplot(country_mix, aes(x = country, y = total / 1000, fill = category)) +
+  geom_col(position = "fill", width = 0.7) +
+  scale_fill_manual(values = colors_category) +
+  scale_y_continuous(labels = percent) +
+  labs(x = NULL, y = "Share of Generation", fill = "Source",
+       title = "Renewable Energy Mix by Nation (Latest Year)") +
+  theme_minimal(base_size = 12) +
+  theme(plot.title = element_text(face = "bold"), legend.position = "bottom")
+
+ggplotly(p, tooltip = c("x", "y", "fill")) %>%
+  layout(legend = list(orientation = "h", y = -0.15))
+```
+
+
+# 📋 Data Explorer
+
+## Row
+
+### Full Dataset {width=100%}
+```{r}
+explorer <- gen %>%
+  left_join(cap %>% select(year, source, capacity_mw), by = c("year", "source")) %>%
+  left_join(lf %>% select(year, source, load_factor_pct), by = c("year", "source")) %>%
+  select(
+    Year = year,
+    Source = source,
+    Category = category,
+    `Generation (GWh)` = generation_gwh,
+    `Capacity (MW)` = capacity_mw,
+    `Load Factor (%)` = load_factor_pct
+  ) %>%
+  arrange(desc(Year), desc(`Generation (GWh)`))
+
+datatable(explorer, rownames = FALSE,
+          filter = "top",
+          extensions = "Buttons",
+          options = list(
+            dom = "Bfrtip",
+            buttons = c("copy", "csv", "excel"),
+            pageLength = 20,
+            scrollX = TRUE
+          ),
+          class = "display compact stripe hover") %>%
+  formatRound(columns = c("Generation (GWh)", "Capacity (MW)", "Load Factor (%)"), digits = 1)
+```

@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Sahima Gupta">
+
+<title>UK Renewable Energy Dashboard</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="dashboard_files/libs/clipboard/clipboard.min.js"></script>
+<script src="dashboard_files/libs/quarto-html/quarto.js"></script>
+<script src="dashboard_files/libs/quarto-html/popper.min.js"></script>
+<script src="dashboard_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="dashboard_files/libs/quarto-html/anchor.min.js"></script>
+<link href="dashboard_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="dashboard_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="dashboard_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="dashboard_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="dashboard_files/libs/bootstrap/bootstrap-7aa3290165bf935afb8ab5fcad0f1808.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="dashboard_files/libs/quarto-dashboard/quarto-dashboard.js"></script>
+<script src="dashboard_files/libs/quarto-dashboard/stickythead.js"></script>
+<script src="dashboard_files/libs/quarto-dashboard/datatables.min.js" kdttablesentinel="true"></script>
+<script src="dashboard_files/libs/quarto-dashboard/pdfmake.min.js" kdttablesentinel="true"></script>
+<script src="dashboard_files/libs/quarto-dashboard/vfs_fonts.js" kdttablesentinel="true"></script>
+<script src="dashboard_files/libs/quarto-dashboard/web-components.js" type="module"></script>
+<script src="dashboard_files/libs/quarto-dashboard/components.js"></script>
+<link href="dashboard_files/libs/quarto-dashboard/datatables.min.css" rel="stylesheet" kdttablesentinel="true">
+<link href="dashboard_files/libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+
+<script src="dashboard_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+<script src="dashboard_files/libs/plotly-binding-4.12.0/plotly.js"></script>
+
+<script src="dashboard_files/libs/typedarray-0.1/typedarray.min.js"></script>
+
+<script src="dashboard_files/libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+
+<link href="dashboard_files/libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+
+<script src="dashboard_files/libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+
+<link href="dashboard_files/libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet">
+
+<script src="dashboard_files/libs/plotly-main-2.25.2/plotly-latest.min.js"></script>
+
+<link href="dashboard_files/libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+
+<script src="dashboard_files/libs/datatables-binding-0.34.0/datatables.js"></script>
+
+<link href="dashboard_files/libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+
+<link href="dashboard_files/libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+
+<script src="dashboard_files/libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+
+<script src="dashboard_files/libs/jszip-1.13.6/jszip.min.js"></script>
+
+<link href="dashboard_files/libs/dt-ext-buttons-1.13.6/css/buttons.dataTables.min.css" rel="stylesheet">
+
+<script src="dashboard_files/libs/dt-ext-buttons-1.13.6/js/dataTables.buttons.min.js"></script>
+
+<script src="dashboard_files/libs/dt-ext-buttons-1.13.6/js/buttons.html5.min.js"></script>
+
+<script src="dashboard_files/libs/dt-ext-buttons-1.13.6/js/buttons.colVis.min.js"></script>
+
+<script src="dashboard_files/libs/dt-ext-buttons-1.13.6/js/buttons.print.min.js"></script>
+
+<link href="dashboard_files/libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet">
+
+<script src="dashboard_files/libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
+
+<link href="dashboard_files/libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet">
+
+<script src="dashboard_files/libs/selectize-0.12.0/selectize.min.js"></script>
+
+
+
+</head>
+
+<body class="quarto-dashboard dashboard-fill fullcontent">
+
+<header id="quarto-dashboard-header">
+<nav class="navbar navbar-expand-md slim" data-bs-theme="dark">
+  <div class="navbar-container container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-controls="dashboard-collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>    
+
+
+    <div class="navbar-brand-container">       
+
+      <div class="navbar-title">
+        <div class="navbar-title-text"><a href="#">UK Renewable Energy Dashboard</a></div>
+        <div class="navbar-subtitle">Electricity Generation, Capacity &amp; Trends — Department for Energy Security &amp; Net Zero (2009-2024)</div>
+        <div class="navbar-author">Sahima Gupta</div>
+      </div>
+    </div>
+<div id="dashboard-collapse" class="navbar-collapse collapse"><ul class="navbar-nav navbar-nav-scroll me-auto" role="tablist"><li class="nav-item" role="presentation"><a id="tab-overview" class="nav-link active" data-bs-toggle="tab" role="tab" data-bs-target="#overview" data-scrolling="false" href="#overview" aria-controls="overview" aria-selected="true"><span class="nav-link-text">⚡ Overview</span></a></li><li class="nav-item" role="presentation"><a id="tab-wind-solar" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#wind-solar" data-scrolling="false" href="#wind-solar" aria-controls="wind-solar" aria-selected="false"><span class="nav-link-text">🌊 Wind &amp; Solar</span></a></li><li class="nav-item" role="presentation"><a id="tab-nations" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#nations" data-scrolling="false" href="#nations" aria-controls="nations" aria-selected="false"><span class="nav-link-text">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Nations</span></a></li><li class="nav-item" role="presentation"><a id="tab-data-explorer" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#data-explorer" data-scrolling="false" href="#data-explorer" aria-controls="data-explorer" aria-selected="false"><span class="nav-link-text">📋 Data Explorer</span></a></li></ul><div class="quarto-dashboard-links"><a class="quarto-dashboard-link" href="https://github.com/sahimagupta/uk-renewable-energy"><i class="bi bi-github"></i></a></div></div></div>
+</nav>
+</header>
+<div class="page-layout-custom quarto-dashboard-content bslib-gap-spacing html-fill-container bslib-page-fill quarto-dashboard-pages">  
+
+<div class="bslib-grid-item html-fill-item tab-content bslib-grid" data-layout="fill" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div id="overview" class="dashboard-page tab-pane show active html-fill-item html-fill-container" data-orientation="columns" aria-labelledby="tab-overview">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" data-height="20%" style="display: grid; grid-template-rows: minmax(3em, max-content) minmax(3em, max-content) minmax(3em, max-content) minmax(3em, max-content) minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card valuebox cell html-fill-item html-fill-container bslib-card bslib-value-box bg-primary showcase-left-center" data-bslib-card-init="" data-require-bs-caller="card()">
+<div class="card-body html-fill-item html-fill-container">
+<div data-icon="lightning-charge-fill" class="html-fill-item html-fill-container value-box-grid">
+<div class="value-box-showcase html-fill-item html-fill-container">
+
+<i class="bi bi-lightning-charge-fill"></i></div>
+<div class="value-box-area">
+<p class="value-box-title">
+Total Generation (2024)
+</p>
+<p class="value-box-value">
+143.7 TWh
+</p>
+</div>
+</div>
+</div>
+<script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card valuebox cell html-fill-item html-fill-container bslib-card bslib-value-box bg-success showcase-left-center" data-bslib-card-init="" data-require-bs-caller="card()">
+<div class="card-body html-fill-item html-fill-container">
+<div data-icon="gear-fill" class="html-fill-item html-fill-container value-box-grid">
+<div class="value-box-showcase html-fill-item html-fill-container">
+
+<i class="bi bi-gear-fill"></i></div>
+<div class="value-box-area">
+<p class="value-box-title">
+Installed Capacity (2024)
+</p>
+<p class="value-box-value">
+61.4 GW
+</p>
+</div>
+</div>
+</div>
+<script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card valuebox cell html-fill-item html-fill-container bslib-card bslib-value-box bg-info showcase-left-center" data-bslib-card-init="" data-require-bs-caller="card()">
+<div class="card-body html-fill-item html-fill-container">
+<div data-icon="graph-up-arrow" class="html-fill-item html-fill-container value-box-grid">
+<div class="value-box-showcase html-fill-item html-fill-container">
+
+<i class="bi bi-graph-up-arrow"></i></div>
+<div class="value-box-area">
+<p class="value-box-title">
+Generation Growth (vs 2009)
+</p>
+<p class="value-box-value">
++469%
+</p>
+</div>
+</div>
+</div>
+<script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card valuebox cell html-fill-item html-fill-container bslib-card bslib-value-box bg-success showcase-left-center" data-bslib-card-init="" data-require-bs-caller="card()">
+<div class="card-body html-fill-item html-fill-container">
+<div data-icon="arrow-up-right" class="html-fill-item html-fill-container value-box-grid">
+<div class="value-box-showcase html-fill-item html-fill-container">
+
+<i class="bi bi-arrow-up-right"></i></div>
+<div class="value-box-area">
+<p class="value-box-title">
+Year-on-Year Change
+</p>
+<p class="value-box-value">
++5.1%
+</p>
+</div>
+</div>
+</div>
+<script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card valuebox cell html-fill-item html-fill-container bslib-card bslib-value-box bg-warning showcase-left-center" data-bslib-card-init="" data-require-bs-caller="card()">
+<div class="card-body html-fill-item html-fill-container">
+<div data-icon="calendar-range" class="html-fill-item html-fill-container value-box-grid">
+<div class="value-box-showcase html-fill-item html-fill-container">
+
+<i class="bi bi-calendar-range"></i></div>
+<div class="value-box-area">
+<p class="value-box-title">
+Data Coverage
+</p>
+<p class="value-box-value">
+2009–2024
+</p>
+</div>
+</div>
+</div>
+<script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div><div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr) minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" data-width="60%" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="plotly html-widget html-fill-item html-fill-container" id="htmlwidget-01e986e805316d0ae49b" style="width:100%;height:406px;"></div>
+<script type="application/json" data-for="htmlwidget-01e986e805316d0ae49b">{"x":{"data":[{"x":[2008.9849999999999,2009,2009.0150000000001,2009.9849999999999,2010,2010.0150000000001,2010.9849999999999,2011,2011.0150000000001,2011.9849999999999,2012,2012.0150000000001,2012.9849999999999,2013,2013.0150000000001,2013.9849999999999,2014,2014.0150000000001,2014.9849999999999,2015,2015.0150000000001,2015.9849999999999,2016,2016.0150000000001,2016.9849999999999,2017,2017.0150000000001,2017.9849999999999,2018,2018.0150000000001,2018.9849999999999,2019,2019.0150000000001,2019.9849999999999,2020,2020.0150000000001,2020.9849999999999,2021,2021.0150000000001,2021.9849999999999,2022,2022.0150000000001,2022.9849999999999,2023,2023.0150000000001,2023.9849999999999,2024,2024.0150000000001,2024.0150000000001,2024,2023.9849999999999,2023.0150000000001,2023,2022.9849999999999,2022.0150000000001,2022,2021.9849999999999,2021.0150000000001,2021,2020.9849999999999,2020.0150000000001,2020,2019.9849999999999,2019.0150000000001,2019,2018.9849999999999,2018.0150000000001,2018,2017.9849999999999,2017.0150000000001,2017,2016.9849999999999,2016.0150000000001,2016,2015.9849999999999,2015.0150000000001,2015,2014.9849999999999,2014.0150000000001,2014,2013.9849999999999,2013.0150000000001,2013,2012.9849999999999,2012.0150000000001,2012,2011.9849999999999,2011.0150000000001,2011,2010.9849999999999,2010.0150000000001,2010,2009.9849999999999,2009.0150000000001,2009,2008.9849999999999,2008.9849999999999],"y":[0,16.907,16.899917899999952,16.441942100000048,16.434859999999997,16.555669250000804,24.368000749999194,24.488810000000001,24.567228200000521,29.638271799999483,29.716690000000003,29.844583450000854,38.115026549999151,38.242920000000005,38.355174300000755,45.61428569999925,45.72654,45.92973975000136,59.069990249998646,59.273190000000007,59.260181099999919,58.418938900000079,58.405929999999998,58.63619785000153,73.526852149998462,73.75712,73.880927450000826,81.887142549999169,82.010949999999994,82.127552200000778,89.667827799999216,89.78443,89.994327100001399,103.56767289999861,103.77757,103.59714399999881,91.929596000001197,91.749170000000007,92.008923200001732,108.80629679999828,109.06605,109.1253868500004,112.96250314999961,113.02184,113.04249755000014,114.37835244999988,114.39901000000002,0,0,149.18809000000002,149.08241274999929,142.24861725000071,142.14294000000001,142.11265004999979,140.15389995000021,140.12361000000001,139.92847349999872,127.30964650000131,127.11451000000001,127.27756105000108,137.82152894999894,137.98457999999999,137.76759659999857,123.73600340000144,123.51902,123.370568449999,113.77070155000099,113.62224999999999,113.45190174999887,102.43604825000114,102.2657,102.01769029999835,85.979729700001656,85.731719999999996,85.73496015000002,85.944489849999982,85.947730000000007,85.655199099998043,66.738200900001956,66.445670000000007,66.269407849998828,54.871122150001177,54.694860000000006,54.514600649998798,42.857829350001204,42.677570000000003,42.581871349999368,36.393358650000636,36.29766,36.160702949999084,27.30414705000091,27.167189999999998,27.151362149999894,26.127827850000106,26.112000000000002,0,0],"text":"year: 2009<br />total_gwh/1000: 9.205<br />category: Bioenergy","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(142,68,173,0.85)","hoveron":"points","name":"Bioenergy","legendgroup":"Bioenergy","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2008.9849999999999,2009,2009.0150000000001,2009.9849999999999,2010,2010.0150000000001,2010.9849999999999,2011,2011.0150000000001,2011.9849999999999,2012,2012.0150000000001,2012.9849999999999,2013,2013.0150000000001,2013.9849999999999,2014,2014.0150000000001,2014.9849999999999,2015,2015.0150000000001,2015.9849999999999,2016,2016.0150000000001,2016.9849999999999,2017,2017.0150000000001,2017.9849999999999,2018,2018.0150000000001,2018.9849999999999,2019,2019.0150000000001,2019.9849999999999,2020,2020.0150000000001,2020.9849999999999,2021,2021.0150000000001,2021.9849999999999,2022,2022.0150000000001,2022.9849999999999,2023,2023.0150000000001,2023.9849999999999,2024,2024.0150000000001,2024.0150000000001,2024,2023.9849999999999,2023.0150000000001,2023,2022.9849999999999,2022.0150000000001,2022,2021.9849999999999,2021.0150000000001,2021,2020.9849999999999,2020.0150000000001,2020,2019.9849999999999,2019.0150000000001,2019,2018.9849999999999,2018.0150000000001,2018,2017.9849999999999,2017.0150000000001,2017,2016.9849999999999,2016.0150000000001,2016,2015.9849999999999,2015.0150000000001,2015,2014.9849999999999,2014.0150000000001,2014,2013.9849999999999,2013.0150000000001,2013,2012.9849999999999,2012.0150000000001,2012,2011.9849999999999,2011.0150000000001,2011,2010.9849999999999,2010.0150000000001,2010,2009.9849999999999,2009.0150000000001,2009,2008.9849999999999,2008.9849999999999],"y":[0,11.679,11.696467350000116,12.826022649999883,12.843489999999999,12.932793700000595,18.707766299999406,18.797070000000001,18.88121970000056,24.322900299999443,24.407050000000005,24.544065850000916,33.404424149999087,33.541440000000001,33.635899500000633,39.74428049999937,39.838740000000001,40.035797700001318,52.778862299998693,52.975920000000009,52.976814300000015,53.034645699999992,53.035539999999997,53.258135800001483,67.652664199998512,67.875259999999997,68.005646150000871,76.437283849999133,76.567669999999993,76.676928050000726,83.742281949999267,83.85154,84.047256850001304,96.703613149998702,96.899330000000006,96.740802049998948,86.489327950001055,86.330800000000011,86.595815350001772,103.73347464999824,103.99849,104.05188475000037,107.50474524999964,107.55814000000001,107.57381875000011,108.58771124999991,108.60339000000002,0,0,114.39901000000002,114.37835244999988,113.04249755000014,113.02184,112.96250314999961,109.1253868500004,109.06605,108.80629679999828,92.008923200001732,91.749170000000007,91.929596000001197,103.59714399999881,103.77757,103.56767289999861,89.994327100001399,89.78443,89.667827799999216,82.127552200000778,82.010949999999994,81.887142549999169,73.880927450000826,73.75712,73.526852149998462,58.63619785000153,58.405929999999998,58.418938900000079,59.260181099999919,59.273190000000007,59.069990249998646,45.92973975000136,45.72654,45.61428569999925,38.355174300000755,38.242920000000005,38.115026549999151,29.844583450000854,29.716690000000003,29.638271799999483,24.567228200000521,24.488810000000001,24.368000749999194,16.555669250000804,16.434859999999997,16.441942100000048,16.899917899999952,16.907,0,0],"text":"year: 2009<br />total_gwh/1000: 5.228<br />category: Hydro","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(39,174,96,0.85)","hoveron":"points","name":"Hydro","legendgroup":"Hydro","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2008.9849999999999,2009,2009.0150000000001,2009.9849999999999,2010,2010.0150000000001,2010.9849999999999,2011,2011.0150000000001,2011.9849999999999,2012,2012.0150000000001,2012.9849999999999,2013,2013.0150000000001,2013.9849999999999,2014,2014.0150000000001,2014.9849999999999,2015,2015.0150000000001,2015.9849999999999,2016,2016.0150000000001,2016.9849999999999,2017,2017.0150000000001,2017.9849999999999,2018,2018.0150000000001,2018.9849999999999,2019,2019.0150000000001,2019.9849999999999,2020,2020.0150000000001,2020.9849999999999,2021,2021.0150000000001,2021.9849999999999,2022,2022.0150000000001,2022.9849999999999,2023,2023.0150000000001,2023.9849999999999,2024,2024.0150000000001,2024.0150000000001,2024,2023.9849999999999,2023.0150000000001,2023,2022.9849999999999,2022.0150000000001,2022,2021.9849999999999,2021.0150000000001,2021,2020.9849999999999,2020.0150000000001,2020,2019.9849999999999,2019.0150000000001,2019,2018.9849999999999,2018.0150000000001,2018,2017.9849999999999,2017.0150000000001,2017,2016.9849999999999,2016.0150000000001,2016,2015.9849999999999,2015.0150000000001,2015,2014.9849999999999,2014.0150000000001,2014,2013.9849999999999,2013.0150000000001,2013,2012.9849999999999,2012.0150000000001,2012,2011.9849999999999,2011.0150000000001,2011,2010.9849999999999,2010.0150000000001,2010,2009.9849999999999,2009.0150000000001,2009,2008.9849999999999,2008.9849999999999],"y":[0,11.678000000000001,11.695454000000115,12.824145999999883,12.841599999999998,12.930917950000595,18.706812049999407,18.796130000000002,18.880230650000563,24.318739349999444,24.402840000000005,24.539847600000918,33.399672399999091,33.536680000000004,33.631177600000633,39.742022399999371,39.83652,40.03358100000132,52.776858999998694,52.973920000000007,52.974844150000017,53.034605849999991,53.035529999999994,53.258063100001479,67.648536899998518,67.871070000000003,68.001379500000866,76.428060499999134,76.558369999999996,76.667557700000728,83.728362299999276,83.837550000000007,84.0333075000013,96.6922924999987,96.888049999999993,96.729609049998942,86.483760950001056,86.325320000000005,86.590249250001776,103.72234074999824,103.98727000000001,104.04064345000036,107.49212654999964,107.5455,107.56117320000011,108.5747067999999,108.59038000000001,0,0,108.60339000000002,108.58771124999991,107.57381875000011,107.55814000000001,107.50474524999964,104.05188475000037,103.99849,103.73347464999824,86.595815350001772,86.330800000000011,86.489327950001055,96.740802049998948,96.899330000000006,96.703613149998702,84.047256850001304,83.85154,83.742281949999267,76.676928050000726,76.567669999999993,76.437283849999133,68.005646150000871,67.875259999999997,67.652664199998512,53.258135800001483,53.035539999999997,53.034645699999992,52.976814300000015,52.975920000000009,52.778862299998693,40.035797700001318,39.838740000000001,39.74428049999937,33.635899500000633,33.541440000000001,33.404424149999087,24.544065850000916,24.407050000000005,24.322900299999443,18.88121970000056,18.797070000000001,18.707766299999406,12.932793700000595,12.843489999999999,12.826022649999883,11.696467350000116,11.679,0,0],"text":"year: 2009<br />total_gwh/1000: 0.001<br />category: Marine","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(23,165,137,0.85)","hoveron":"points","name":"Marine","legendgroup":"Marine","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2008.9849999999999,2009,2009.0150000000001,2009.9849999999999,2010,2010.0150000000001,2010.9849999999999,2011,2011.0150000000001,2011.9849999999999,2012,2012.0150000000001,2012.9849999999999,2013,2013.0150000000001,2013.9849999999999,2014,2014.0150000000001,2014.9849999999999,2015,2015.0150000000001,2015.9849999999999,2016,2016.0150000000001,2016.9849999999999,2017,2017.0150000000001,2017.9849999999999,2018,2018.0150000000001,2018.9849999999999,2019,2019.0150000000001,2019.9849999999999,2020,2020.0150000000001,2020.9849999999999,2021,2021.0150000000001,2021.9849999999999,2022,2022.0150000000001,2022.9849999999999,2023,2023.0150000000001,2023.9849999999999,2024,2024.0150000000001,2024.0150000000001,2024,2023.9849999999999,2023.0150000000001,2023,2022.9849999999999,2022.0150000000001,2022,2021.9849999999999,2021.0150000000001,2021,2020.9849999999999,2020.0150000000001,2020,2019.9849999999999,2019.0150000000001,2019,2018.9849999999999,2018.0150000000001,2018,2017.9849999999999,2017.0150000000001,2017,2016.9849999999999,2016.0150000000001,2016,2015.9849999999999,2015.0150000000001,2015,2014.9849999999999,2014.0150000000001,2014,2013.9849999999999,2013.0150000000001,2013,2012.9849999999999,2012.0150000000001,2012,2011.9849999999999,2011.0150000000001,2011,2010.9849999999999,2010.0150000000001,2010,2009.9849999999999,2009.0150000000001,2009,2008.9849999999999,2008.9849999999999],"y":[0,11.658000000000001,11.675149800000113,12.784170199999885,12.801319999999999,12.887587250000575,18.466202749999425,18.55247,18.619919150000449,22.981630849999554,23.049080000000004,23.17624010000085,31.399259899999151,31.526420000000002,31.590260450000429,35.718609549999577,35.782450000000004,35.927329150000972,45.29618084999904,45.441060000000007,45.399050099999727,42.682409900000273,42.6404,42.847001450001372,56.207228549998618,56.413829999999997,56.525972100000743,63.777827899999252,63.889969999999998,64.002912950000749,71.306557049999242,71.419499999999999,71.613323700001288,84.147256299998716,84.341080000000005,84.188916549998993,74.34901345000101,74.196850000000012,74.433964750001579,89.767385249998426,90.004500000000007,90.048031500000292,92.863068499999713,92.906599999999997,92.926389950000143,94.206140049999874,94.225930000000005,0,0,108.59038000000001,108.5747067999999,107.56117320000011,107.5455,107.49212654999964,104.04064345000036,103.98727000000001,103.72234074999824,86.590249250001776,86.325320000000005,86.483760950001056,96.729609049998942,96.888049999999993,96.6922924999987,84.0333075000013,83.837550000000007,83.728362299999276,76.667557700000728,76.558369999999996,76.428060499999134,68.001379500000866,67.871070000000003,67.648536899998518,53.258063100001479,53.035529999999994,53.034605849999991,52.974844150000017,52.973920000000007,52.776858999998694,40.03358100000132,39.83652,39.742022399999371,33.631177600000633,33.536680000000004,33.399672399999091,24.539847600000918,24.402840000000005,24.318739349999444,18.880230650000563,18.796130000000002,18.706812049999407,12.930917950000595,12.841599999999998,12.824145999999883,11.695454000000115,11.678000000000001,0,0],"text":"year: 2009<br />total_gwh/1000: 0.020<br />category: Solar","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(243,156,18,0.85)","hoveron":"points","name":"Solar","legendgroup":"Solar","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2008.9849999999999,2009,2009.0150000000001,2009.9849999999999,2010,2010.0150000000001,2010.9849999999999,2011,2011.0150000000001,2011.9849999999999,2012,2012.0150000000001,2012.9849999999999,2013,2013.0150000000001,2013.9849999999999,2014,2014.0150000000001,2014.9849999999999,2015,2015.0150000000001,2015.9849999999999,2016,2016.0150000000001,2016.9849999999999,2017,2017.0150000000001,2017.9849999999999,2018,2018.0150000000001,2018.9849999999999,2019,2019.0150000000001,2019.9849999999999,2020,2020.0150000000001,2020.9849999999999,2021,2021.0150000000001,2021.9849999999999,2022,2022.0150000000001,2022.9849999999999,2023,2023.0150000000001,2023.9849999999999,2024,2024.0150000000001,2024.0150000000001,2024,2023.9849999999999,2023.0150000000001,2023,2022.9849999999999,2022.0150000000001,2022,2021.9849999999999,2021.0150000000001,2021,2020.9849999999999,2020.0150000000001,2020,2019.9849999999999,2019.0150000000001,2019,2018.9849999999999,2018.0150000000001,2018,2017.9849999999999,2017.0150000000001,2017,2016.9849999999999,2016.0150000000001,2016,2015.9849999999999,2015.0150000000001,2015,2014.9849999999999,2014.0150000000001,2014,2013.9849999999999,2013.0150000000001,2013,2012.9849999999999,2012.0150000000001,2012,2011.9849999999999,2011.0150000000001,2011,2010.9849999999999,2010.0150000000001,2010,2009.9849999999999,2009.0150000000001,2009,2008.9849999999999,2008.9849999999999],"y":[0,9.2810000000000006,9.2960696000001004,10.270570399999899,10.285639999999999,10.370800100000567,15.877819899999434,15.962980000000002,16.021242100000389,19.788857899999616,19.847120000000004,19.975370600000858,28.268909399999146,28.397160000000003,28.45059120000036,31.905808799999644,31.959240000000001,32.083972350000835,40.149997649999172,40.274730000000005,40.228000349999697,37.206149650000306,37.159419999999997,37.346645950001246,49.453924049998747,49.641149999999996,49.750146900000722,56.798613099999272,56.907609999999998,57.011519200000691,63.730980799999308,63.834890000000001,64.011714050001174,75.446335949998826,75.623159999999999,75.462671249998934,65.084398750001071,64.923910000000006,65.153267050001531,79.985022949998481,80.214380000000006,80.243351750000201,82.116858249999808,82.145830000000004,82.162881850000119,83.265568149999893,83.282620000000009,0,0,94.225930000000005,94.206140049999874,92.926389950000143,92.906599999999997,92.863068499999713,90.048031500000292,90.004500000000007,89.767385249998426,74.433964750001579,74.196850000000012,74.34901345000101,84.188916549998993,84.341080000000005,84.147256299998716,71.613323700001288,71.419499999999999,71.306557049999242,64.002912950000749,63.889969999999998,63.777827899999252,56.525972100000743,56.413829999999997,56.207228549998618,42.847001450001372,42.6404,42.682409900000273,45.399050099999727,45.441060000000007,45.29618084999904,35.927329150000972,35.782450000000004,35.718609549999577,31.590260450000429,31.526420000000002,31.399259899999151,23.17624010000085,23.049080000000004,22.981630849999554,18.619919150000449,18.55247,18.466202749999425,12.887587250000575,12.801319999999999,12.784170199999885,11.675149800000113,11.658000000000001,0,0],"text":"year: 2009<br />total_gwh/1000: 2.377<br />category: Waste","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(211,84,0,0.85)","hoveron":"points","name":"Waste","legendgroup":"Waste","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2008.9849999999999,2009,2009.0150000000001,2009.9849999999999,2010,2010.0150000000001,2010.9849999999999,2011,2011.0150000000001,2011.9849999999999,2012,2012.0150000000001,2012.9849999999999,2013,2013.0150000000001,2013.9849999999999,2014,2014.0150000000001,2014.9849999999999,2015,2015.0150000000001,2015.9849999999999,2016,2016.0150000000001,2016.9849999999999,2017,2017.0150000000001,2017.9849999999999,2018,2018.0150000000001,2018.9849999999999,2019,2019.0150000000001,2019.9849999999999,2020,2020.0150000000001,2020.9849999999999,2021,2021.0150000000001,2021.9849999999999,2022,2022.0150000000001,2022.9849999999999,2023,2023.0150000000001,2023.9849999999999,2024,2024.0150000000001,2024.0150000000001,2024.0150000000001,2024,2023.9849999999999,2023.0150000000001,2023,2022.9849999999999,2022.0150000000001,2022,2021.9849999999999,2021.0150000000001,2021,2020.9849999999999,2020.0150000000001,2020,2019.9849999999999,2019.0150000000001,2019,2018.9849999999999,2018.0150000000001,2018,2017.9849999999999,2017.0150000000001,2017,2016.9849999999999,2016.0150000000001,2016,2015.9849999999999,2015.0150000000001,2015,2014.9849999999999,2014.0150000000001,2014,2013.9849999999999,2013.0150000000001,2013,2012.9849999999999,2012.0150000000001,2012,2011.9849999999999,2011.0150000000001,2011,2010.9849999999999,2010.0150000000001,2010,2009.9849999999999,2009.0150000000001,2009,2008.9849999999999,2008.9849999999999],"y":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,83.282620000000009,83.265568149999893,82.162881850000119,82.145830000000004,82.116858249999808,80.243351750000201,80.214380000000006,79.985022949998481,65.153267050001531,64.923910000000006,65.084398750001071,75.462671249998934,75.623159999999999,75.446335949998826,64.011714050001174,63.834890000000001,63.730980799999308,57.011519200000691,56.907609999999998,56.798613099999272,49.750146900000722,49.641149999999996,49.453924049998747,37.346645950001246,37.159419999999997,37.206149650000306,40.228000349999697,40.274730000000005,40.149997649999172,32.083972350000835,31.959240000000001,31.905808799999644,28.45059120000036,28.397160000000003,28.268909399999146,19.975370600000858,19.847120000000004,19.788857899999616,16.021242100000389,15.962980000000002,15.877819899999434,10.370800100000567,10.285639999999999,10.270570399999899,9.2960696000001004,9.2810000000000006,0,0],"text":"year: 2009<br />total_gwh/1000: 9.281<br />category: Wind","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(46,134,193,0.85)","hoveron":"points","name":"Wind","legendgroup":"Wind","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":43.098381070983812,"r":7.9701120797011216,"b":24.707347447073481,"l":47.023661270236623},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243},"title":{"text":"<b> UK Renewable Electricity Generation by Category (TWh) <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":19.128268991282692},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[2008.2334999999998,2024.7665000000002],"tickmode":"array","ticktext":["2009","2011","2013","2015","2017","2019","2021","2023"],"tickvals":[2009,2011,2013,2015,2017,2019,2021,2023],"categoryorder":"array","categoryarray":["2009","2011","2013","2015","2017","2019","2021","2023"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.9850560398505608,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.72455564360919278,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-7.4594045000000015,156.64749450000002],"tickmode":"array","ticktext":["0","50","100","150"],"tickvals":[0,50,100,150],"categoryorder":"array","categoryarray":["0","50","100","150"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.9850560398505608,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.72455564360919278,"zeroline":false,"anchor":"x","title":{"text":"Generation (TWh)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243}},"hoverformat":".2f"},"shapes":[],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"orientation":"h","x":0.5,"y":-0.14999999999999999,"xanchor":"center","yanchor":"top","title":{"text":"Source","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"1a4867643b5c":{"x":{},"y":{},"fill":{},"type":"scatter"}},"cur_data":"1a4867643b5c","visdat":{"1a4867643b5c":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" data-width="40%" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="plotly html-widget html-fill-item html-fill-container" id="htmlwidget-39239df5240f442fe96b" style="width:100%;height:406px;"></div>
+<script type="application/json" data-for="htmlwidget-39239df5240f442fe96b">{"x":{"visdat":{"1a48bdc2368":["function () ","plotlyVisDat"]},"cur_data":"1a48bdc2368","attrs":{"1a48bdc2368":{"labels":{},"values":{},"marker":{"colors":["#8E44AD","#27AE60","#17A589","#F39C12","#D35400","#2E86C1"]},"textposition":"inside","textinfo":"label+percent","hoverinfo":"label+value+percent","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"pie"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":{"text":"Generation Mix 2024","font":{"size":14}},"showlegend":false,"hovermode":"closest"},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"labels":["Bioenergy","Hydro","Marine","Solar","Waste","Wind"],"values":[34789.079999999994,5795.6200000000008,13.01,14364.450000000001,10943.310000000001,83282.62000000001],"marker":{"color":"rgba(31,119,180,1)","colors":["#8E44AD","#27AE60","#17A589","#F39C12","#D35400","#2E86C1"],"line":{"color":"rgba(255,255,255,1)"}},"textposition":["inside","inside","inside","inside","inside","inside"],"textinfo":"label+percent","hoverinfo":["label+value+percent","label+value+percent","label+value+percent","label+value+percent","label+value+percent","label+value+percent"],"type":"pie","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div><div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr) minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" data-width="50%" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="plotly html-widget html-fill-item html-fill-container" id="htmlwidget-cf0f03da8cbe21006fff" style="width:100%;height:406px;"></div>
+<script type="application/json" data-for="htmlwidget-cf0f03da8cbe21006fff">{"x":{"data":[{"x":[2008.9849999999999,2009,2009.0150000000001,2009.9849999999999,2010,2010.0150000000001,2010.9849999999999,2011,2011.0150000000001,2011.9849999999999,2012,2012.0150000000001,2012.9849999999999,2013,2013.0150000000001,2013.9849999999999,2014,2014.0150000000001,2014.9849999999999,2015,2015.0150000000001,2015.9849999999999,2016,2016.0150000000001,2016.9849999999999,2017,2017.0150000000001,2017.9849999999999,2018,2018.0150000000001,2018.9849999999999,2019,2019.0150000000001,2019.9849999999999,2020,2020.0150000000001,2020.9849999999999,2021,2021.0150000000001,2021.9849999999999,2022,2022.0150000000001,2022.9849999999999,2023,2023.0150000000001,2023.9849999999999,2024,2024.0150000000001,2024.0150000000001,2024,2023.9849999999999,2023.0150000000001,2023,2022.9849999999999,2022.0150000000001,2022,2021.9849999999999,2021.0150000000001,2021,2020.9849999999999,2020.0150000000001,2020,2019.9849999999999,2019.0150000000001,2019,2018.9849999999999,2018.0150000000001,2018,2017.9849999999999,2017.0150000000001,2017,2016.9849999999999,2016.0150000000001,2016,2015.9849999999999,2015.0150000000001,2015,2014.9849999999999,2014.0150000000001,2014,2013.9849999999999,2013.0150000000001,2013,2012.9849999999999,2012.0150000000001,2012,2011.9849999999999,2011.0150000000001,2011,2010.9849999999999,2010.0150000000001,2010,2009.9849999999999,2009.0150000000001,2009,2008.9849999999999,2008.9849999999999],"y":[0,6.4710000000000001,6.4876350000001102,7.56336499999989,7.5800000000000001,7.613015000000221,9.7479849999997796,9.7810000000000006,9.8292700000003226,12.950729999999679,12.998999999999999,13.051230000000348,16.428769999999652,16.481000000000002,16.549100000000454,20.952899999999545,21.021000000000001,21.105027300000561,26.538792699999437,26.622820000000001,26.68719145000043,30.84987854999957,30.914250000000003,30.980396100000444,35.257843899999564,35.323990000000002,35.359608400000234,37.662931599999759,37.698549999999997,37.739725300000273,40.402394699999718,40.443569999999994,40.460316150000111,41.543233849999886,41.559980000000003,41.586834200000176,43.323405799999826,43.350260000000006,43.403959850000362,46.876550149999645,46.930250000000001,46.976711000000307,49.981188999999695,50.027650000000001,50.096071000000457,54.520628999999545,54.58905,0,0,61.351910000000004,61.282583149999539,56.799446850000464,56.730119999999999,56.683447949999696,53.665322050000313,53.618650000000002,53.564603799999638,50.069616200000368,50.015570000000004,49.987552699999817,48.175767300000189,48.147750000000002,48.130808549999884,47.035261450000114,47.018319999999996,46.975650699999711,44.216369300000281,44.173699999999997,44.115482899999613,40.350777100000386,40.292560000000002,40.222932699999539,35.720367300000468,35.650740000000006,35.580465449999529,31.036044550000469,30.965769999999999,30.875098449999395,25.011671550000603,24.920999999999999,24.846599999999501,20.035400000000497,19.960999999999999,19.896349999999568,15.715650000000432,15.651,15.601964999999673,12.431035000000326,12.382,12.335109999999688,9.3028900000003123,9.2560000000000002,9.2372199999998745,8.0227800000001253,8.0039999999999996,0,0],"text":"year: 2009<br />total_mw/1000: 1.533<br />category: Bioenergy","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(142,68,173,0.85)","hoveron":"points","name":"Bioenergy","legendgroup":"Bioenergy","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2008.9849999999999,2009,2009.0150000000001,2009.9849999999999,2010,2010.0150000000001,2010.9849999999999,2011,2011.0150000000001,2011.9849999999999,2012,2012.0150000000001,2012.9849999999999,2013,2013.0150000000001,2013.9849999999999,2014,2014.0150000000001,2014.9849999999999,2015,2015.0150000000001,2015.9849999999999,2016,2016.0150000000001,2016.9849999999999,2017,2017.0150000000001,2017.9849999999999,2018,2018.0150000000001,2018.9849999999999,2019,2019.0150000000001,2019.9849999999999,2020,2020.0150000000001,2020.9849999999999,2021,2021.0150000000001,2021.9849999999999,2022,2022.0150000000001,2022.9849999999999,2023,2023.0150000000001,2023.9849999999999,2024,2024.0150000000001,2024.0150000000001,2024,2023.9849999999999,2023.0150000000001,2023,2022.9849999999999,2022.0150000000001,2022,2021.9849999999999,2021.0150000000001,2021,2020.9849999999999,2020.0150000000001,2020,2019.9849999999999,2019.0150000000001,2019,2018.9849999999999,2018.0150000000001,2018,2017.9849999999999,2017.0150000000001,2017,2016.9849999999999,2016.0150000000001,2016,2015.9849999999999,2015.0150000000001,2015,2014.9849999999999,2014.0150000000001,2014,2013.9849999999999,2013.0150000000001,2013,2012.9849999999999,2012.0150000000001,2012,2011.9849999999999,2011.0150000000001,2011,2010.9849999999999,2010.0150000000001,2010,2009.9849999999999,2009.0150000000001,2009,2008.9849999999999,2008.9849999999999],"y":[0,4.8319999999999999,4.84851500000011,5.9164849999998905,5.9329999999999998,5.9655350000002176,8.0694649999997825,8.1020000000000003,8.1500600000003196,11.25793999999968,11.305999999999999,11.357990000000347,14.720009999999652,14.772,14.839785000000452,19.223214999999545,19.291,19.374322600000554,24.762517399999442,24.845839999999999,24.909378350000424,29.018191649999576,29.081730000000004,29.14731930000044,33.388760699999565,33.454350000000005,33.489855150000238,35.785854849999765,35.821359999999999,35.862494350000276,38.522515649999718,38.563649999999996,38.580315900000109,39.658044099999884,39.674709999999997,39.701490850000177,41.433319149999825,41.460100000000004,41.51378980000036,44.985730199999644,45.03942,45.086357100000313,48.121622899999693,48.168559999999999,48.236385200000456,52.622414799999547,52.690240000000003,0,0,54.58905,54.520628999999545,50.096071000000457,50.027650000000001,49.981188999999695,46.976711000000307,46.930250000000001,46.876550149999645,43.403959850000362,43.350260000000006,43.323405799999826,41.586834200000176,41.559980000000003,41.543233849999886,40.460316150000111,40.443569999999994,40.402394699999718,37.739725300000273,37.698549999999997,37.662931599999759,35.359608400000234,35.323990000000002,35.257843899999564,30.980396100000444,30.914250000000003,30.84987854999957,26.68719145000043,26.622820000000001,26.538792699999437,21.105027300000561,21.021000000000001,20.952899999999545,16.549100000000454,16.481000000000002,16.428769999999652,13.051230000000348,12.998999999999999,12.950729999999679,9.8292700000003226,9.7810000000000006,9.7479849999997796,7.613015000000221,7.5800000000000001,7.56336499999989,6.4876350000001102,6.4710000000000001,0,0],"text":"year: 2009<br />total_mw/1000: 1.639<br />category: Hydro","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(39,174,96,0.85)","hoveron":"points","name":"Hydro","legendgroup":"Hydro","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2008.9849999999999,2009,2009.0150000000001,2009.9849999999999,2010,2010.0150000000001,2010.9849999999999,2011,2011.0150000000001,2011.9849999999999,2012,2012.0150000000001,2012.9849999999999,2013,2013.0150000000001,2013.9849999999999,2014,2014.0150000000001,2014.9849999999999,2015,2015.0150000000001,2015.9849999999999,2016,2016.0150000000001,2016.9849999999999,2017,2017.0150000000001,2017.9849999999999,2018,2018.0150000000001,2018.9849999999999,2019,2019.0150000000001,2019.9849999999999,2020,2020.0150000000001,2020.9849999999999,2021,2021.0150000000001,2021.9849999999999,2022,2022.0150000000001,2022.9849999999999,2023,2023.0150000000001,2023.9849999999999,2024,2024.0150000000001,2024.0150000000001,2024,2023.9849999999999,2023.0150000000001,2023,2022.9849999999999,2022.0150000000001,2022,2021.9849999999999,2021.0150000000001,2021,2020.9849999999999,2020.0150000000001,2020,2019.9849999999999,2019.0150000000001,2019,2018.9849999999999,2018.0150000000001,2018,2017.9849999999999,2017.0150000000001,2017,2016.9849999999999,2016.0150000000001,2016,2015.9849999999999,2015.0150000000001,2015,2014.9849999999999,2014.0150000000001,2014,2013.9849999999999,2013.0150000000001,2013,2012.9849999999999,2012.0150000000001,2012,2011.9849999999999,2011.0150000000001,2011,2010.9849999999999,2010.0150000000001,2010,2009.9849999999999,2009.0150000000001,2009,2008.9849999999999,2008.9849999999999],"y":[0,4.8300000000000001,4.8464850000001096,5.9125149999998907,5.9290000000000003,5.9615350000002172,8.0654649999997829,8.0980000000000008,8.1459850000003193,11.24901499999968,11.296999999999999,11.349005000000346,14.711994999999654,14.763999999999999,14.831770000000452,19.214229999999546,19.282,19.365323500000557,24.753576499999443,24.8369,24.900370100000423,29.004769899999577,29.068240000000003,29.133755650000438,33.370434349999563,33.435949999999998,33.471425150000236,35.765484849999766,35.800959999999996,35.842064350000271,38.500145649999723,38.541249999999998,38.55810490000011,39.648055099999887,39.664909999999999,39.691690850000178,41.423519149999827,41.450300000000006,41.504013800000358,44.977506199999645,45.031219999999998,45.078187100000314,48.115392899999691,48.16236,48.230155200000453,52.614244799999547,52.682040000000001,0,0,52.690240000000003,52.622414799999547,48.236385200000456,48.168559999999999,48.121622899999693,45.086357100000313,45.03942,44.985730199999644,41.51378980000036,41.460100000000004,41.433319149999825,39.701490850000177,39.674709999999997,39.658044099999884,38.580315900000109,38.563649999999996,38.522515649999718,35.862494350000276,35.821359999999999,35.785854849999765,33.489855150000238,33.454350000000005,33.388760699999565,29.14731930000044,29.081730000000004,29.018191649999576,24.909378350000424,24.845839999999999,24.762517399999442,19.374322600000554,19.291,19.223214999999545,14.839785000000452,14.772,14.720009999999652,11.357990000000347,11.305999999999999,11.25793999999968,8.1500600000003196,8.1020000000000003,8.0694649999997825,5.9655350000002176,5.9329999999999998,5.9164849999998905,4.84851500000011,4.8319999999999999,0,0],"text":"year: 2009<br />total_mw/1000: 0.002<br />category: Marine","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(23,165,137,0.85)","hoveron":"points","name":"Marine","legendgroup":"Marine","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2008.9849999999999,2009,2009.0150000000001,2009.9849999999999,2010,2010.0150000000001,2010.9849999999999,2011,2011.0150000000001,2011.9849999999999,2012,2012.0150000000001,2012.9849999999999,2013,2013.0150000000001,2013.9849999999999,2014,2014.0150000000001,2014.9849999999999,2015,2015.0150000000001,2015.9849999999999,2016,2016.0150000000001,2016.9849999999999,2017,2017.0150000000001,2017.9849999999999,2018,2018.0150000000001,2018.9849999999999,2019,2019.0150000000001,2019.9849999999999,2020,2020.0150000000001,2020.9849999999999,2021,2021.0150000000001,2021.9849999999999,2022,2022.0150000000001,2022.9849999999999,2023,2023.0150000000001,2023.9849999999999,2024,2024.0150000000001,2024.0150000000001,2024,2023.9849999999999,2023.0150000000001,2023,2022.9849999999999,2022.0150000000001,2022,2021.9849999999999,2021.0150000000001,2021,2020.9849999999999,2020.0150000000001,2020,2019.9849999999999,2019.0150000000001,2019,2018.9849999999999,2018.0150000000001,2018,2017.9849999999999,2017.0150000000001,2017,2016.9849999999999,2016.0150000000001,2016,2015.9849999999999,2015.0150000000001,2015,2014.9849999999999,2014.0150000000001,2014,2013.9849999999999,2013.0150000000001,2013,2012.9849999999999,2012.0150000000001,2012,2011.9849999999999,2011.0150000000001,2011,2010.9849999999999,2010.0150000000001,2010,2009.9849999999999,2009.0150000000001,2009,2008.9849999999999,2008.9849999999999],"y":[0,4.8029999999999999,4.8184650000001028,5.8185349999998977,5.8340000000000005,5.8529600000001274,7.079039999999873,7.0979999999999999,7.1346750000002448,9.5063249999997552,9.5429999999999993,9.5772600000002281,11.792739999999771,11.827,11.855905000000194,13.725094999999806,13.754,13.776225200000148,15.213454799999852,15.23568,15.264458100000192,17.125441899999807,17.154219999999999,17.207045650000353,20.62310434999965,20.675930000000001,20.706919400000206,22.710900599999793,22.741889999999998,22.778707800000245,25.15959219999975,25.196409999999997,25.20685390000007,25.882226099999926,25.892669999999999,25.912264200000127,27.179355799999872,27.198950000000004,27.244245650000305,30.173364349999698,30.21866,30.241394600000152,31.711565399999849,31.734300000000001,31.763516550000194,33.652853449999803,33.682070000000003,0,0,52.682040000000001,52.614244799999547,48.230155200000453,48.16236,48.115392899999691,45.078187100000314,45.031219999999998,44.977506199999645,41.504013800000358,41.450300000000006,41.423519149999827,39.691690850000178,39.664909999999999,39.648055099999887,38.55810490000011,38.541249999999998,38.500145649999723,35.842064350000271,35.800959999999996,35.765484849999766,33.471425150000236,33.435949999999998,33.370434349999563,29.133755650000438,29.068240000000003,29.004769899999577,24.900370100000423,24.8369,24.753576499999443,19.365323500000557,19.282,19.214229999999546,14.831770000000452,14.763999999999999,14.711994999999654,11.349005000000346,11.296999999999999,11.24901499999968,8.1459850000003193,8.0980000000000008,8.0654649999997829,5.9615350000002172,5.9290000000000003,5.9125149999998907,4.8464850000001096,4.8300000000000001,0,0],"text":"year: 2009<br />total_mw/1000: 0.027<br />category: Solar","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(243,156,18,0.85)","hoveron":"points","name":"Solar","legendgroup":"Solar","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2008.9849999999999,2009,2009.0150000000001,2009.9849999999999,2010,2010.0150000000001,2010.9849999999999,2011,2011.0150000000001,2011.9849999999999,2012,2012.0150000000001,2012.9849999999999,2013,2013.0150000000001,2013.9849999999999,2014,2014.0150000000001,2014.9849999999999,2015,2015.0150000000001,2015.9849999999999,2016,2016.0150000000001,2016.9849999999999,2017,2017.0150000000001,2017.9849999999999,2018,2018.0150000000001,2018.9849999999999,2019,2019.0150000000001,2019.9849999999999,2020,2020.0150000000001,2020.9849999999999,2021,2021.0150000000001,2021.9849999999999,2022,2022.0150000000001,2022.9849999999999,2023,2023.0150000000001,2023.9849999999999,2024,2024.0150000000001,2024.0150000000001,2024,2023.9849999999999,2023.0150000000001,2023,2022.9849999999999,2022.0150000000001,2022,2021.9849999999999,2021.0150000000001,2021,2020.9849999999999,2020.0150000000001,2020,2019.9849999999999,2019.0150000000001,2019,2018.9849999999999,2018.0150000000001,2018,2017.9849999999999,2017.0150000000001,2017,2016.9849999999999,2016.0150000000001,2016,2015.9849999999999,2015.0150000000001,2015,2014.9849999999999,2014.0150000000001,2014,2013.9849999999999,2013.0150000000001,2013,2012.9849999999999,2012.0150000000001,2012,2011.9849999999999,2011.0150000000001,2011,2010.9849999999999,2010.0150000000001,2010,2009.9849999999999,2009.0150000000001,2009,2008.9849999999999,2008.9849999999999],"y":[0,4.4219999999999997,4.4369850000000994,5.4060149999999005,5.4210000000000003,5.4386250000001182,6.5783749999998822,6.5960000000000001,6.6325100000002433,8.9934899999997562,9.0299999999999994,9.0637800000002251,11.248219999999774,11.282,11.30888000000018,13.04711999999982,13.074,13.092476100000123,14.287263899999877,14.30574,14.333042850000183,16.098627149999817,16.12593,16.177816050000345,19.533113949999656,19.585000000000001,19.615305250000201,21.575044749999797,21.605349999999998,21.639569200000228,23.852410799999767,23.886629999999997,23.895199350000055,24.449350649999939,24.457919999999998,24.477274650000126,25.728875349999875,25.748230000000003,25.792324150000297,28.643745849999707,28.687840000000001,28.709864500000148,30.134115499999854,30.156140000000001,30.185026550000192,32.053023449999806,32.081910000000001,0,0,33.682070000000003,33.652853449999803,31.763516550000194,31.734300000000001,31.711565399999849,30.241394600000152,30.21866,30.173364349999698,27.244245650000305,27.198950000000004,27.179355799999872,25.912264200000127,25.892669999999999,25.882226099999926,25.20685390000007,25.196409999999997,25.15959219999975,22.778707800000245,22.741889999999998,22.710900599999793,20.706919400000206,20.675930000000001,20.62310434999965,17.207045650000353,17.154219999999999,17.125441899999807,15.264458100000192,15.23568,15.213454799999852,13.776225200000148,13.754,13.725094999999806,11.855905000000194,11.827,11.792739999999771,9.5772600000002281,9.5429999999999993,9.5063249999997552,7.1346750000002448,7.0979999999999999,7.079039999999873,5.8529600000001274,5.8340000000000005,5.8185349999998977,4.8184650000001028,4.8029999999999999,0,0],"text":"year: 2009<br />total_mw/1000: 0.381<br />category: Waste","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(211,84,0,0.85)","hoveron":"points","name":"Waste","legendgroup":"Waste","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2008.9849999999999,2009,2009.0150000000001,2009.9849999999999,2010,2010.0150000000001,2010.9849999999999,2011,2011.0150000000001,2011.9849999999999,2012,2012.0150000000001,2012.9849999999999,2013,2013.0150000000001,2013.9849999999999,2014,2014.0150000000001,2014.9849999999999,2015,2015.0150000000001,2015.9849999999999,2016,2016.0150000000001,2016.9849999999999,2017,2017.0150000000001,2017.9849999999999,2018,2018.0150000000001,2018.9849999999999,2019,2019.0150000000001,2019.9849999999999,2020,2020.0150000000001,2020.9849999999999,2021,2021.0150000000001,2021.9849999999999,2022,2022.0150000000001,2022.9849999999999,2023,2023.0150000000001,2023.9849999999999,2024,2024.0150000000001,2024.0150000000001,2024.0150000000001,2024,2023.9849999999999,2023.0150000000001,2023,2022.9849999999999,2022.0150000000001,2022,2021.9849999999999,2021.0150000000001,2021,2020.9849999999999,2020.0150000000001,2020,2019.9849999999999,2019.0150000000001,2019,2018.9849999999999,2018.0150000000001,2018,2017.9849999999999,2017.0150000000001,2017,2016.9849999999999,2016.0150000000001,2016,2015.9849999999999,2015.0150000000001,2015,2014.9849999999999,2014.0150000000001,2014,2013.9849999999999,2013.0150000000001,2013,2012.9849999999999,2012.0150000000001,2012,2011.9849999999999,2011.0150000000001,2011,2010.9849999999999,2010.0150000000001,2010,2009.9849999999999,2009.0150000000001,2009,2008.9849999999999,2008.9849999999999],"y":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,32.081910000000001,32.053023449999806,30.185026550000192,30.156140000000001,30.134115499999854,28.709864500000148,28.687840000000001,28.643745849999707,25.792324150000297,25.748230000000003,25.728875349999875,24.477274650000126,24.457919999999998,24.449350649999939,23.895199350000055,23.886629999999997,23.852410799999767,21.639569200000228,21.605349999999998,21.575044749999797,19.615305250000201,19.585000000000001,19.533113949999656,16.177816050000345,16.12593,16.098627149999817,14.333042850000183,14.30574,14.287263899999877,13.092476100000123,13.074,13.04711999999982,11.30888000000018,11.282,11.248219999999774,9.0637800000002251,9.0299999999999994,8.9934899999997562,6.6325100000002433,6.5960000000000001,6.5783749999998822,5.4386250000001182,5.4210000000000003,5.4060149999999005,4.4369850000000994,4.4219999999999997,0,0],"text":"year: 2009<br />total_mw/1000: 4.422<br />category: Wind","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(46,134,193,0.85)","hoveron":"points","name":"Wind","legendgroup":"Wind","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":43.098381070983812,"r":7.9701120797011216,"b":24.707347447073481,"l":40.647571606475722},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243},"title":{"text":"<b> Cumulative Installed Capacity (GW) <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":19.128268991282692},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[2008.2334999999998,2024.7665000000002],"tickmode":"array","ticktext":["2009","2011","2013","2015","2017","2019","2021","2023"],"tickvals":[2009,2011,2013,2015,2017,2019,2021,2023],"categoryorder":"array","categoryarray":["2009","2011","2013","2015","2017","2019","2021","2023"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.9850560398505608,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.72455564360919278,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-3.0675955000000004,64.4195055],"tickmode":"array","ticktext":["0","20","40","60"],"tickvals":[0,20,40,60],"categoryorder":"array","categoryarray":["0","20","40","60"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.9850560398505608,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.72455564360919278,"zeroline":false,"anchor":"x","title":{"text":"Capacity (GW)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243}},"hoverformat":".2f"},"shapes":[],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"orientation":"h","x":0.5,"y":-0.14999999999999999,"xanchor":"center","yanchor":"top","title":{"text":"Source","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"1a488c44a53":{"x":{},"y":{},"fill":{},"type":"scatter"}},"cur_data":"1a488c44a53","visdat":{"1a488c44a53":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" data-width="50%" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="plotly html-widget html-fill-item html-fill-container" id="htmlwidget-8ce930274e76b83c8cc2" style="width:100%;height:406px;"></div>
+<script type="application/json" data-for="htmlwidget-8ce930274e76b83c8cc2">{"x":{"data":[{"x":[2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024],"y":[5.2279999999999998,3.59137,5.6917399999999994,5.3096399999999999,4.7014800000000001,5.8878000000000004,6.2972699999999993,5.3703900000000004,5.8818600000000005,5.4432799999999997,5.9328899999999996,6.8782400000000008,5.4183699999999986,5.0675599999999994,5.4637000000000002,5.7956200000000004],"text":["year: 2009<br />generation_gwh/1000:  5.22800<br />source: Hydro (Total)","year: 2010<br />generation_gwh/1000:  3.59137<br />source: Hydro (Total)","year: 2011<br />generation_gwh/1000:  5.69174<br />source: Hydro (Total)","year: 2012<br />generation_gwh/1000:  5.30964<br />source: Hydro (Total)","year: 2013<br />generation_gwh/1000:  4.70148<br />source: Hydro (Total)","year: 2014<br />generation_gwh/1000:  5.88780<br />source: Hydro (Total)","year: 2015<br />generation_gwh/1000:  6.29727<br />source: Hydro (Total)","year: 2016<br />generation_gwh/1000:  5.37039<br />source: Hydro (Total)","year: 2017<br />generation_gwh/1000:  5.88186<br />source: Hydro (Total)","year: 2018<br />generation_gwh/1000:  5.44328<br />source: Hydro (Total)","year: 2019<br />generation_gwh/1000:  5.93289<br />source: Hydro (Total)","year: 2020<br />generation_gwh/1000:  6.87824<br />source: Hydro (Total)","year: 2021<br />generation_gwh/1000:  5.41837<br />source: Hydro (Total)","year: 2022<br />generation_gwh/1000:  5.06756<br />source: Hydro (Total)","year: 2023<br />generation_gwh/1000:  5.46370<br />source: Hydro (Total)","year: 2024<br />generation_gwh/1000:  5.79562<br />source: Hydro (Total)"],"type":"scatter","mode":"lines+markers","line":{"width":4.1574803149606305,"color":"rgba(39,174,96,1)","dash":"solid"},"hoveron":"points","name":"Hydro (Total)","legendgroup":"Hydro (Total)","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(39,174,96,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(39,174,96,1)"}},"frame":null},{"x":[2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024],"y":[0.86799999999999999,0.98691999999999991,1.0854600000000001,1.42906,1.48109,1.9233399999999998,2.5839000000000003,2.7412299999999998,3.3870800000000005,3.4919199999999999,3.79304,4.359700000000001,4.6372000000000009,4.8958000000000004,5.3851400000000007,5.4803699999999997],"text":["year: 2009<br />generation_gwh/1000:  0.86800<br />source: Non-biodegradable Waste","year: 2010<br />generation_gwh/1000:  0.98692<br />source: Non-biodegradable Waste","year: 2011<br />generation_gwh/1000:  1.08546<br />source: Non-biodegradable Waste","year: 2012<br />generation_gwh/1000:  1.42906<br />source: Non-biodegradable Waste","year: 2013<br />generation_gwh/1000:  1.48109<br />source: Non-biodegradable Waste","year: 2014<br />generation_gwh/1000:  1.92334<br />source: Non-biodegradable Waste","year: 2015<br />generation_gwh/1000:  2.58390<br />source: Non-biodegradable Waste","year: 2016<br />generation_gwh/1000:  2.74123<br />source: Non-biodegradable Waste","year: 2017<br />generation_gwh/1000:  3.38708<br />source: Non-biodegradable Waste","year: 2018<br />generation_gwh/1000:  3.49192<br />source: Non-biodegradable Waste","year: 2019<br />generation_gwh/1000:  3.79304<br />source: Non-biodegradable Waste","year: 2020<br />generation_gwh/1000:  4.35970<br />source: Non-biodegradable Waste","year: 2021<br />generation_gwh/1000:  4.63720<br />source: Non-biodegradable Waste","year: 2022<br />generation_gwh/1000:  4.89580<br />source: Non-biodegradable Waste","year: 2023<br />generation_gwh/1000:  5.38514<br />source: Non-biodegradable Waste","year: 2024<br />generation_gwh/1000:  5.48037<br />source: Non-biodegradable Waste"],"type":"scatter","mode":"lines+markers","line":{"width":4.1574803149606305,"color":"rgba(127,127,127,1)","dash":"solid"},"hoveron":"points","name":"Non-biodegradable Waste","legendgroup":"Non-biodegradable Waste","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(127,127,127,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(127,127,127,1)"}},"frame":null},{"x":[2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024],"y":[1.754,3.0596700000000001,5.1490300000000007,7.6031700000000004,11.471780000000001,13.404590000000001,17.422740000000001,16.405740000000002,20.91592,26.525199999999998,31.975150000000003,40.750260000000004,35.597290000000001,45.112670000000001,49.649980000000006,48.539030000000004],"text":["year: 2009<br />generation_gwh/1000:  1.75400<br />source: Offshore Wind","year: 2010<br />generation_gwh/1000:  3.05967<br />source: Offshore Wind","year: 2011<br />generation_gwh/1000:  5.14903<br />source: Offshore Wind","year: 2012<br />generation_gwh/1000:  7.60317<br />source: Offshore Wind","year: 2013<br />generation_gwh/1000: 11.47178<br />source: Offshore Wind","year: 2014<br />generation_gwh/1000: 13.40459<br />source: Offshore Wind","year: 2015<br />generation_gwh/1000: 17.42274<br />source: Offshore Wind","year: 2016<br />generation_gwh/1000: 16.40574<br />source: Offshore Wind","year: 2017<br />generation_gwh/1000: 20.91592<br />source: Offshore Wind","year: 2018<br />generation_gwh/1000: 26.52520<br />source: Offshore Wind","year: 2019<br />generation_gwh/1000: 31.97515<br />source: Offshore Wind","year: 2020<br />generation_gwh/1000: 40.75026<br />source: Offshore Wind","year: 2021<br />generation_gwh/1000: 35.59729<br />source: Offshore Wind","year: 2022<br />generation_gwh/1000: 45.11267<br />source: Offshore Wind","year: 2023<br />generation_gwh/1000: 49.64998<br />source: Offshore Wind","year: 2024<br />generation_gwh/1000: 48.53903<br />source: Offshore Wind"],"type":"scatter","mode":"lines+markers","line":{"width":4.1574803149606305,"color":"rgba(46,134,193,1)","dash":"solid"},"hoveron":"points","name":"Offshore Wind","legendgroup":"Offshore Wind","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(46,134,193,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(46,134,193,1)"}},"frame":null},{"x":[2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024],"y":[7.5270000000000001,7.2259699999999993,10.81395,12.24395,16.925380000000001,18.554650000000002,22.851990000000001,20.753679999999999,28.72523,30.382410000000004,31.859740000000002,34.872900000000001,29.326619999999998,35.101710000000004,32.495849999999997,34.743590000000005],"text":["year: 2009<br />generation_gwh/1000:  7.52700<br />source: Onshore Wind","year: 2010<br />generation_gwh/1000:  7.22597<br />source: Onshore Wind","year: 2011<br />generation_gwh/1000: 10.81395<br />source: Onshore Wind","year: 2012<br />generation_gwh/1000: 12.24395<br />source: Onshore Wind","year: 2013<br />generation_gwh/1000: 16.92538<br />source: Onshore Wind","year: 2014<br />generation_gwh/1000: 18.55465<br />source: Onshore Wind","year: 2015<br />generation_gwh/1000: 22.85199<br />source: Onshore Wind","year: 2016<br />generation_gwh/1000: 20.75368<br />source: Onshore Wind","year: 2017<br />generation_gwh/1000: 28.72523<br />source: Onshore Wind","year: 2018<br />generation_gwh/1000: 30.38241<br />source: Onshore Wind","year: 2019<br />generation_gwh/1000: 31.85974<br />source: Onshore Wind","year: 2020<br />generation_gwh/1000: 34.87290<br />source: Onshore Wind","year: 2021<br />generation_gwh/1000: 29.32662<br />source: Onshore Wind","year: 2022<br />generation_gwh/1000: 35.10171<br />source: Onshore Wind","year: 2023<br />generation_gwh/1000: 32.49585<br />source: Onshore Wind","year: 2024<br />generation_gwh/1000: 34.74359<br />source: Onshore Wind"],"type":"scatter","mode":"lines+markers","line":{"width":4.1574803149606305,"color":"rgba(27,79,114,1)","dash":"solid"},"hoveron":"points","name":"Onshore Wind","legendgroup":"Onshore Wind","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(27,79,114,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(27,79,114,1)"}},"frame":null},{"x":[2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024],"y":[1.379,1.6148699999999998,1.7709999999999999,4.0478199999999998,8.8327600000000004,13.08548,18.592199999999998,18.74718,19.922490000000003,23.13598,25.305659999999996,25.883330000000001,26.959250000000004,22.764990000000001,20.950710000000001,26.586349999999999],"text":["year: 2009<br />generation_gwh/1000:  1.37900<br />source: Plant Biomass","year: 2010<br />generation_gwh/1000:  1.61487<br />source: Plant Biomass","year: 2011<br />generation_gwh/1000:  1.77100<br />source: Plant Biomass","year: 2012<br />generation_gwh/1000:  4.04782<br />source: Plant Biomass","year: 2013<br />generation_gwh/1000:  8.83276<br />source: Plant Biomass","year: 2014<br />generation_gwh/1000: 13.08548<br />source: Plant Biomass","year: 2015<br />generation_gwh/1000: 18.59220<br />source: Plant Biomass","year: 2016<br />generation_gwh/1000: 18.74718<br />source: Plant Biomass","year: 2017<br />generation_gwh/1000: 19.92249<br />source: Plant Biomass","year: 2018<br />generation_gwh/1000: 23.13598<br />source: Plant Biomass","year: 2019<br />generation_gwh/1000: 25.30566<br />source: Plant Biomass","year: 2020<br />generation_gwh/1000: 25.88333<br />source: Plant Biomass","year: 2021<br />generation_gwh/1000: 26.95925<br />source: Plant Biomass","year: 2022<br />generation_gwh/1000: 22.76499<br />source: Plant Biomass","year: 2023<br />generation_gwh/1000: 20.95071<br />source: Plant Biomass","year: 2024<br />generation_gwh/1000: 26.58635<br />source: Plant Biomass"],"type":"scatter","mode":"lines+markers","line":{"width":4.1574803149606305,"color":"rgba(142,68,173,1)","dash":"solid"},"hoveron":"points","name":"Plant Biomass","legendgroup":"Plant Biomass","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(142,68,173,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(142,68,173,1)"}},"frame":null},{"x":[2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024],"y":[0.02,0.040280000000000003,0.24366000000000004,1.3537600000000001,2.0102600000000002,4.0540700000000003,7.5328600000000003,10.39513,11.457240000000002,12.6684,12.418049999999999,12.54697,12.12847,13.98277,14.6389,14.364450000000001],"text":["year: 2009<br />generation_gwh/1000:  0.02000<br />source: Solar PV","year: 2010<br />generation_gwh/1000:  0.04028<br />source: Solar PV","year: 2011<br />generation_gwh/1000:  0.24366<br />source: Solar PV","year: 2012<br />generation_gwh/1000:  1.35376<br />source: Solar PV","year: 2013<br />generation_gwh/1000:  2.01026<br />source: Solar PV","year: 2014<br />generation_gwh/1000:  4.05407<br />source: Solar PV","year: 2015<br />generation_gwh/1000:  7.53286<br />source: Solar PV","year: 2016<br />generation_gwh/1000: 10.39513<br />source: Solar PV","year: 2017<br />generation_gwh/1000: 11.45724<br />source: Solar PV","year: 2018<br />generation_gwh/1000: 12.66840<br />source: Solar PV","year: 2019<br />generation_gwh/1000: 12.41805<br />source: Solar PV","year: 2020<br />generation_gwh/1000: 12.54697<br />source: Solar PV","year: 2021<br />generation_gwh/1000: 12.12847<br />source: Solar PV","year: 2022<br />generation_gwh/1000: 13.98277<br />source: Solar PV","year: 2023<br />generation_gwh/1000: 14.63890<br />source: Solar PV","year: 2024<br />generation_gwh/1000: 14.36445<br />source: Solar PV"],"type":"scatter","mode":"lines+markers","line":{"width":4.1574803149606305,"color":"rgba(243,156,18,1)","dash":"solid"},"hoveron":"points","name":"Solar PV","legendgroup":"Solar PV","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(243,156,18,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(243,156,18,1)"}},"frame":null}],"layout":{"margin":{"t":43.098381070983812,"r":7.9701120797011216,"b":24.707347447073481,"l":40.647571606475722},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243},"title":{"text":"<b> Top 6 Renewable Sources — Generation Trend <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":19.128268991282692},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[2008.25,2024.75],"tickmode":"array","ticktext":["2009","2011","2013","2015","2017","2019","2021","2023"],"tickvals":[2009,2011,2013,2015,2017,2019,2021,2023],"categoryorder":"array","categoryarray":["2009","2011","2013","2015","2017","2019","2021","2023"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.9850560398505608,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.72455564360919278,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-2.4614990000000003,52.131479000000006],"tickmode":"array","ticktext":["0","10","20","30","40","50"],"tickvals":[0,10,20,30.000000000000004,40,50],"categoryorder":"array","categoryarray":["0","10","20","30","40","50"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.9850560398505608,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.72455564360919278,"zeroline":false,"anchor":"x","title":{"text":"Generation (TWh)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243}},"hoverformat":".2f"},"shapes":[],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"orientation":"h","x":0.5,"y":-0.20000000000000001,"xanchor":"center","yanchor":"top","title":{"text":"Source","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"1a48da5d5d":{"x":{},"y":{},"colour":{},"type":"scatter"},"1a4818a82f21":{"x":{},"y":{},"colour":{}}},"cur_data":"1a48da5d5d","visdat":{"1a48da5d5d":["function (y) ","x"],"1a4818a82f21":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+</div>
+</div><div id="wind-solar" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="columns" aria-labelledby="tab-wind-solar">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" data-height="20%" style="display: grid; grid-template-rows: minmax(3em, max-content) minmax(3em, max-content) minmax(3em, max-content) minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card valuebox cell html-fill-item html-fill-container bslib-card bslib-value-box bg-primary showcase-left-center" data-bslib-card-init="" data-require-bs-caller="card()">
+<div class="card-body html-fill-item html-fill-container">
+<div data-icon="wind" class="html-fill-item html-fill-container value-box-grid">
+<div class="value-box-showcase html-fill-item html-fill-container">
+
+<i class="bi bi-wind"></i></div>
+<div class="value-box-area">
+<p class="value-box-title">
+Wind Generation (2024)
+</p>
+<p class="value-box-value">
+83.3 TWh
+</p>
+</div>
+</div>
+</div>
+<script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card valuebox cell html-fill-item html-fill-container bslib-card bslib-value-box bg-warning showcase-left-center" data-bslib-card-init="" data-require-bs-caller="card()">
+<div class="card-body html-fill-item html-fill-container">
+<div data-icon="sun-fill" class="html-fill-item html-fill-container value-box-grid">
+<div class="value-box-showcase html-fill-item html-fill-container">
+
+<i class="bi bi-sun-fill"></i></div>
+<div class="value-box-area">
+<p class="value-box-title">
+Solar PV Generation (2024)
+</p>
+<p class="value-box-value">
+14.4 TWh
+</p>
+</div>
+</div>
+</div>
+<script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card valuebox cell html-fill-item html-fill-container bslib-card bslib-value-box bg-info showcase-left-center" data-bslib-card-init="" data-require-bs-caller="card()">
+<div class="card-body html-fill-item html-fill-container">
+<div data-icon="gear-fill" class="html-fill-item html-fill-container value-box-grid">
+<div class="value-box-showcase html-fill-item html-fill-container">
+
+<i class="bi bi-gear-fill"></i></div>
+<div class="value-box-area">
+<p class="value-box-title">
+Wind Capacity (2024)
+</p>
+<p class="value-box-value">
+32.1 GW
+</p>
+</div>
+</div>
+</div>
+<script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card valuebox cell html-fill-item html-fill-container bslib-card bslib-value-box bg-success showcase-left-center" data-bslib-card-init="" data-require-bs-caller="card()">
+<div class="card-body html-fill-item html-fill-container">
+<div data-icon="brightness-high-fill" class="html-fill-item html-fill-container value-box-grid">
+<div class="value-box-showcase html-fill-item html-fill-container">
+
+<i class="bi bi-brightness-high-fill"></i></div>
+<div class="value-box-area">
+<p class="value-box-title">
+Solar PV Capacity (2024)
+</p>
+<p class="value-box-value">
+19 GW
+</p>
+</div>
+</div>
+</div>
+<script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div><div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr) minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" data-width="50%" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="plotly html-widget html-fill-item html-fill-container" id="htmlwidget-e8f5082860f2a6cf0721" style="width:100%;height:406px;"></div>
+<script type="application/json" data-for="htmlwidget-e8f5082860f2a6cf0721">{"x":{"data":[{"x":[2008.9849999999999,2009,2009.0150000000001,2009.9849999999999,2010,2010.0150000000001,2010.9849999999999,2011,2011.0150000000001,2011.9849999999999,2012,2012.0150000000001,2012.9849999999999,2013,2013.0150000000001,2013.9849999999999,2014,2014.0150000000001,2014.9849999999999,2015,2015.0150000000001,2015.9849999999999,2016,2016.0150000000001,2016.9849999999999,2017,2017.0150000000001,2017.9849999999999,2018,2018.0150000000001,2018.9849999999999,2019,2019.0150000000001,2019.9849999999999,2020,2020.0150000000001,2020.9849999999999,2021,2021.0150000000001,2021.9849999999999,2022,2022.0150000000001,2022.9849999999999,2023,2023.0150000000001,2023.9849999999999,2024,2024.0150000000001,2024.0150000000001,2024,2023.9849999999999,2023.0150000000001,2023,2022.9849999999999,2022.0150000000001,2022,2021.9849999999999,2021.0150000000001,2021,2020.9849999999999,2020.0150000000001,2020,2019.9849999999999,2019.0150000000001,2019,2018.9849999999999,2018.0150000000001,2018,2017.9849999999999,2017.0150000000001,2017,2016.9849999999999,2016.0150000000001,2016,2015.9849999999999,2015.0150000000001,2015,2014.9849999999999,2014.0150000000001,2014,2013.9849999999999,2013.0150000000001,2013,2012.9849999999999,2012.0150000000001,2012,2011.9849999999999,2011.0150000000001,2011,2010.9849999999999,2010.0150000000001,2010,2009.9849999999999,2009.0150000000001,2009,2008.9849999999999,2008.9849999999999],"y":[0,7.5270000000000001,7.5224845499999704,7.2304854500000291,7.2259699999999993,7.2797897000003582,10.760130299999641,10.81395,10.835400000000144,12.222499999999856,12.24395,12.314171450000469,16.855158549999533,16.925380000000001,16.949819050000162,18.530210949999841,18.554650000000002,18.619110100000434,22.787529899999569,22.851990000000001,22.820515349999791,20.785154650000209,20.753679999999999,20.873253250000797,28.605656749999202,28.72523,28.750087700000165,30.357552299999838,30.382410000000004,30.404569950000152,31.837580049999854,31.859740000000002,31.904937400000303,34.827702599999697,34.872900000000001,34.789705799999446,29.409814200000554,29.326619999999998,29.413246350000577,35.015083649999426,35.101710000000004,35.062622099999743,32.534937900000259,32.495849999999997,32.529566100000224,34.709873899999778,34.743590000000005,0,0,83.282620000000009,83.265568149999893,82.162881850000119,82.145830000000004,82.116858249999808,80.243351750000201,80.214380000000006,79.985022949998466,65.153267050001531,64.923910000000006,65.084398750001071,75.462671249998934,75.623160000000013,75.446335949998826,64.011714050001189,63.834890000000001,63.730980799999315,57.011519200000691,56.907610000000005,56.798613099999272,49.750146900000729,49.641149999999996,49.453924049998747,37.346645950001246,37.159419999999997,37.206149650000313,40.228000349999689,40.274730000000005,40.149997649999165,32.083972350000835,31.959240000000001,31.905808799999647,28.450591200000357,28.39716,28.268909399999146,19.975370600000858,19.84712,19.788857899999613,16.021242100000389,15.962980000000002,15.877819899999434,10.370800100000567,10.285639999999999,10.270570399999897,9.2960696000001004,9.2810000000000006,0,0],"text":"year: 2009<br />gwh/1000: 1.754<br />source: Offshore Wind","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(46,134,193,0.85)","hoveron":"points","name":"Offshore Wind","legendgroup":"Offshore Wind","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2008.9849999999999,2009,2009.0150000000001,2009.9849999999999,2010,2010.0150000000001,2010.9849999999999,2011,2011.0150000000001,2011.9849999999999,2012,2012.0150000000001,2012.9849999999999,2013,2013.0150000000001,2013.9849999999999,2014,2014.0150000000001,2014.9849999999999,2015,2015.0150000000001,2015.9849999999999,2016,2016.0150000000001,2016.9849999999999,2017,2017.0150000000001,2017.9849999999999,2018,2018.0150000000001,2018.9849999999999,2019,2019.0150000000001,2019.9849999999999,2020,2020.0150000000001,2020.9849999999999,2021,2021.0150000000001,2021.9849999999999,2022,2022.0150000000001,2022.9849999999999,2023,2023.0150000000001,2023.9849999999999,2024,2024.0150000000001,2024.0150000000001,2024.0150000000001,2024,2023.9849999999999,2023.0150000000001,2023,2022.9849999999999,2022.0150000000001,2022,2021.9849999999999,2021.0150000000001,2021,2020.9849999999999,2020.0150000000001,2020,2019.9849999999999,2019.0150000000001,2019,2018.9849999999999,2018.0150000000001,2018,2017.9849999999999,2017.0150000000001,2017,2016.9849999999999,2016.0150000000001,2016,2015.9849999999999,2015.0150000000001,2015,2014.9849999999999,2014.0150000000001,2014,2013.9849999999999,2013.0150000000001,2013,2012.9849999999999,2012.0150000000001,2012,2011.9849999999999,2011.0150000000001,2011,2010.9849999999999,2010.0150000000001,2010,2009.9849999999999,2009.0150000000001,2009,2008.9849999999999,2008.9849999999999],"y":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,34.743590000000005,34.709873899999778,32.529566100000224,32.495849999999997,32.534937900000259,35.062622099999743,35.101710000000004,35.015083649999426,29.413246350000577,29.326619999999998,29.409814200000554,34.789705799999446,34.872900000000001,34.827702599999697,31.904937400000303,31.859740000000002,31.837580049999854,30.404569950000152,30.382410000000004,30.357552299999838,28.750087700000165,28.72523,28.605656749999202,20.873253250000797,20.753679999999999,20.785154650000209,22.820515349999791,22.851990000000001,22.787529899999569,18.619110100000434,18.554650000000002,18.530210949999841,16.949819050000162,16.925380000000001,16.855158549999533,12.314171450000469,12.24395,12.222499999999856,10.835400000000144,10.81395,10.760130299999641,7.2797897000003582,7.2259699999999993,7.2304854500000291,7.5224845499999704,7.5270000000000001,0,0],"text":"year: 2009<br />gwh/1000: 7.527<br />source: Onshore Wind","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(27,79,114,0.85)","hoveron":"points","name":"Onshore Wind","legendgroup":"Onshore Wind","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":43.098381070983812,"r":7.9701120797011216,"b":24.707347447073481,"l":40.647571606475722},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243},"title":{"text":"<b> Wind Generation: Onshore vs Offshore <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":19.128268991282692},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[2008.2334999999998,2024.7665000000002],"tickmode":"array","ticktext":["2009","2011","2013","2015","2017","2019","2021","2023"],"tickvals":[2009,2011,2013,2015,2017,2019,2021,2023],"categoryorder":"array","categoryarray":["2009","2011","2013","2015","2017","2019","2021","2023"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.9850560398505608,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.72455564360919278,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-4.1641310000000002,87.446751000000006],"tickmode":"array","ticktext":["0","20","40","60","80"],"tickvals":[0,20.000000000000004,40,60,80],"categoryorder":"array","categoryarray":["0","20","40","60","80"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.9850560398505608,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.72455564360919278,"zeroline":false,"anchor":"x","title":{"text":"Generation (TWh)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243}},"hoverformat":".2f"},"shapes":[],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"orientation":"h","x":0.5,"y":-0.14999999999999999,"xanchor":"center","yanchor":"top","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"1a4864937324":{"x":{},"y":{},"fill":{},"type":"scatter"}},"cur_data":"1a4864937324","visdat":{"1a4864937324":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" data-width="50%" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="plotly html-widget html-fill-item html-fill-container" id="htmlwidget-4e0b95dab63d1f698689" style="width:100%;height:406px;"></div>
+<script type="application/json" data-for="htmlwidget-4e0b95dab63d1f698689">{"x":{"visdat":{"1a4869fc12ba":["function () ","plotlyVisDat"]},"cur_data":"1a4869fc12ba","attrs":{"1a4869fc12ba":{"x":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"y":{},"type":"bar","name":"Capacity (GW)","marker":{"color":"#F39C12","opacity":0.69999999999999996},"inherit":true},"1a4869fc12ba.1":{"x":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"y":{},"type":"scatter","mode":"lines","name":"Generation (TWh)","yaxis":"y2","line":{"color":"#E74C3C","width":2.5},"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":{"text":"Solar PV Growth: Capacity & Generation","font":{"size":14}},"yaxis":{"domain":[0,1],"automargin":true,"title":"Capacity (GW)"},"yaxis2":{"title":"Generation (TWh)","overlaying":"y","side":"right"},"legend":{"orientation":"h","y":-0.14999999999999999},"xaxis":{"domain":[0,1],"automargin":true,"title":""},"hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024],"y":[0.027,0.095000000000000001,1,1.754,2.9369999999999998,5.5279999999999996,9.6012199999999996,11.914020000000002,12.760020000000001,13.05907,13.34484,13.772240000000002,14.25135,14.81256,16.428060000000002,18.999970000000001],"type":"bar","name":"Capacity (GW)","marker":{"color":"#F39C12","opacity":0.69999999999999996,"line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024],"y":[0.02,0.040280000000000003,0.24366000000000004,1.3537600000000001,2.0102600000000002,4.0540700000000003,7.5328600000000003,10.39513,11.457240000000002,12.6684,12.418049999999999,12.54697,12.12847,13.98277,14.6389,14.364450000000001],"type":"scatter","mode":"lines","name":"Generation (TWh)","yaxis":"y2","line":{"color":"#E74C3C","width":2.5},"marker":{"color":"rgba(255,127,14,1)","line":{"color":"rgba(255,127,14,1)"}},"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"xaxis":"x","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div><div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr) minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" data-width="50%" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="plotly html-widget html-fill-item html-fill-container" id="htmlwidget-a9c87569bd3851369f76" style="width:100%;height:406px;"></div>
+<script type="application/json" data-for="htmlwidget-a9c87569bd3851369f76">{"x":{"data":[{"x":[2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024],"y":[58,59.880000000000003,58.539999999999999,56.609999999999999,56.469999999999999,54.509999999999998,52.490000000000002,50.43,45.960000000000001,41.990000000000002,39.060000000000002,37.719999999999999,35.840000000000003,33.560000000000002,32.270000000000003,31.140000000000001],"text":["year: 2009<br />load_factor_pct: 58.00<br />source: Landfill Gas","year: 2010<br />load_factor_pct: 59.88<br />source: Landfill Gas","year: 2011<br />load_factor_pct: 58.54<br />source: Landfill Gas","year: 2012<br />load_factor_pct: 56.61<br />source: Landfill Gas","year: 2013<br />load_factor_pct: 56.47<br />source: Landfill Gas","year: 2014<br />load_factor_pct: 54.51<br />source: Landfill Gas","year: 2015<br />load_factor_pct: 52.49<br />source: Landfill Gas","year: 2016<br />load_factor_pct: 50.43<br />source: Landfill Gas","year: 2017<br />load_factor_pct: 45.96<br />source: Landfill Gas","year: 2018<br />load_factor_pct: 41.99<br />source: Landfill Gas","year: 2019<br />load_factor_pct: 39.06<br />source: Landfill Gas","year: 2020<br />load_factor_pct: 37.72<br />source: Landfill Gas","year: 2021<br />load_factor_pct: 35.84<br />source: Landfill Gas","year: 2022<br />load_factor_pct: 33.56<br />source: Landfill Gas","year: 2023<br />load_factor_pct: 32.27<br />source: Landfill Gas","year: 2024<br />load_factor_pct: 31.14<br />source: Landfill Gas"],"type":"scatter","mode":"lines+markers","line":{"width":3.7795275590551185,"color":"rgba(231,76,60,1)","dash":"solid"},"hoveron":"points","name":"Landfill Gas","legendgroup":"Landfill Gas","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(231,76,60,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(231,76,60,1)"}},"frame":null},{"x":[2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024],"y":[21.050000000000001,30.48,36.979999999999997,35.82,39.140000000000001,37.340000000000003,41.460000000000001,35.960000000000001,38.979999999999997,40.079999999999998,40.539999999999999,45.920000000000002,37.75,41.289999999999999,39.890000000000001,36.25],"text":["year: 2009<br />load_factor_pct: 21.05<br />source: Offshore Wind","year: 2010<br />load_factor_pct: 30.48<br />source: Offshore Wind","year: 2011<br />load_factor_pct: 36.98<br />source: Offshore Wind","year: 2012<br />load_factor_pct: 35.82<br />source: Offshore Wind","year: 2013<br />load_factor_pct: 39.14<br />source: Offshore Wind","year: 2014<br />load_factor_pct: 37.34<br />source: Offshore Wind","year: 2015<br />load_factor_pct: 41.46<br />source: Offshore Wind","year: 2016<br />load_factor_pct: 35.96<br />source: Offshore Wind","year: 2017<br />load_factor_pct: 38.98<br />source: Offshore Wind","year: 2018<br />load_factor_pct: 40.08<br />source: Offshore Wind","year: 2019<br />load_factor_pct: 40.54<br />source: Offshore Wind","year: 2020<br />load_factor_pct: 45.92<br />source: Offshore Wind","year: 2021<br />load_factor_pct: 37.75<br />source: Offshore Wind","year: 2022<br />load_factor_pct: 41.29<br />source: Offshore Wind","year: 2023<br />load_factor_pct: 39.89<br />source: Offshore Wind","year: 2024<br />load_factor_pct: 36.25<br />source: Offshore Wind"],"type":"scatter","mode":"lines+markers","line":{"width":3.7795275590551185,"color":"rgba(46,134,193,1)","dash":"solid"},"hoveron":"points","name":"Offshore Wind","legendgroup":"Offshore Wind","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(46,134,193,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(46,134,193,1)"}},"frame":null},{"x":[2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024],"y":[24.760000000000002,21.850000000000001,27.940000000000001,25.829999999999998,28.370000000000001,26.219999999999999,29.34,23.57,27.989999999999998,26.66,26.52,28.280000000000001,23.440000000000001,27.32,24.510000000000002,25.039999999999999],"text":["year: 2009<br />load_factor_pct: 24.76<br />source: Onshore Wind","year: 2010<br />load_factor_pct: 21.85<br />source: Onshore Wind","year: 2011<br />load_factor_pct: 27.94<br />source: Onshore Wind","year: 2012<br />load_factor_pct: 25.83<br />source: Onshore Wind","year: 2013<br />load_factor_pct: 28.37<br />source: Onshore Wind","year: 2014<br />load_factor_pct: 26.22<br />source: Onshore Wind","year: 2015<br />load_factor_pct: 29.34<br />source: Onshore Wind","year: 2016<br />load_factor_pct: 23.57<br />source: Onshore Wind","year: 2017<br />load_factor_pct: 27.99<br />source: Onshore Wind","year: 2018<br />load_factor_pct: 26.66<br />source: Onshore Wind","year: 2019<br />load_factor_pct: 26.52<br />source: Onshore Wind","year: 2020<br />load_factor_pct: 28.28<br />source: Onshore Wind","year: 2021<br />load_factor_pct: 23.44<br />source: Onshore Wind","year: 2022<br />load_factor_pct: 27.32<br />source: Onshore Wind","year: 2023<br />load_factor_pct: 24.51<br />source: Onshore Wind","year: 2024<br />load_factor_pct: 25.04<br />source: Onshore Wind"],"type":"scatter","mode":"lines+markers","line":{"width":3.7795275590551185,"color":"rgba(27,79,114,1)","dash":"solid"},"hoveron":"points","name":"Onshore Wind","legendgroup":"Onshore Wind","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(27,79,114,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(27,79,114,1)"}},"frame":null},{"x":[2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024],"y":[55.240000000000002,60.840000000000003,27.23,39.560000000000002,64.609999999999999,70.909999999999997,87.299999999999997,78.5,77.700000000000003,70.579999999999998,64.069999999999993,64.629999999999995,67.359999999999999,56.840000000000003,52.259999999999998,65.680000000000007],"text":["year: 2009<br />load_factor_pct: 55.24<br />source: Plant Biomass","year: 2010<br />load_factor_pct: 60.84<br />source: Plant Biomass","year: 2011<br />load_factor_pct: 27.23<br />source: Plant Biomass","year: 2012<br />load_factor_pct: 39.56<br />source: Plant Biomass","year: 2013<br />load_factor_pct: 64.61<br />source: Plant Biomass","year: 2014<br />load_factor_pct: 70.91<br />source: Plant Biomass","year: 2015<br />load_factor_pct: 87.30<br />source: Plant Biomass","year: 2016<br />load_factor_pct: 78.50<br />source: Plant Biomass","year: 2017<br />load_factor_pct: 77.70<br />source: Plant Biomass","year: 2018<br />load_factor_pct: 70.58<br />source: Plant Biomass","year: 2019<br />load_factor_pct: 64.07<br />source: Plant Biomass","year: 2020<br />load_factor_pct: 64.63<br />source: Plant Biomass","year: 2021<br />load_factor_pct: 67.36<br />source: Plant Biomass","year: 2022<br />load_factor_pct: 56.84<br />source: Plant Biomass","year: 2023<br />load_factor_pct: 52.26<br />source: Plant Biomass","year: 2024<br />load_factor_pct: 65.68<br />source: Plant Biomass"],"type":"scatter","mode":"lines+markers","line":{"width":3.7795275590551185,"color":"rgba(142,68,173,1)","dash":"solid"},"hoveron":"points","name":"Plant Biomass","legendgroup":"Plant Biomass","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(142,68,173,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(142,68,173,1)"}},"frame":null},{"x":[2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024],"y":[16.870000000000001,7.54,5.0800000000000001,11.19,9.7799999999999994,10.93,11.369999999999999,11,10.6,11.199999999999999,10.74,10.529999999999999,9.8800000000000008,10.98,10.699999999999999,9.2300000000000004],"text":["year: 2009<br />load_factor_pct: 16.87<br />source: Solar PV","year: 2010<br />load_factor_pct:  7.54<br />source: Solar PV","year: 2011<br />load_factor_pct:  5.08<br />source: Solar PV","year: 2012<br />load_factor_pct: 11.19<br />source: Solar PV","year: 2013<br />load_factor_pct:  9.78<br />source: Solar PV","year: 2014<br />load_factor_pct: 10.93<br />source: Solar PV","year: 2015<br />load_factor_pct: 11.37<br />source: Solar PV","year: 2016<br />load_factor_pct: 11.00<br />source: Solar PV","year: 2017<br />load_factor_pct: 10.60<br />source: Solar PV","year: 2018<br />load_factor_pct: 11.20<br />source: Solar PV","year: 2019<br />load_factor_pct: 10.74<br />source: Solar PV","year: 2020<br />load_factor_pct: 10.53<br />source: Solar PV","year: 2021<br />load_factor_pct:  9.88<br />source: Solar PV","year: 2022<br />load_factor_pct: 10.98<br />source: Solar PV","year: 2023<br />load_factor_pct: 10.70<br />source: Solar PV","year: 2024<br />load_factor_pct:  9.23<br />source: Solar PV"],"type":"scatter","mode":"lines+markers","line":{"width":3.7795275590551185,"color":"rgba(243,156,18,1)","dash":"solid"},"hoveron":"points","name":"Solar PV","legendgroup":"Solar PV","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(243,156,18,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(243,156,18,1)"}},"frame":null}],"layout":{"margin":{"t":43.098381070983812,"r":7.9701120797011216,"b":24.707347447073481,"l":40.647571606475722},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243},"title":{"text":"<b> Load Factors — How Efficiently Are Sources Used? <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":19.128268991282692},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[2008.25,2024.75],"tickmode":"array","ticktext":["2009","2011","2013","2015","2017","2019","2021","2023"],"tickvals":[2009,2011,2013,2015,2017,2019,2021,2023],"categoryorder":"array","categoryarray":["2009","2011","2013","2015","2017","2019","2021","2023"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.9850560398505608,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.72455564360919278,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.96900000000000031,91.411000000000001],"tickmode":"array","ticktext":["25","50","75"],"tickvals":[24.999999999999996,50,75],"categoryorder":"array","categoryarray":["25","50","75"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.9850560398505608,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.72455564360919278,"zeroline":false,"anchor":"x","title":{"text":"Load Factor (%)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243}},"hoverformat":".2f"},"shapes":[],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"orientation":"h","x":0.5,"y":-0.20000000000000001,"xanchor":"center","yanchor":"top","title":{"text":"Source","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"1a481afa6e93":{"x":{},"y":{},"colour":{},"type":"scatter"},"1a4840d01d2e":{"x":{},"y":{},"colour":{}}},"cur_data":"1a481afa6e93","visdat":{"1a481afa6e93":["function (y) ","x"],"1a4840d01d2e":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" data-width="50%" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="plotly html-widget html-fill-item html-fill-container" id="htmlwidget-b0e93efee6ce209122e0" style="width:100%;height:406px;"></div>
+<script type="application/json" data-for="htmlwidget-b0e93efee6ce209122e0">{"x":{"data":[{"x":[1.06023,0.26774999999999999,0.12931999999999999,0.63631000000000004,4.6337499999999991,0.035499999999999997],"y":[2.8993099999999994,0.98798999999999981,0.62575999999999998,3.5459899999999998,26.586349999999999,0.14368],"text":["capacity_mw/1000:  1.06023<br />generation_gwh/1000:  2.89931<br />category: Bioenergy","capacity_mw/1000:  0.26775<br />generation_gwh/1000:  0.98799<br />category: Bioenergy","capacity_mw/1000:  0.12932<br />generation_gwh/1000:  0.62576<br />category: Bioenergy","capacity_mw/1000:  0.63631<br />generation_gwh/1000:  3.54599<br />category: Bioenergy","capacity_mw/1000:  4.63375<br />generation_gwh/1000: 26.58635<br />category: Bioenergy","capacity_mw/1000:  0.03550<br />generation_gwh/1000:  0.14368<br />category: Bioenergy"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(142,68,173,1)","opacity":0.69999999999999996,"size":[9.2273411323331533,6.9458078399429146,6.2896399217425412,9.8068176194085872,20.309593073921434,4.9386770485079623],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(142,68,173,1)"}},"hoveron":"points","name":"Bioenergy","legendgroup":"Bioenergy","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.008199999999999999],"y":[0.013009999999999999],"text":"capacity_mw/1000:  0.00820<br />generation_gwh/1000:  0.01301<br />category: Marine","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(23,165,137,1)","opacity":0.69999999999999996,"size":3.7795275590551185,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(23,165,137,1)"}},"hoveron":"points","name":"Marine","legendgroup":"Marine","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[18.999970000000001],"y":[14.364450000000001],"text":"capacity_mw/1000: 18.99997<br />generation_gwh/1000: 14.36445<br />category: Solar","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(243,156,18,1)","opacity":0.69999999999999996,"size":15.927372576560254,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(243,156,18,1)"}},"hoveron":"points","name":"Solar","legendgroup":"Solar","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1.60016],"y":[5.4629400000000006],"text":"capacity_mw/1000:  1.60016<br />generation_gwh/1000:  5.46294<br />category: Waste","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(211,84,0,1)","opacity":0.69999999999999996,"size":11.265478295613084,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(211,84,0,1)"}},"hoveron":"points","name":"Waste","legendgroup":"Waste","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[16.166229999999999],"y":[34.743590000000005],"text":"capacity_mw/1000: 16.16623<br />generation_gwh/1000: 34.74359<br />category: Wind","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(46,134,193,1)","opacity":0.69999999999999996,"size":22.677165354330711,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(46,134,193,1)"}},"hoveron":"points","name":"Wind","legendgroup":"Wind","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1.06023,0.26774999999999999,0.12931999999999999,0.63631000000000004,4.6337499999999991,0.035499999999999997],"y":[2.8993099999999994,0.98798999999999981,0.62575999999999998,3.5459899999999998,26.586349999999999,0.14368],"text":["Landfill Gas","Sewage Gas","Animal Biomass","Anaerobic Digestion","Plant Biomass","Liquid Biofuels"],"hovertext":["capacity_mw/1000:  1.06023<br />generation_gwh/1000:  2.89931<br />category: Bioenergy","capacity_mw/1000:  0.26775<br />generation_gwh/1000:  0.98799<br />category: Bioenergy","capacity_mw/1000:  0.12932<br />generation_gwh/1000:  0.62576<br />category: Bioenergy","capacity_mw/1000:  0.63631<br />generation_gwh/1000:  3.54599<br />category: Bioenergy","capacity_mw/1000:  4.63375<br />generation_gwh/1000: 26.58635<br />category: Bioenergy","capacity_mw/1000:  0.03550<br />generation_gwh/1000:  0.14368<br />category: Bioenergy"],"textfont":{"size":9.4488188976377963,"color":"rgba(142,68,173,1)"},"type":"scatter","mode":"text","hoveron":"points","name":"Bioenergy","legendgroup":"Bioenergy","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.008199999999999999],"y":[0.013009999999999999],"text":"Wave & Tidal","hovertext":"capacity_mw/1000:  0.00820<br />generation_gwh/1000:  0.01301<br />category: Marine","textfont":{"size":9.4488188976377963,"color":"rgba(23,165,137,1)"},"type":"scatter","mode":"text","hoveron":"points","name":"Marine","legendgroup":"Marine","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[18.999970000000001],"y":[14.364450000000001],"text":"Solar PV","hovertext":"capacity_mw/1000: 18.99997<br />generation_gwh/1000: 14.36445<br />category: Solar","textfont":{"size":9.4488188976377963,"color":"rgba(243,156,18,1)"},"type":"scatter","mode":"text","hoveron":"points","name":"Solar","legendgroup":"Solar","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1.60016],"y":[5.4629400000000006],"text":"Energy from Waste","hovertext":"capacity_mw/1000:  1.60016<br />generation_gwh/1000:  5.46294<br />category: Waste","textfont":{"size":9.4488188976377963,"color":"rgba(211,84,0,1)"},"type":"scatter","mode":"text","hoveron":"points","name":"Waste","legendgroup":"Waste","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[16.166229999999999],"y":[34.743590000000005],"text":"Onshore Wind","hovertext":"capacity_mw/1000: 16.16623<br />generation_gwh/1000: 34.74359<br />category: Wind","textfont":{"size":9.4488188976377963,"color":"rgba(46,134,193,1)"},"type":"scatter","mode":"text","hoveron":"points","name":"Wind","legendgroup":"Wind","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":43.098381070983812,"r":7.9701120797011216,"b":40.647571606475722,"l":40.647571606475722},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243},"title":{"text":"<b> Capacity vs Generation (2024) <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":19.128268991282692},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.94138850000000018,19.949558500000002],"tickmode":"array","ticktext":["0","5","10","15"],"tickvals":[0,5,10,15],"categoryorder":"array","categoryarray":["0","5","10","15"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.9850560398505608,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.72455564360919278,"zeroline":false,"anchor":"y","title":{"text":"Installed Capacity (GW)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-1.7235190000000002,36.480119000000002],"tickmode":"array","ticktext":["0","10","20","30"],"tickvals":[0,10,20,30],"categoryorder":"array","categoryarray":["0","10","20","30"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.9850560398505608,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.72455564360919278,"zeroline":false,"anchor":"x","title":{"text":"Generation (TWh)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243}},"hoverformat":".2f"},"shapes":[],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"orientation":"h","x":0.5,"y":-0.14999999999999999,"xanchor":"center","yanchor":"top","title":{"text":"Category","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"1a48457c7613":{"x":{},"y":{},"colour":{},"size":{},"type":"scatter"},"1a483f9961d3":{"x":{},"y":{},"colour":{},"size":{},"label":{}}},"cur_data":"1a48457c7613","visdat":{"1a48457c7613":["function (y) ","x"],"1a483f9961d3":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+</div>
+</div><div id="nations" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="columns" aria-labelledby="tab-nations">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr) minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" data-width="50%" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="plotly html-widget html-fill-item html-fill-container" id="htmlwidget-922a7c934f4b7ab75b76" style="width:100%;height:406px;"></div>
+<script type="application/json" data-for="htmlwidget-922a7c934f4b7ab75b76">{"x":{"data":[{"visible":false,"showlegend":false,"xaxis":null,"yaxis":null,"hoverinfo":"text","frame":null}],"layout":{"margin":{"t":43.098381070983812,"r":7.9701120797011216,"b":11.955168119551683,"l":27.895392278953928},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243},"title":{"text":"<b> Renewable Generation by UK Nation <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":19.128268991282692},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.050000000000000003,1.05],"tickmode":"array","ticktext":[],"tickvals":[],"categoryorder":"array","categoryarray":[],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.9850560398505608,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.72455564360919278,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.050000000000000003,1.05],"tickmode":"array","ticktext":[],"tickvals":[],"categoryorder":"array","categoryarray":[],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.9850560398505608,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.72455564360919278,"zeroline":false,"anchor":"x","title":{"text":"Generation (TWh)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243}},"hoverformat":".2f"},"shapes":[],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"orientation":"h","x":0.5,"y":-0.14999999999999999,"xanchor":"center","yanchor":"top","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"1a4877181db":{"x":{},"y":{},"fill":{},"type":"scatter"}},"cur_data":"1a4877181db","visdat":{"1a4877181db":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" data-width="50%" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="plotly html-widget html-fill-item html-fill-container" id="htmlwidget-3a30e1c05c8f2f469657" style="width:100%;height:406px;"></div>
+<script type="application/json" data-for="htmlwidget-3a30e1c05c8f2f469657">{"x":{"visdat":{"1a4846302e7d":["function () ","plotlyVisDat"]},"cur_data":"1a4846302e7d","attrs":{"1a4846302e7d":{"labels":{},"values":{},"hole":0.45000000000000001,"marker":{"colors":[]},"textposition":"outside","textinfo":"label+percent","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"pie"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":{"text":"Nation Share (-Inf)","font":{"size":14}},"showlegend":false,"annotations":[{"text":"0<br />TWh","showarrow":false,"font":{"size":16}}],"hovermode":"closest"},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"hole":0.45000000000000001,"marker":{"color":"rgba(31,119,180,1)","colors":[],"line":{"color":"rgba(255,255,255,1)"}},"textposition":"outside","textinfo":"label+percent","type":"pie","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div><div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" data-width="100%" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="plotly html-widget html-fill-item html-fill-container" id="htmlwidget-57bb1d43cc67776a59c9" style="width:100%;height:406px;"></div>
+<script type="application/json" data-for="htmlwidget-57bb1d43cc67776a59c9">{"x":{"data":[{"orientation":"v","width":[0.70000000000000007,0.70000000000000018,0.70000000000000018,0.69999999999999973],"base":[0.35936457891226575,0.75352550840574384,0.78452164347270015,0.76322955395950065],"x":[1,2,3,4],"y":[0.6406354210877343,0.24647449159425616,0.21547835652729985,0.23677044604049935],"text":["country: England<br />total/1000: 32.12064<br />category: Bioenergy","country: Northern Ireland<br />total/1000:  0.80416<br />category: Bioenergy","country: Scotland<br />total/1000:  2.26435<br />category: Bioenergy","country: Wales<br />total/1000:  1.17557<br />category: Bioenergy"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(142,68,173,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Bioenergy","legendgroup":"Bioenergy","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.70000000000000007,0.70000000000000018,0.70000000000000018,0.69999999999999973],"base":[0.35561438345454371,0.73147901245919722,0.28249946709704921,0.68332051028998875],"x":[1,2,3,4],"y":[0.0037501954577220387,0.022046495946546618,0.50202217637565094,0.079909043669511903],"text":["country: England<br />total/1000:  0.18803<br />category: Hydro","country: Northern Ireland<br />total/1000:  0.07193<br />category: Hydro","country: Scotland<br />total/1000:  5.27549<br />category: Hydro","country: Wales<br />total/1000:  0.39675<br />category: Hydro"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(39,174,96,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Hydro","legendgroup":"Hydro","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.70000000000000007,0.70000000000000018,0.70000000000000018,0.69999999999999973],"base":[0.24807075250425217,0.082996950331785529,0.051972311885258381,0.24569689548078355],"x":[1,2,3,4],"y":[0.10754363095029154,0.64848206212741166,0.23052715521179082,0.4376236148092052],"text":["country: England<br />total/1000:  5.39210<br />category: Other","country: Northern Ireland<br />total/1000:  2.11577<br />category: Other","country: Scotland<br />total/1000:  2.42249<br />category: Other","country: Wales<br />total/1000:  2.17281<br />category: Other"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(127,127,127,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Other","legendgroup":"Other","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.70000000000000007,0.70000000000000018,0.70000000000000018,0.69999999999999973],"base":[0.0007409443240673076,0.0064977855424271681,0.0023742729681171778,0.0054440868314729858],"x":[1,2,3,4],"y":[0.24732980818018488,0.076499164789358365,0.0495980389171412,0.24025280864931056],"text":["country: England<br />total/1000: 12.40080<br />category: Solar","country: Northern Ireland<br />total/1000:  0.24959<br />category: Solar","country: Scotland<br />total/1000:  0.52120<br />category: Solar","country: Wales<br />total/1000:  1.19286<br />category: Solar"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(243,156,18,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Solar","legendgroup":"Solar","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.70000000000000007,0.70000000000000018,0.70000000000000018,0.69999999999999973],"base":[0,0,0,0],"x":[1,2,3,4],"y":[0.0007409443240673076,0.0064977855424271681,0.0023742729681171778,0.0054440868314729858],"text":["country: England<br />total/1000:  0.03715<br />category: Wind","country: Northern Ireland<br />total/1000:  0.02120<br />category: Wind","country: Scotland<br />total/1000:  0.02495<br />category: Wind","country: Wales<br />total/1000:  0.02703<br />category: Wind"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(46,134,193,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Wind","legendgroup":"Wind","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":43.098381070983812,"r":7.9701120797011216,"b":24.707347447073481,"l":53.399750933997524},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243},"title":{"text":"<b> Renewable Energy Mix by Nation (Latest Year) <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":19.128268991282692},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,4.5999999999999996],"tickmode":"array","ticktext":["England","Northern Ireland","Scotland","Wales"],"tickvals":[1,2,3,4],"categoryorder":"array","categoryarray":["England","Northern Ireland","Scotland","Wales"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.9850560398505608,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.72455564360919278,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.050000000000000003,1.05],"tickmode":"array","ticktext":["0%","25%","50%","75%","100%"],"tickvals":[0,0.25,0.5,0.75,1],"categoryorder":"array","categoryarray":["0%","25%","50%","75%","100%"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.9850560398505608,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.72455564360919278,"zeroline":false,"anchor":"x","title":{"text":"Share of Generation","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243}},"hoverformat":".2f"},"shapes":[],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"orientation":"h","x":0.5,"y":-0.14999999999999999,"xanchor":"center","yanchor":"top","title":{"text":"Source","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"1a481c6b7a2a":{"x":{},"y":{},"fill":{},"type":"bar"}},"cur_data":"1a481c6b7a2a","visdat":{"1a481c6b7a2a":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+</div>
+</div><div id="data-explorer" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="columns" aria-labelledby="tab-data-explorer">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" data-width="100%" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="datatables html-widget html-fill-item html-fill-container" id="htmlwidget-3a325b345315ab949366" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-3a325b345315ab949366">{"x":{"filter":"top","vertical":false,"filterHTML":"<tr>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"2009\" data-max=\"2024\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0\" data-max=\"49649.98\" data-scale=\"15\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"2\" data-max=\"18999.97\" data-scale=\"13\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"5.08\" data-max=\"87.3\" data-scale=\"2\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","extensions":["Buttons"],"data":[[2024,2024,2024,2024,2024,2024,2024,2024,2024,2024,2024,2024,2024,2024,2023,2023,2023,2023,2023,2023,2023,2023,2023,2023,2023,2023,2023,2023,2022,2022,2022,2022,2022,2022,2022,2022,2022,2022,2022,2022,2022,2022,2021,2021,2021,2021,2021,2021,2021,2021,2021,2021,2021,2021,2021,2021,2020,2020,2020,2020,2020,2020,2020,2020,2020,2020,2020,2020,2020,2020,2019,2019,2019,2019,2019,2019,2019,2019,2019,2019,2019,2019,2019,2019,2018,2018,2018,2018,2018,2018,2018,2018,2018,2018,2018,2018,2018,2018,2017,2017,2017,2017,2017,2017,2017,2017,2017,2017,2017,2017,2017,2017,2016,2016,2016,2016,2016,2016,2016,2016,2016,2016,2016,2016,2016,2016,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2015,2014,2014,2014,2014,2014,2014,2014,2014,2014,2014,2014,2014,2014,2014,2013,2013,2013,2013,2013,2013,2013,2013,2013,2013,2013,2013,2013,2013,2012,2012,2012,2012,2012,2012,2012,2012,2012,2012,2012,2012,2012,2012,2011,2011,2011,2011,2011,2011,2011,2011,2011,2011,2011,2011,2011,2011,2010,2010,2010,2010,2010,2010,2010,2010,2010,2010,2010,2010,2010,2010,2009,2009,2009,2009,2009,2009,2009,2009,2009,2009,2009,2009,2009],["Offshore Wind","Onshore Wind","Plant Biomass","Solar PV","Hydro (Total)","Non-biodegradable Waste","Energy from Waste","Anaerobic Digestion","Landfill Gas","Sewage Gas","Animal Biomass","Liquid Biofuels","Wave &amp; Tidal","Co-firing","Offshore Wind","Onshore Wind","Plant Biomass","Solar PV","Hydro (Total)","Non-biodegradable Waste","Energy from Waste","Anaerobic Digestion","Landfill Gas","Sewage Gas","Animal Biomass","Liquid Biofuels","Wave &amp; Tidal","Co-firing","Offshore Wind","Onshore Wind","Plant Biomass","Solar PV","Hydro (Total)","Non-biodegradable Waste","Energy from Waste","Anaerobic Digestion","Landfill Gas","Sewage Gas","Animal Biomass","Liquid Biofuels","Wave &amp; Tidal","Co-firing","Offshore Wind","Onshore Wind","Plant Biomass","Solar PV","Hydro (Total)","Non-biodegradable Waste","Energy from Waste","Landfill Gas","Anaerobic Digestion","Sewage Gas","Animal Biomass","Liquid Biofuels","Wave &amp; Tidal","Co-firing","Offshore Wind","Onshore Wind","Plant Biomass","Solar PV","Hydro (Total)","Non-biodegradable Waste","Energy from Waste","Landfill Gas","Anaerobic Digestion","Sewage Gas","Animal Biomass","Liquid Biofuels","Wave &amp; Tidal","Co-firing","Offshore Wind","Onshore Wind","Plant Biomass","Solar PV","Hydro (Total)","Non-biodegradable Waste","Energy from Waste","Landfill Gas","Anaerobic Digestion","Sewage Gas","Animal Biomass","Liquid Biofuels","Wave &amp; Tidal","Co-firing","Onshore Wind","Offshore Wind","Plant Biomass","Solar PV","Hydro (Total)","Landfill Gas","Non-biodegradable Waste","Energy from Waste","Anaerobic Digestion","Sewage Gas","Animal Biomass","Liquid Biofuels","Wave &amp; Tidal","Co-firing","Onshore Wind","Offshore Wind","Plant Biomass","Solar PV","Hydro (Total)","Landfill Gas","Non-biodegradable Waste","Energy from Waste","Anaerobic Digestion","Sewage Gas","Animal Biomass","Co-firing","Wave &amp; Tidal","Liquid Biofuels","Onshore Wind","Plant Biomass","Offshore Wind","Solar PV","Hydro (Total)","Landfill Gas","Non-biodegradable Waste","Energy from Waste","Anaerobic Digestion","Sewage Gas","Animal Biomass","Co-firing","Wave &amp; Tidal","Liquid Biofuels","Onshore Wind","Plant Biomass","Offshore Wind","Solar PV","Hydro (Total)","Landfill Gas","Non-biodegradable Waste","Energy from Waste","Anaerobic Digestion","Sewage Gas","Animal Biomass","Co-firing","Wave &amp; Tidal","Liquid Biofuels","Onshore Wind","Offshore Wind","Plant Biomass","Hydro (Total)","Landfill Gas","Solar PV","Non-biodegradable Waste","Energy from Waste","Anaerobic Digestion","Sewage Gas","Animal Biomass","Co-firing","Wave &amp; Tidal","Liquid Biofuels","Onshore Wind","Offshore Wind","Plant Biomass","Landfill Gas","Hydro (Total)","Solar PV","Energy from Waste","Non-biodegradable Waste","Sewage Gas","Anaerobic Digestion","Animal Biomass","Co-firing","Wave &amp; Tidal","Liquid Biofuels","Onshore Wind","Offshore Wind","Hydro (Total)","Landfill Gas","Plant Biomass","Co-firing","Energy from Waste","Non-biodegradable Waste","Solar PV","Sewage Gas","Animal Biomass","Anaerobic Digestion","Wave &amp; Tidal","Liquid Biofuels","Onshore Wind","Hydro (Total)","Landfill Gas","Offshore Wind","Co-firing","Plant Biomass","Energy from Waste","Non-biodegradable Waste","Sewage Gas","Animal Biomass","Solar PV","Anaerobic Digestion","Wave &amp; Tidal","Liquid Biofuels","Onshore Wind","Landfill Gas","Hydro (Total)","Offshore Wind","Co-firing","Plant Biomass","Energy from Waste","Non-biodegradable Waste","Sewage Gas","Animal Biomass","Anaerobic Digestion","Solar PV","Wave &amp; Tidal","Liquid Biofuels","Onshore Wind","Hydro (Total)","Landfill Gas","Offshore Wind","Co-firing","Energy from Waste","Plant Biomass","Non-biodegradable Waste","Animal Biomass","Sewage Gas","Anaerobic Digestion","Solar PV","Wave &amp; Tidal"],["Wind","Wind","Bioenergy","Solar","Hydro","Waste","Waste","Bioenergy","Bioenergy","Bioenergy","Bioenergy","Bioenergy","Marine","Bioenergy","Wind","Wind","Bioenergy","Solar","Hydro","Waste","Waste","Bioenergy","Bioenergy","Bioenergy","Bioenergy","Bioenergy","Marine","Bioenergy","Wind","Wind","Bioenergy","Solar","Hydro","Waste","Waste","Bioenergy","Bioenergy","Bioenergy","Bioenergy","Bioenergy","Marine","Bioenergy","Wind","Wind","Bioenergy","Solar","Hydro","Waste","Waste","Bioenergy","Bioenergy","Bioenergy","Bioenergy","Bioenergy","Marine","Bioenergy","Wind","Wind","Bioenergy","Solar","Hydro","Waste","Waste","Bioenergy","Bioenergy","Bioenergy","Bioenergy","Bioenergy","Marine","Bioenergy","Wind","Wind","Bioenergy","Solar","Hydro","Waste","Waste","Bioenergy","Bioenergy","Bioenergy","Bioenergy","Bioenergy","Marine","Bioenergy","Wind","Wind","Bioenergy","Solar","Hydro","Bioenergy","Waste","Waste","Bioenergy","Bioenergy","Bioenergy","Bioenergy","Marine","Bioenergy","Wind","Wind","Bioenergy","Solar","Hydro","Bioenergy","Waste","Waste","Bioenergy","Bioenergy","Bioenergy","Bioenergy","Marine","Bioenergy","Wind","Bioenergy","Wind","Solar","Hydro","Bioenergy","Waste","Waste","Bioenergy","Bioenergy","Bioenergy","Bioenergy","Marine","Bioenergy","Wind","Bioenergy","Wind","Solar","Hydro","Bioenergy","Waste","Waste","Bioenergy","Bioenergy","Bioenergy","Bioenergy","Marine","Bioenergy","Wind","Wind","Bioenergy","Hydro","Bioenergy","Solar","Waste","Waste","Bioenergy","Bioenergy","Bioenergy","Bioenergy","Marine","Bioenergy","Wind","Wind","Bioenergy","Bioenergy","Hydro","Solar","Waste","Waste","Bioenergy","Bioenergy","Bioenergy","Bioenergy","Marine","Bioenergy","Wind","Wind","Hydro","Bioenergy","Bioenergy","Bioenergy","Waste","Waste","Solar","Bioenergy","Bioenergy","Bioenergy","Marine","Bioenergy","Wind","Hydro","Bioenergy","Wind","Bioenergy","Bioenergy","Waste","Waste","Bioenergy","Bioenergy","Solar","Bioenergy","Marine","Bioenergy","Wind","Bioenergy","Hydro","Wind","Bioenergy","Bioenergy","Waste","Waste","Bioenergy","Bioenergy","Bioenergy","Solar","Marine","Bioenergy","Wind","Hydro","Bioenergy","Wind","Bioenergy","Waste","Bioenergy","Waste","Bioenergy","Bioenergy","Bioenergy","Solar","Marine"],[48539.03000000001,34743.59,26586.35,14364.45,5795.620000000001,5480.37,5462.940000000001,3545.99,2899.309999999999,987.9899999999998,625.76,143.68,13.01,0,49649.98,32495.85,20950.71,14638.9,5463.7,5385.14,5375.629999999999,3424.47,2994.47,987.39,618.42,145.64,12.64,0,45112.67,35101.71000000001,22764.99,13982.77,5067.559999999999,4895.8,4894.32,3370.56,3108.51,1000.57,666.97,145.96,11.22,0,35597.29,29326.62,26959.25,12128.47,5418.369999999999,4637.200000000001,4635.74,3312.88,3249.84,1046.71,647.86,148.8,5.48,0,40750.26,34872.9,25883.33,12546.97,6878.240000000001,4359.700000000001,4358.22,3496.09,2959.349999999999,1066.78,655.26,146.2,11.28,0,31975.15,31859.74,25305.66,12418.05,5932.889999999999,3793.04,3791.57,3624.32,2949,1048.62,660.8299999999999,144.48,13.99,1.68,30382.41,26525.2,23135.98,12668.4,5443.28,3915.79,3491.92,3490.44,2797.56,992.03,633.9399999999999,134.92,9.300000000000001,1.08,28725.23,20915.92,19922.49,11457.24,5881.860000000001,4283.8,3387.08,3385.599999999999,2631.89,967.34,649.1800000000001,53.88,4.19,0,20753.68,18747.18,16405.74,10395.13,5370.39,4702.860000000001,2741.23,2739.75,2157.79,950.3,650.2,117.46,0.01,0,22851.99,18592.2,17422.74,7532.860000000001,6297.27,4872.18,2583.9,2582.43,1484.67,894.37,647.8100000000001,183.31,2,0,18554.65,13404.59,13085.48,5887.8,5033.210000000001,4054.07,1923.34,1899.87,1022.56,840.1400000000001,613.9,123.84,2.22,0,16925.38,11471.78,8832.76,5174.65,4701.48,2010.26,1648.17,1481.09,765.98,713.05,628.24,337.26,4.76,0,12243.95,7603.17,5309.64,5208.5,4047.82,1828.5,1772.9,1429.06,1353.76,738.54,642.89,494.63,4.21,0,10813.95,5691.74,5318.02,5149.030000000001,3093.04,1771,1504.03,1085.46,775,614.6099999999999,243.6600000000001,237.18,0.9399999999999999,0,7225.969999999999,5216.86,3591.37,3059.67,2432.44,1614.87,1528.76,986.92,723.4599999999999,627.21,117.49,40.28,1.89,0,7527,5228,4918,1754,1625,1509,1379,868,637,603,43,20,1],[null,16166.23,4633.749999999999,18999.97,null,null,1600.16,636.3100000000001,1060.23,267.75,129.32,35.5,8.199999999999999,null,null,15423.66,4582.559999999999,16428.06,null,null,1578.16,626.92,1059.41,267.75,129.32,36.51,6.2,null,null,14840.36,4570.61,14812.56,null,null,1530.82,625.08,1059.41,267.69,129.32,36.29,8.199999999999999,null,null,14492.75,4572.85,14251.35,null,null,1450.72,1055.56,614.15,256.97,129.32,36.46,9.800000000000001,null,null,14075.07,4564.1,13772.24,null,null,1434.75,1054.56,547.2099999999999,246.51,129.32,46.07,9.800000000000001,null,null,13998.33,4554.490000000001,13344.84,null,null,1309.78,1055.49,541.65,246.51,129.32,47.29,22.4,null,13424.85,null,4463.27,13059.07,null,1063.06,null,1136.54,527.55,246.51,129.32,45.44,20.4,null,12597.15,null,3020.190000000001,12760.02,null,1066.12,null,1090.93,507.4499999999999,245.49,129.32,null,18.4,null,10832.53,2833.550000000001,null,11914.02,null,1061.91,null,1028.29,454.38,257.33,129.32,null,13.49,null,9212.24,2604.07,null,9601.219999999999,null,1061.32,null,929.9400000000001,335.74,231.3,110.52,null,8.94,null,8573,null,2258,null,1058,5528,null,680,243,230,111,null,9,null,7586,null,1955,1050,null,2937,545,null,201,163,111,null,8,null,6035,null,null,1042,1166,null,513,null,1754,212,111,121,9,null,4758,null,1053,null,null,1164,502,null,199,111,1000,74,4,null,4080,1021,null,null,null,321,413,null,193,111,30,95,4,null,3471,null,968,null,null,381,285,null,111,157,12,27,2],[36.25,25.04,65.68000000000001,9.23,35.11,27.68,78.06999999999999,63.91,31.14,42.01,55.09,null,null,null,39.89,24.51,52.26,10.7,33.27,28.6,77.84,62.45,32.27,42.1,54.59,null,null,null,41.29,27.32,56.84,10.98,30.6,29.83,73.01000000000001,62.1,33.56,43.54,58.88,null,null,null,37.75,23.44,67.36,9.880000000000001,32.77,29.01,72.97,35.84,63.89,47.46,57.19,null,null,null,45.92,28.28,64.63,10.53,41.59,32.63,69.36,37.72,61.88,49.27,57.68,null,null,null,40.54,26.52,64.06999999999999,10.74,36.05,29.99,66.09999999999999,39.06,62.97,48.56,58.33,null,null,null,26.66,40.08,70.58,11.2,33.17,41.99,29.36,70.13,61.71,46.03,55.96,null,null,null,27.99,38.98,77.7,10.6,36.27,45.96,28.96,70.87,62.47,43.92,57.31,null,null,null,23.57,78.5,35.96,11,33.88,50.43,27.34,60.85,62.18,44.28,61.73,null,null,null,29.34,87.3,41.46,11.37,41,52.49,31.62,63.42,58.57,44.26,66.77,null,null,null,26.22,37.34,70.91,39.09,54.51,10.93,30.38,64.18000000000001,57.5,44.5,63.14,null,null,null,28.37,39.14,64.61,56.47,31.55,9.779999999999999,65.55,31.09,42.34,57.32,64.61,null,null,null,25.83,35.82,35.85,56.61,39.56,null,71.25,29.71,11.19,40.91,65.94,57.75,null,null,27.94,39.07,58.54,36.98,null,27.23,58.89,30.61,45.14,63.21,5.08,52.07,null,null,21.85,59.88,24.95,30.48,null,60.84,69.53,30.51,47.19,64.5,63.87,7.54,null,null,24.76,36.41,58,21.05,null,71.22,55.24,34.92,65.51000000000001,43.84,40.91,16.87,null]],"container":"<table class=\"display compact stripe hover\">\n  <thead>\n    <tr>\n      <th>Year<\/th>\n      <th>Source<\/th>\n      <th>Category<\/th>\n      <th>Generation (GWh)<\/th>\n      <th>Capacity (MW)<\/th>\n      <th>Load Factor (%)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"bPaginate":false,"dom":"Bfrtip","language":{"info":"Showing _TOTAL_ entries"},"buttons":["copy","csv","excel"],"pageLength":20,"scrollX":true,"columnDefs":[{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 1, 3, \",\", \".\", null);\n  }"},{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 1, 3, \",\", \".\", null);\n  }"},{"targets":5,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 1, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[0,3,4,5]},{"name":"Year","targets":0},{"name":"Source","targets":1},{"name":"Category","targets":2},{"name":"Generation (GWh)","targets":3},{"name":"Capacity (MW)","targets":4},{"name":"Load Factor (%)","targets":5}],"order":[],"autoWidth":false,"orderClasses":false,"orderCellsTop":true,"lengthMenu":[10,20,25,50,100]}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render"],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div id="3ade8a4a-fb1d-4a6c-8409-ac45482d5fc9" class="hidden html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /container fluid -->
+
+<script type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (_event) {
+  if (window.bslib.Card) {
+    window.bslib.Card.initializeAllCards();
+  }
+}); 
+</script>
+  
+
+
+
+</body></html>

@@ -1,0 +1,224 @@
+year,source,category,generation_gwh
+2009,Onshore Wind,Wind,7527
+2010,Onshore Wind,Wind,7225.969999999999
+2011,Onshore Wind,Wind,10813.95
+2012,Onshore Wind,Wind,12243.949999999999
+2013,Onshore Wind,Wind,16925.38
+2014,Onshore Wind,Wind,18554.649999999998
+2015,Onshore Wind,Wind,22851.989999999998
+2016,Onshore Wind,Wind,20753.68
+2017,Onshore Wind,Wind,28725.23
+2018,Onshore Wind,Wind,30382.410000000003
+2019,Onshore Wind,Wind,31859.739999999998
+2020,Onshore Wind,Wind,34872.9
+2021,Onshore Wind,Wind,29326.62
+2022,Onshore Wind,Wind,35101.71000000001
+2023,Onshore Wind,Wind,32495.850000000002
+2024,Onshore Wind,Wind,34743.590000000004
+2009,Offshore Wind,Wind,1754
+2010,Offshore Wind,Wind,3059.67
+2011,Offshore Wind,Wind,5149.030000000001
+2012,Offshore Wind,Wind,7603.17
+2013,Offshore Wind,Wind,11471.779999999999
+2014,Offshore Wind,Wind,13404.59
+2015,Offshore Wind,Wind,17422.74
+2016,Offshore Wind,Wind,16405.74
+2017,Offshore Wind,Wind,20915.92
+2018,Offshore Wind,Wind,26525.199999999997
+2019,Offshore Wind,Wind,31975.15
+2020,Offshore Wind,Wind,40750.26
+2021,Offshore Wind,Wind,35597.29
+2022,Offshore Wind,Wind,45112.67
+2023,Offshore Wind,Wind,49649.98
+2024,Offshore Wind,Wind,48539.030000000006
+2009,Wave & Tidal,Marine,1
+2010,Wave & Tidal,Marine,1.89
+2011,Wave & Tidal,Marine,0.94
+2012,Wave & Tidal,Marine,4.21
+2013,Wave & Tidal,Marine,4.76
+2014,Wave & Tidal,Marine,2.2199999999999998
+2015,Wave & Tidal,Marine,2
+2016,Wave & Tidal,Marine,0.01
+2017,Wave & Tidal,Marine,4.19
+2018,Wave & Tidal,Marine,9.299999999999999
+2019,Wave & Tidal,Marine,13.99
+2020,Wave & Tidal,Marine,11.280000000000001
+2021,Wave & Tidal,Marine,5.4799999999999995
+2022,Wave & Tidal,Marine,11.219999999999999
+2023,Wave & Tidal,Marine,12.639999999999999
+2024,Wave & Tidal,Marine,13.01
+2009,Solar PV,Solar,20
+2010,Solar PV,Solar,40.28
+2011,Solar PV,Solar,243.66000000000003
+2012,Solar PV,Solar,1353.76
+2013,Solar PV,Solar,2010.2600000000002
+2014,Solar PV,Solar,4054.07
+2015,Solar PV,Solar,7532.860000000001
+2016,Solar PV,Solar,10395.13
+2017,Solar PV,Solar,11457.240000000002
+2018,Solar PV,Solar,12668.4
+2019,Solar PV,Solar,12418.050000000001
+2020,Solar PV,Solar,12546.97
+2021,Solar PV,Solar,12128.470000000001
+2022,Solar PV,Solar,13982.77
+2023,Solar PV,Solar,14638.9
+2024,Solar PV,Solar,14364.45
+2009,Hydro (Total),Hydro,5228
+2010,Hydro (Total),Hydro,3591.37
+2011,Hydro (Total),Hydro,5691.74
+2012,Hydro (Total),Hydro,5309.64
+2013,Hydro (Total),Hydro,4701.4800000000005
+2014,Hydro (Total),Hydro,5887.8
+2015,Hydro (Total),Hydro,6297.2699999999995
+2016,Hydro (Total),Hydro,5370.39
+2017,Hydro (Total),Hydro,5881.860000000001
+2018,Hydro (Total),Hydro,5443.28
+2019,Hydro (Total),Hydro,5932.889999999999
+2020,Hydro (Total),Hydro,6878.240000000001
+2021,Hydro (Total),Hydro,5418.369999999999
+2022,Hydro (Total),Hydro,5067.5599999999995
+2023,Hydro (Total),Hydro,5463.7
+2024,Hydro (Total),Hydro,5795.620000000001
+2009,Landfill Gas,Bioenergy,4918
+2010,Landfill Gas,Bioenergy,5216.86
+2011,Landfill Gas,Bioenergy,5318.02
+2012,Landfill Gas,Bioenergy,5208.5
+2013,Landfill Gas,Bioenergy,5174.65
+2014,Landfill Gas,Bioenergy,5033.210000000001
+2015,Landfill Gas,Bioenergy,4872.18
+2016,Landfill Gas,Bioenergy,4702.860000000001
+2017,Landfill Gas,Bioenergy,4283.8
+2018,Landfill Gas,Bioenergy,3915.79
+2019,Landfill Gas,Bioenergy,3624.3199999999997
+2020,Landfill Gas,Bioenergy,3496.0899999999997
+2021,Landfill Gas,Bioenergy,3312.88
+2022,Landfill Gas,Bioenergy,3108.51
+2023,Landfill Gas,Bioenergy,2994.47
+2024,Landfill Gas,Bioenergy,2899.3099999999995
+2009,Sewage Gas,Bioenergy,603
+2010,Sewage Gas,Bioenergy,723.4599999999999
+2011,Sewage Gas,Bioenergy,775
+2012,Sewage Gas,Bioenergy,738.54
+2013,Sewage Gas,Bioenergy,765.98
+2014,Sewage Gas,Bioenergy,840.1400000000001
+2015,Sewage Gas,Bioenergy,894.37
+2016,Sewage Gas,Bioenergy,950.3
+2017,Sewage Gas,Bioenergy,967.3399999999999
+2018,Sewage Gas,Bioenergy,992.03
+2019,Sewage Gas,Bioenergy,1048.62
+2020,Sewage Gas,Bioenergy,1066.78
+2021,Sewage Gas,Bioenergy,1046.71
+2022,Sewage Gas,Bioenergy,1000.5699999999999
+2023,Sewage Gas,Bioenergy,987.39
+2024,Sewage Gas,Bioenergy,987.9899999999998
+2009,Energy from Waste,Waste,1509
+2010,Energy from Waste,Waste,1528.76
+2011,Energy from Waste,Waste,1504.03
+2012,Energy from Waste,Waste,1772.9
+2013,Energy from Waste,Waste,1648.17
+2014,Energy from Waste,Waste,1899.87
+2015,Energy from Waste,Waste,2582.43
+2016,Energy from Waste,Waste,2739.75
+2017,Energy from Waste,Waste,3385.5999999999995
+2018,Energy from Waste,Waste,3490.44
+2019,Energy from Waste,Waste,3791.5699999999997
+2020,Energy from Waste,Waste,4358.22
+2021,Energy from Waste,Waste,4635.74
+2022,Energy from Waste,Waste,4894.32
+2023,Energy from Waste,Waste,5375.629999999999
+2024,Energy from Waste,Waste,5462.9400000000005
+2009,Co-firing,Bioenergy,1625
+2010,Co-firing,Bioenergy,2432.44
+2011,Co-firing,Bioenergy,3093.04
+2012,Co-firing,Bioenergy,1828.5
+2013,Co-firing,Bioenergy,337.26
+2014,Co-firing,Bioenergy,123.84
+2015,Co-firing,Bioenergy,183.31
+2016,Co-firing,Bioenergy,117.46
+2017,Co-firing,Bioenergy,53.879999999999995
+2018,Co-firing,Bioenergy,1.08
+2019,Co-firing,Bioenergy,1.68
+2020,Co-firing,Bioenergy,0
+2021,Co-firing,Bioenergy,0
+2022,Co-firing,Bioenergy,0
+2023,Co-firing,Bioenergy,0
+2024,Co-firing,Bioenergy,0
+2009,Animal Biomass,Bioenergy,637
+2010,Animal Biomass,Bioenergy,627.21
+2011,Animal Biomass,Bioenergy,614.6099999999999
+2012,Animal Biomass,Bioenergy,642.89
+2013,Animal Biomass,Bioenergy,628.24
+2014,Animal Biomass,Bioenergy,613.9
+2015,Animal Biomass,Bioenergy,647.8100000000001
+2016,Animal Biomass,Bioenergy,650.2
+2017,Animal Biomass,Bioenergy,649.1800000000001
+2018,Animal Biomass,Bioenergy,633.9399999999999
+2019,Animal Biomass,Bioenergy,660.8299999999999
+2020,Animal Biomass,Bioenergy,655.26
+2021,Animal Biomass,Bioenergy,647.86
+2022,Animal Biomass,Bioenergy,666.97
+2023,Animal Biomass,Bioenergy,618.42
+2024,Animal Biomass,Bioenergy,625.76
+2009,Anaerobic Digestion,Bioenergy,43
+2010,Anaerobic Digestion,Bioenergy,117.49000000000001
+2011,Anaerobic Digestion,Bioenergy,237.18
+2012,Anaerobic Digestion,Bioenergy,494.63
+2013,Anaerobic Digestion,Bioenergy,713.05
+2014,Anaerobic Digestion,Bioenergy,1022.56
+2015,Anaerobic Digestion,Bioenergy,1484.67
+2016,Anaerobic Digestion,Bioenergy,2157.79
+2017,Anaerobic Digestion,Bioenergy,2631.8900000000003
+2018,Anaerobic Digestion,Bioenergy,2797.56
+2019,Anaerobic Digestion,Bioenergy,2949
+2020,Anaerobic Digestion,Bioenergy,2959.3499999999995
+2021,Anaerobic Digestion,Bioenergy,3249.84
+2022,Anaerobic Digestion,Bioenergy,3370.5600000000004
+2023,Anaerobic Digestion,Bioenergy,3424.4700000000003
+2024,Anaerobic Digestion,Bioenergy,3545.99
+2009,Plant Biomass,Bioenergy,1379
+2010,Plant Biomass,Bioenergy,1614.8700000000001
+2011,Plant Biomass,Bioenergy,1771
+2012,Plant Biomass,Bioenergy,4047.8199999999997
+2013,Plant Biomass,Bioenergy,8832.76
+2014,Plant Biomass,Bioenergy,13085.48
+2015,Plant Biomass,Bioenergy,18592.199999999997
+2016,Plant Biomass,Bioenergy,18747.18
+2017,Plant Biomass,Bioenergy,19922.489999999998
+2018,Plant Biomass,Bioenergy,23135.98
+2019,Plant Biomass,Bioenergy,25305.659999999996
+2020,Plant Biomass,Bioenergy,25883.329999999998
+2021,Plant Biomass,Bioenergy,26959.250000000004
+2022,Plant Biomass,Bioenergy,22764.99
+2023,Plant Biomass,Bioenergy,20950.71
+2024,Plant Biomass,Bioenergy,26586.35
+2010,Liquid Biofuels,Bioenergy,0
+2011,Liquid Biofuels,Bioenergy,0
+2012,Liquid Biofuels,Bioenergy,0
+2013,Liquid Biofuels,Bioenergy,0
+2014,Liquid Biofuels,Bioenergy,0
+2015,Liquid Biofuels,Bioenergy,0
+2016,Liquid Biofuels,Bioenergy,0
+2017,Liquid Biofuels,Bioenergy,0
+2018,Liquid Biofuels,Bioenergy,134.92
+2019,Liquid Biofuels,Bioenergy,144.48
+2020,Liquid Biofuels,Bioenergy,146.2
+2021,Liquid Biofuels,Bioenergy,148.8
+2022,Liquid Biofuels,Bioenergy,145.96
+2023,Liquid Biofuels,Bioenergy,145.64
+2024,Liquid Biofuels,Bioenergy,143.68
+2009,Non-biodegradable Waste,Waste,868
+2010,Non-biodegradable Waste,Waste,986.92
+2011,Non-biodegradable Waste,Waste,1085.46
+2012,Non-biodegradable Waste,Waste,1429.06
+2013,Non-biodegradable Waste,Waste,1481.0900000000001
+2014,Non-biodegradable Waste,Waste,1923.3400000000001
+2015,Non-biodegradable Waste,Waste,2583.9
+2016,Non-biodegradable Waste,Waste,2741.23
+2017,Non-biodegradable Waste,Waste,3387.0800000000004
+2018,Non-biodegradable Waste,Waste,3491.92
+2019,Non-biodegradable Waste,Waste,3793.04
+2020,Non-biodegradable Waste,Waste,4359.700000000001
+2021,Non-biodegradable Waste,Waste,4637.200000000001
+2022,Non-biodegradable Waste,Waste,4895.8
+2023,Non-biodegradable Waste,Waste,5385.14
+2024,Non-biodegradable Waste,Waste,5480.37

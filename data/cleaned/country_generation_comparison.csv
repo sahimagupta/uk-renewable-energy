@@ -1,0 +1,601 @@
+year,country,source,category,generation_gwh
+2008,England,Solar PV,Solar,0
+2009,England,Solar PV,Solar,1
+2010,England,Solar PV,Solar,23
+2011,England,Solar PV,Solar,221.69
+2012,England,Solar PV,Solar,1194.58
+2013,England,Solar PV,Solar,1783.0300000000002
+2014,England,Solar PV,Solar,3630.3499999999995
+2015,England,Solar PV,Solar,6738.03
+2016,England,Solar PV,Solar,9231.85
+2017,England,Solar PV,Solar,10067.830000000002
+2018,England,Solar PV,Solar,11025.31
+2019,England,Solar PV,Solar,10788.449999999999
+2020,England,Solar PV,Solar,10909.149999999998
+2021,England,Solar PV,Solar,10443.76
+2022,England,Solar PV,Solar,12039.17
+2023,England,Solar PV,Solar,12532.66
+2024,England,Solar PV,Solar,12400.800000000001
+2008,England,Hydro,Hydro,80
+2009,England,Hydro,Hydro,75
+2010,England,Hydro,Hydro,61
+2011,England,Hydro,Hydro,73.2
+2012,England,Hydro,Hydro,90.28
+2013,England,Hydro,Hydro,81.9
+2014,England,Hydro,Hydro,99.52
+2015,England,Hydro,Hydro,102.57999999999998
+2016,England,Hydro,Hydro,92.06
+2017,England,Hydro,Hydro,125.12
+2018,England,Hydro,Hydro,126.88
+2019,England,Hydro,Hydro,141.31
+2020,England,Hydro,Hydro,155.99
+2021,England,Hydro,Hydro,133.28
+2022,England,Hydro,Hydro,108.62
+2023,England,Hydro,Hydro,138.84
+2024,England,Hydro,Hydro,148.94
+2008,England,Landfill gas,Other,4012
+2009,England,Landfill gas,Other,4146
+2010,England,Landfill gas,Other,4227
+2011,England,Landfill gas,Other,4513.4
+2012,England,Landfill gas,Other,4380.080000000001
+2013,England,Landfill gas,Other,4350.68
+2014,England,Landfill gas,Other,4245.14
+2015,England,Landfill gas,Other,4106.360000000001
+2016,England,Landfill gas,Other,3960.91
+2017,England,Landfill gas,Other,3590.5
+2018,England,Landfill gas,Other,3287.4700000000003
+2019,England,Landfill gas,Other,3030.1800000000003
+2020,England,Landfill gas,Other,2911.36
+2021,England,Landfill gas,Other,2765.02
+2022,England,Landfill gas,Other,2600.17
+2023,England,Landfill gas,Other,2495.4700000000003
+2024,England,Landfill gas,Other,2420.02
+2008,England,Sewage sludge digestion,Other,523
+2009,England,Sewage sludge digestion,Other,570
+2010,England,Sewage sludge digestion,Other,651
+2011,England,Sewage sludge digestion,Other,700.67
+2012,England,Sewage sludge digestion,Other,662.65
+2013,England,Sewage sludge digestion,Other,689.69
+2014,England,Sewage sludge digestion,Other,767.8299999999999
+2015,England,Sewage sludge digestion,Other,815.48
+2016,England,Sewage sludge digestion,Other,871.94
+2017,England,Sewage sludge digestion,Other,886.11
+2018,England,Sewage sludge digestion,Other,912.14
+2019,England,Sewage sludge digestion,Other,970.66
+2020,England,Sewage sludge digestion,Other,984.31
+2021,England,Sewage sludge digestion,Other,957.56
+2022,England,Sewage sludge digestion,Other,922.6899999999999
+2023,England,Sewage sludge digestion,Other,908.88
+2024,England,Sewage sludge digestion,Other,916.69
+2008,England,Bioenergy,Bioenergy,3609
+2009,England,Bioenergy,Bioenergy,4155
+2010,England,Bioenergy,Bioenergy,5213
+2011,England,Bioenergy,Bioenergy,6113.360000000001
+2012,England,Bioenergy,Bioenergy,7512.67
+2013,England,Bioenergy,Bioenergy,10930.44
+2014,England,Bioenergy,Bioenergy,15145.130000000001
+2015,England,Bioenergy,Bioenergy,21447.17
+2016,England,Bioenergy,Bioenergy,22136.79
+2017,England,Bioenergy,Bioenergy,23448.94
+2018,England,Bioenergy,Bioenergy,26943.489999999998
+2019,England,Bioenergy,Bioenergy,29162.019999999997
+2020,England,Bioenergy,Bioenergy,30031.050000000003
+2021,England,Bioenergy,Bioenergy,31449.47
+2022,England,Bioenergy,Bioenergy,27647.15
+2023,England,Bioenergy,Bioenergy,26320.76
+2024,England,Bioenergy,Bioenergy,32120.64
+2008,England,LOAD FACTORS (%),Other,2008
+2009,England,LOAD FACTORS (%),Other,2009
+2010,England,LOAD FACTORS (%),Other,2010
+2011,England,LOAD FACTORS (%),Other,2011
+2012,England,LOAD FACTORS (%),Other,2012
+2013,England,LOAD FACTORS (%),Other,2013
+2014,England,LOAD FACTORS (%),Other,2014
+2015,England,LOAD FACTORS (%),Other,2015
+2016,England,LOAD FACTORS (%),Other,2016
+2017,England,LOAD FACTORS (%),Other,2017
+2018,England,LOAD FACTORS (%),Other,2018
+2019,England,LOAD FACTORS (%),Other,2019
+2020,England,LOAD FACTORS (%),Other,2020
+2021,England,LOAD FACTORS (%),Other,2021
+2022,England,LOAD FACTORS (%),Other,2022
+2023,England,LOAD FACTORS (%),Other,2023
+2024,England,LOAD FACTORS (%),Other,2024
+2009,England,Onshore Wind,Wind,27.54
+2010,England,Onshore Wind,Wind,25.26
+2011,England,Onshore Wind,Wind,32.55
+2012,England,Onshore Wind,Wind,31.8
+2013,England,Onshore Wind,Wind,35.61
+2014,England,Onshore Wind,Wind,34.06
+2015,England,Onshore Wind,Wind,38.21
+2016,England,Onshore Wind,Wind,32.25
+2017,England,Onshore Wind,Wind,35.16
+2018,England,Onshore Wind,Wind,36.09
+2019,England,Onshore Wind,Wind,36.19
+2020,England,Onshore Wind,Wind,42.99
+2021,England,Onshore Wind,Wind,35.3
+2022,England,Onshore Wind,Wind,37.4
+2023,England,Onshore Wind,Wind,38.68
+2024,England,Onshore Wind,Wind,37.15
+2009,England,Hydro,Hydro,34.25
+2010,England,Hydro,Hydro,27.31
+2011,England,Hydro,Hydro,30.11
+2012,England,Hydro,Hydro,33.77
+2013,England,Hydro,Hydro,29.41
+2014,England,Hydro,Hydro,34.59
+2015,England,Hydro,Hydro,34.02
+2016,England,Hydro,Hydro,29.73
+2017,England,Hydro,Hydro,36.86
+2018,England,Hydro,Hydro,33.59
+2019,England,Hydro,Hydro,36.36
+2020,England,Hydro,Hydro,40.25
+2021,England,Hydro,Hydro,35.07
+2022,England,Hydro,Hydro,28.46
+2023,England,Hydro,Hydro,36.38
+2024,England,Hydro,Hydro,39.09
+2009,England,Landfill gas,Other,60.52
+2010,England,Landfill gas,Other,58.35
+2011,England,Landfill gas,Other,59.57
+2012,England,Landfill gas,Other,56.83
+2013,England,Landfill gas,Other,56.85
+2014,England,Landfill gas,Other,55.24
+2015,England,Landfill gas,Other,53.39
+2016,England,Landfill gas,Other,51.3
+2017,England,Landfill gas,Other,46.59
+2018,England,Landfill gas,Other,42.63
+2019,England,Landfill gas,Other,39.45
+2020,England,Landfill gas,Other,37.97
+2021,England,Landfill gas,Other,36.16
+2022,England,Landfill gas,Other,33.91
+2023,England,Landfill gas,Other,32.47
+2024,England,Landfill gas,Other,31.39
+2008,Scotland,Solar PV,Solar,0
+2009,Scotland,Solar PV,Solar,0
+2010,Scotland,Solar PV,Solar,1
+2011,Scotland,Solar PV,Solar,8.690000000000001
+2012,Scotland,Solar PV,Solar,69.95
+2013,Scotland,Solar PV,Solar,95.92
+2014,Scotland,Solar PV,Solar,143.16
+2015,Scotland,Solar PV,Solar,185.23000000000002
+2016,Scotland,Solar PV,Solar,246.52
+2017,Scotland,Solar PV,Solar,289.57
+2018,Scotland,Solar PV,Solar,331.78000000000003
+2019,Scotland,Solar PV,Solar,331.98
+2020,Scotland,Solar PV,Solar,333.83
+2021,Scotland,Solar PV,Solar,336.99
+2022,Scotland,Solar PV,Solar,459.33000000000004
+2023,Scotland,Solar PV,Solar,520.36
+2024,Scotland,Solar PV,Solar,521.2
+2008,Scotland,Hydro,Hydro,4704
+2009,Scotland,Hydro,Hydro,4859
+2010,Scotland,Hydro,Hydro,3258
+2011,Scotland,Hydro,Hydro,5329.639999999999
+2012,Scotland,Hydro,Hydro,4846.58
+2013,Scotland,Hydro,Hydro,4369.469999999999
+2014,Scotland,Hydro,Hydro,5483.6
+2015,Scotland,Hydro,Hydro,5814.03
+2016,Scotland,Hydro,Hydro,4915.78
+2017,Scotland,Hydro,Hydro,5356.200000000001
+2018,Scotland,Hydro,Hydro,4997.29
+2019,Scotland,Hydro,Hydro,5382.73
+2020,Scotland,Hydro,Hydro,6286.42
+2021,Scotland,Hydro,Hydro,4899.79
+2022,Scotland,Hydro,Hydro,4657.92
+2023,Scotland,Hydro,Hydro,4893.79
+2024,Scotland,Hydro,Hydro,5239.4800000000005
+2008,Scotland,Landfill gas,Other,494
+2009,Scotland,Landfill gas,Other,526
+2010,Scotland,Landfill gas,Other,529
+2011,Scotland,Landfill gas,Other,525.39
+2012,Scotland,Landfill gas,Other,552.84
+2013,Scotland,Landfill gas,Other,562.9000000000001
+2014,Scotland,Landfill gas,Other,533.03
+2015,Scotland,Landfill gas,Other,503.43
+2016,Scotland,Landfill gas,Other,492.81
+2017,Scotland,Landfill gas,Other,445.48
+2018,Scotland,Landfill gas,Other,422.04999999999995
+2019,Scotland,Landfill gas,Other,412.23999999999995
+2020,Scotland,Landfill gas,Other,406.78999999999996
+2021,Scotland,Landfill gas,Other,380.83000000000004
+2022,Scotland,Landfill gas,Other,343.4
+2023,Scotland,Landfill gas,Other,341.71999999999997
+2024,Scotland,Landfill gas,Other,329.31
+2008,Scotland,Sewage sludge digestion,Other,20
+2009,Scotland,Sewage sludge digestion,Other,26
+2010,Scotland,Sewage sludge digestion,Other,32
+2011,Scotland,Sewage sludge digestion,Other,35.620000000000005
+2012,Scotland,Sewage sludge digestion,Other,37.06
+2013,Scotland,Sewage sludge digestion,Other,30.64
+2014,Scotland,Sewage sludge digestion,Other,27.66
+2015,Scotland,Sewage sludge digestion,Other,26.18
+2016,Scotland,Sewage sludge digestion,Other,31.989999999999995
+2017,Scotland,Sewage sludge digestion,Other,35.96
+2018,Scotland,Sewage sludge digestion,Other,35.09
+2019,Scotland,Sewage sludge digestion,Other,28.64
+2020,Scotland,Sewage sludge digestion,Other,34.14
+2021,Scotland,Sewage sludge digestion,Other,41.27
+2022,Scotland,Sewage sludge digestion,Other,36.82
+2023,Scotland,Sewage sludge digestion,Other,38.78
+2024,Scotland,Sewage sludge digestion,Other,36.82
+2008,Scotland,Bioenergy,Bioenergy,478
+2009,Scotland,Bioenergy,Bioenergy,616
+2010,Scotland,Bioenergy,Bioenergy,727
+2011,Scotland,Bioenergy,Bioenergy,712.84
+2012,Scotland,Bioenergy,Bioenergy,868.35
+2013,Scotland,Bioenergy,Bioenergy,778.1299999999999
+2014,Scotland,Bioenergy,Bioenergy,1155.4299999999998
+2015,Scotland,Bioenergy,Bioenergy,1333.96
+2016,Scotland,Bioenergy,Bioenergy,1372.78
+2017,Scotland,Bioenergy,Bioenergy,1968.85
+2018,Scotland,Bioenergy,Bioenergy,1690.37
+2019,Scotland,Bioenergy,Bioenergy,2024.1999999999998
+2020,Scotland,Bioenergy,Bioenergy,1986.79
+2021,Scotland,Bioenergy,Bioenergy,2066.12
+2022,Scotland,Bioenergy,Bioenergy,2188.17
+2023,Scotland,Bioenergy,Bioenergy,2233.89
+2024,Scotland,Bioenergy,Bioenergy,2264.35
+2008,Scotland,LOAD FACTORS (%),Other,2008
+2009,Scotland,LOAD FACTORS (%),Other,2009
+2010,Scotland,LOAD FACTORS (%),Other,2010
+2011,Scotland,LOAD FACTORS (%),Other,2011
+2012,Scotland,LOAD FACTORS (%),Other,2012
+2013,Scotland,LOAD FACTORS (%),Other,2013
+2014,Scotland,LOAD FACTORS (%),Other,2014
+2015,Scotland,LOAD FACTORS (%),Other,2015
+2016,Scotland,LOAD FACTORS (%),Other,2016
+2017,Scotland,LOAD FACTORS (%),Other,2017
+2018,Scotland,LOAD FACTORS (%),Other,2018
+2019,Scotland,LOAD FACTORS (%),Other,2019
+2020,Scotland,LOAD FACTORS (%),Other,2020
+2021,Scotland,LOAD FACTORS (%),Other,2021
+2022,Scotland,LOAD FACTORS (%),Other,2022
+2023,Scotland,LOAD FACTORS (%),Other,2023
+2024,Scotland,LOAD FACTORS (%),Other,2024
+2009,Scotland,Onshore Wind,Wind,26.9
+2010,Scotland,Onshore Wind,Wind,23.19
+2011,Scotland,Onshore Wind,Wind,28.74
+2012,Scotland,Onshore Wind,Wind,26.81
+2013,Scotland,Onshore Wind,Wind,29.15
+2014,Scotland,Onshore Wind,Wind,26.56
+2015,Scotland,Onshore Wind,Wind,29.17
+2016,Scotland,Onshore Wind,Wind,23.43
+2017,Scotland,Onshore Wind,Wind,27.94
+2018,Scotland,Onshore Wind,Wind,27.18
+2019,Scotland,Onshore Wind,Wind,28.43
+2020,Scotland,Onshore Wind,Wind,27.77
+2021,Scotland,Onshore Wind,Wind,22.78
+2022,Scotland,Onshore Wind,Wind,30.54
+2023,Scotland,Onshore Wind,Wind,25.04
+2024,Scotland,Onshore Wind,Wind,24.95
+2009,Scotland,Hydro,Hydro,38.36
+2010,Scotland,Hydro,Hydro,25.61
+2011,Scotland,Hydro,Hydro,41.4
+2012,Scotland,Hydro,Hydro,37.01
+2013,Scotland,Hydro,Hydro,33.18
+2014,Scotland,Hydro,Hydro,41.22
+2015,Scotland,Hydro,Hydro,42.83
+2016,Scotland,Hydro,Hydro,35
+2017,Scotland,Hydro,Hydro,37.33
+2018,Scotland,Hydro,Hydro,34.56
+2019,Scotland,Hydro,Hydro,37.16
+2020,Scotland,Hydro,Hydro,43.15
+2021,Scotland,Hydro,Hydro,33.59
+2022,Scotland,Hydro,Hydro,31.89
+2023,Scotland,Hydro,Hydro,33.81
+2024,Scotland,Hydro,Hydro,36.01
+2009,Scotland,Landfill gas,Other,60.35
+2010,Scotland,Landfill gas,Other,56.7
+2011,Scotland,Landfill gas,Other,54.57
+2012,Scotland,Landfill gas,Other,55.29
+2013,Scotland,Landfill gas,Other,55.83
+2014,Scotland,Landfill gas,Other,52.53
+2015,Scotland,Landfill gas,Other,49.4
+2016,Scotland,Landfill gas,Other,48.23
+2017,Scotland,Landfill gas,Other,43.81
+2018,Scotland,Landfill gas,Other,41.59
+2019,Scotland,Landfill gas,Other,40.62
+2020,Scotland,Landfill gas,Other,39.97
+2021,Scotland,Landfill gas,Other,37.52
+2022,Scotland,Landfill gas,Other,33.83
+2023,Scotland,Landfill gas,Other,33.67
+2024,Scotland,Landfill gas,Other,32.36
+2008,Wales,Solar PV,Solar,0
+2009,Wales,Solar PV,Solar,0
+2010,Wales,Solar PV,Solar,1
+2011,Wales,Solar PV,Solar,12.14
+2012,Wales,Solar PV,Solar,86.92
+2013,Wales,Solar PV,Solar,118.69
+2014,Wales,Solar PV,Solar,234.91000000000003
+2015,Wales,Solar PV,Solar,531.45
+2016,Wales,Solar PV,Solar,805.74
+2017,Wales,Solar PV,Solar,914.39
+2018,Wales,Solar PV,Solar,1038.97
+2019,Wales,Solar PV,Solar,1017.5799999999999
+2020,Wales,Solar PV,Solar,1014.62
+2021,Wales,Solar PV,Solar,1057.7
+2022,Wales,Solar PV,Solar,1180.53
+2023,Wales,Solar PV,Solar,1295.42
+2024,Wales,Solar PV,Solar,1192.86
+2008,Wales,Hydro,Hydro,334
+2009,Wales,Hydro,Hydro,266
+2010,Wales,Hydro,Hydro,213
+2011,Wales,Hydro,Hydro,269.77
+2012,Wales,Hydro,Hydro,347.85
+2013,Wales,Hydro,Hydro,228.51
+2014,Wales,Hydro,Hydro,277.49
+2015,Wales,Hydro,Hydro,351.64
+2016,Wales,Hydro,Hydro,338.96
+2017,Wales,Hydro,Hydro,370.94
+2018,Wales,Hydro,Hydro,288.90999999999997
+2019,Wales,Hydro,Hydro,373.35
+2020,Wales,Hydro,Hydro,397.69
+2021,Wales,Hydro,Hydro,353.03999999999996
+2022,Wales,Hydro,Hydro,273.97
+2023,Wales,Hydro,Hydro,391.15999999999997
+2024,Wales,Hydro,Hydro,371.56
+2008,Wales,Landfill gas,Other,221
+2009,Wales,Landfill gas,Other,234
+2010,Wales,Landfill gas,Other,223
+2011,Wales,Landfill gas,Other,220.01000000000002
+2012,Wales,Landfill gas,Other,214.97
+2013,Wales,Landfill gas,Other,200.39
+2014,Wales,Landfill gas,Other,193.43
+2015,Wales,Landfill gas,Other,179.21
+2016,Wales,Landfill gas,Other,155.45999999999998
+2017,Wales,Landfill gas,Other,141.61
+2018,Wales,Landfill gas,Other,126.32
+2019,Wales,Landfill gas,Other,112.58000000000001
+2020,Wales,Landfill gas,Other,116.83
+2021,Wales,Landfill gas,Other,109.50999999999999
+2022,Wales,Landfill gas,Other,104.04
+2023,Wales,Landfill gas,Other,97.75999999999999
+2024,Wales,Landfill gas,Other,92.39999999999999
+2008,Wales,Sewage sludge digestion,Other,5
+2009,Wales,Sewage sludge digestion,Other,7
+2010,Wales,Sewage sludge digestion,Other,13
+2011,Wales,Sewage sludge digestion,Other,38.08
+2012,Wales,Sewage sludge digestion,Other,38.28
+2013,Wales,Sewage sludge digestion,Other,44.99
+2014,Wales,Sewage sludge digestion,Other,43.96000000000001
+2015,Wales,Sewage sludge digestion,Other,52.07
+2016,Wales,Sewage sludge digestion,Other,45.79
+2017,Wales,Sewage sludge digestion,Other,44.64
+2018,Wales,Sewage sludge digestion,Other,44.17
+2019,Wales,Sewage sludge digestion,Other,48.650000000000006
+2020,Wales,Sewage sludge digestion,Other,47.669999999999995
+2021,Wales,Sewage sludge digestion,Other,47.230000000000004
+2022,Wales,Sewage sludge digestion,Other,40.49
+2023,Wales,Sewage sludge digestion,Other,39.129999999999995
+2024,Wales,Sewage sludge digestion,Other,33.910000000000004
+2008,Wales,Bioenergy,Bioenergy,162
+2009,Wales,Bioenergy,Bioenergy,349
+2010,Wales,Bioenergy,Bioenergy,296
+2011,Wales,Bioenergy,Bioenergy,371.43
+2012,Wales,Bioenergy,Bioenergy,355.66
+2013,Wales,Bioenergy,Bioenergy,377.62
+2014,Wales,Bioenergy,Bioenergy,339.23
+2015,Wales,Bioenergy,Bioenergy,523.46
+2016,Wales,Bioenergy,Bioenergy,527.5799999999999
+2017,Wales,Bioenergy,Bioenergy,751.79
+2018,Wales,Bioenergy,Bioenergy,967.7299999999999
+2019,Wales,Bioenergy,Bioenergy,972.46
+2020,Wales,Bioenergy,Bioenergy,1233.3799999999999
+2021,Wales,Bioenergy,Bioenergy,1290.02
+2022,Wales,Bioenergy,Bioenergy,1183.2900000000002
+2023,Wales,Bioenergy,Bioenergy,1153.2
+2024,Wales,Bioenergy,Bioenergy,1175.5700000000002
+2008,Wales,LOAD FACTORS (%),Other,2008
+2009,Wales,LOAD FACTORS (%),Other,2009
+2010,Wales,LOAD FACTORS (%),Other,2010
+2011,Wales,LOAD FACTORS (%),Other,2011
+2012,Wales,LOAD FACTORS (%),Other,2012
+2013,Wales,LOAD FACTORS (%),Other,2013
+2014,Wales,LOAD FACTORS (%),Other,2014
+2015,Wales,LOAD FACTORS (%),Other,2015
+2016,Wales,LOAD FACTORS (%),Other,2016
+2017,Wales,LOAD FACTORS (%),Other,2017
+2018,Wales,LOAD FACTORS (%),Other,2018
+2019,Wales,LOAD FACTORS (%),Other,2019
+2020,Wales,LOAD FACTORS (%),Other,2020
+2021,Wales,LOAD FACTORS (%),Other,2021
+2022,Wales,LOAD FACTORS (%),Other,2022
+2023,Wales,LOAD FACTORS (%),Other,2023
+2024,Wales,LOAD FACTORS (%),Other,2024
+2009,Wales,Onshore Wind,Wind,22.76
+2010,Wales,Onshore Wind,Wind,21.02
+2011,Wales,Onshore Wind,Wind,29.81
+2012,Wales,Onshore Wind,Wind,26.94
+2013,Wales,Onshore Wind,Wind,26.96
+2014,Wales,Onshore Wind,Wind,26.75
+2015,Wales,Onshore Wind,Wind,31.81
+2016,Wales,Onshore Wind,Wind,26.69
+2017,Wales,Onshore Wind,Wind,33.57
+2018,Wales,Onshore Wind,Wind,30.47
+2019,Wales,Onshore Wind,Wind,30.21
+2020,Wales,Onshore Wind,Wind,34.19
+2021,Wales,Onshore Wind,Wind,27.42
+2022,Wales,Onshore Wind,Wind,29.45
+2023,Wales,Onshore Wind,Wind,30.45
+2024,Wales,Onshore Wind,Wind,27.03
+2009,Wales,Hydro,Hydro,20.52
+2010,Wales,Hydro,Hydro,16.32
+2011,Wales,Hydro,Hydro,20.22
+2012,Wales,Hydro,Hydro,25.41
+2013,Wales,Hydro,Hydro,16.6
+2014,Wales,Hydro,Hydro,19.95
+2015,Wales,Hydro,Hydro,25.05
+2016,Wales,Hydro,Hydro,23.96
+2017,Wales,Hydro,Hydro,25.73
+2018,Wales,Hydro,Hydro,19.53
+2019,Wales,Hydro,Hydro,25.12
+2020,Wales,Hydro,Hydro,26.81
+2021,Wales,Hydro,Hydro,24
+2022,Wales,Hydro,Hydro,18.6
+2023,Wales,Hydro,Hydro,26.56
+2024,Wales,Hydro,Hydro,25.19
+2009,Wales,Landfill gas,Other,60.03
+2010,Wales,Landfill gas,Other,55.95
+2011,Wales,Landfill gas,Other,55.1
+2012,Wales,Landfill gas,Other,54.18
+2013,Wales,Landfill gas,Other,50.46
+2014,Wales,Landfill gas,Other,47.62
+2015,Wales,Landfill gas,Other,43.31
+2016,Wales,Landfill gas,Other,37.44
+2017,Wales,Landfill gas,Other,34.38
+2018,Wales,Landfill gas,Other,30.84
+2019,Wales,Landfill gas,Other,27.48
+2020,Wales,Landfill gas,Other,28.44
+2021,Wales,Landfill gas,Other,26.73
+2022,Wales,Landfill gas,Other,25.4
+2023,Wales,Landfill gas,Other,23.87
+2024,Wales,Landfill gas,Other,22.5
+2008,Northern Ireland,Solar PV,Solar,0
+2009,Northern Ireland,Solar PV,Solar,0
+2010,Northern Ireland,Solar PV,Solar,0
+2011,Northern Ireland,Solar PV,Solar,1.13
+2012,Northern Ireland,Solar PV,Solar,2.48
+2013,Northern Ireland,Solar PV,Solar,12.620000000000001
+2014,Northern Ireland,Solar PV,Solar,45.690000000000005
+2015,Northern Ireland,Solar PV,Solar,78.18
+2016,Northern Ireland,Solar PV,Solar,111.02
+2017,Northern Ireland,Solar PV,Solar,185.45
+2018,Northern Ireland,Solar PV,Solar,272.34
+2019,Northern Ireland,Solar PV,Solar,280.03999999999996
+2020,Northern Ireland,Solar PV,Solar,289.37
+2021,Northern Ireland,Solar PV,Solar,290.02000000000004
+2022,Northern Ireland,Solar PV,Solar,303.74
+2023,Northern Ireland,Solar PV,Solar,290.46
+2024,Northern Ireland,Solar PV,Solar,249.59
+2008,Northern Ireland,Hydro,Hydro,26
+2009,Northern Ireland,Hydro,Hydro,31
+2010,Northern Ireland,Hydro,Hydro,36
+2011,Northern Ireland,Hydro,Hydro,19.1
+2012,Northern Ireland,Hydro,Hydro,24.919999999999998
+2013,Northern Ireland,Hydro,Hydro,21.6
+2014,Northern Ireland,Hydro,Hydro,27.189999999999998
+2015,Northern Ireland,Hydro,Hydro,29.03
+2016,Northern Ireland,Hydro,Hydro,23.590000000000003
+2017,Northern Ireland,Hydro,Hydro,29.6
+2018,Northern Ireland,Hydro,Hydro,30.2
+2019,Northern Ireland,Hydro,Hydro,35.5
+2020,Northern Ireland,Hydro,Hydro,38.14
+2021,Northern Ireland,Hydro,Hydro,32.26
+2022,Northern Ireland,Hydro,Hydro,27.049999999999997
+2023,Northern Ireland,Hydro,Hydro,39.91
+2024,Northern Ireland,Hydro,Hydro,35.64
+2008,Northern Ireland,Landfill gas,Other,1
+2009,Northern Ireland,Landfill gas,Other,22
+2010,Northern Ireland,Landfill gas,Other,58
+2011,Northern Ireland,Landfill gas,Other,59.24
+2012,Northern Ireland,Landfill gas,Other,60.6
+2013,Northern Ireland,Landfill gas,Other,60.67
+2014,Northern Ireland,Landfill gas,Other,61.61
+2015,Northern Ireland,Landfill gas,Other,83.16
+2016,Northern Ireland,Landfill gas,Other,93.68
+2017,Northern Ireland,Landfill gas,Other,106.21
+2018,Northern Ireland,Landfill gas,Other,79.95
+2019,Northern Ireland,Landfill gas,Other,69.32
+2020,Northern Ireland,Landfill gas,Other,61.11
+2021,Northern Ireland,Landfill gas,Other,57.52
+2022,Northern Ireland,Landfill gas,Other,60.9
+2023,Northern Ireland,Landfill gas,Other,59.519999999999996
+2024,Northern Ireland,Landfill gas,Other,57.58
+2008,Northern Ireland,Sewage sludge digestion,Other,1
+2009,Northern Ireland,Sewage sludge digestion,Other,1
+2010,Northern Ireland,Sewage sludge digestion,Other,1
+2011,Northern Ireland,Sewage sludge digestion,Other,0.63
+2012,Northern Ireland,Sewage sludge digestion,Other,0.53
+2013,Northern Ireland,Sewage sludge digestion,Other,0.67
+2014,Northern Ireland,Sewage sludge digestion,Other,0.6900000000000001
+2015,Northern Ireland,Sewage sludge digestion,Other,0.65
+2016,Northern Ireland,Sewage sludge digestion,Other,0.5800000000000001
+2017,Northern Ireland,Sewage sludge digestion,Other,0.63
+2018,Northern Ireland,Sewage sludge digestion,Other,0.63
+2019,Northern Ireland,Sewage sludge digestion,Other,0.67
+2020,Northern Ireland,Sewage sludge digestion,Other,0.66
+2021,Northern Ireland,Sewage sludge digestion,Other,0.65
+2022,Northern Ireland,Sewage sludge digestion,Other,0.5700000000000001
+2023,Northern Ireland,Sewage sludge digestion,Other,0.6000000000000001
+2024,Northern Ireland,Sewage sludge digestion,Other,0.5700000000000001
+2008,Northern Ireland,Bioenergy,Bioenergy,13
+2009,Northern Ireland,Bioenergy,Bioenergy,19
+2010,Northern Ireland,Bioenergy,Bioenergy,28
+2011,Northern Ireland,Bioenergy,Bioenergy,22.43
+2012,Northern Ireland,Bioenergy,Bioenergy,50.08
+2013,Northern Ireland,Bioenergy,Bioenergy,73.32000000000001
+2014,Northern Ireland,Bioenergy,Bioenergy,105.88
+2015,Northern Ireland,Bioenergy,Bioenergy,185.81
+2016,Northern Ireland,Bioenergy,Bioenergy,375.21
+2017,Northern Ireland,Bioenergy,Bioenergy,473.48
+2018,Northern Ireland,Bioenergy,Bioenergy,592.3399999999999
+2019,Northern Ireland,Bioenergy,Bioenergy,694.5300000000001
+2020,Northern Ireland,Bioenergy,Bioenergy,751.15
+2021,Northern Ireland,Bioenergy,Bioenergy,835.88
+2022,Northern Ireland,Bioenergy,Bioenergy,824.19
+2023,Northern Ireland,Bioenergy,Bioenergy,807.01
+2024,Northern Ireland,Bioenergy,Bioenergy,804.1600000000001
+2008,Northern Ireland,LOAD FACTORS (%),Other,2008
+2009,Northern Ireland,LOAD FACTORS (%),Other,2009
+2010,Northern Ireland,LOAD FACTORS (%),Other,2010
+2011,Northern Ireland,LOAD FACTORS (%),Other,2011
+2012,Northern Ireland,LOAD FACTORS (%),Other,2012
+2013,Northern Ireland,LOAD FACTORS (%),Other,2013
+2014,Northern Ireland,LOAD FACTORS (%),Other,2014
+2015,Northern Ireland,LOAD FACTORS (%),Other,2015
+2016,Northern Ireland,LOAD FACTORS (%),Other,2016
+2017,Northern Ireland,LOAD FACTORS (%),Other,2017
+2018,Northern Ireland,LOAD FACTORS (%),Other,2018
+2019,Northern Ireland,LOAD FACTORS (%),Other,2019
+2020,Northern Ireland,LOAD FACTORS (%),Other,2020
+2021,Northern Ireland,LOAD FACTORS (%),Other,2021
+2022,Northern Ireland,LOAD FACTORS (%),Other,2022
+2023,Northern Ireland,LOAD FACTORS (%),Other,2023
+2024,Northern Ireland,LOAD FACTORS (%),Other,2024
+2009,Northern Ireland,Onshore Wind,Wind,33.11
+2010,Northern Ireland,Onshore Wind,Wind,23.53
+2011,Northern Ireland,Onshore Wind,Wind,31.37
+2012,Northern Ireland,Onshore Wind,Wind,27.29
+2013,Northern Ireland,Onshore Wind,Wind,29.49
+2014,Northern Ireland,Onshore Wind,Wind,26.05
+2015,Northern Ireland,Onshore Wind,Wind,29.73
+2016,Northern Ireland,Onshore Wind,Wind,24.4
+2017,Northern Ireland,Onshore Wind,Wind,27.65
+2018,Northern Ireland,Onshore Wind,Wind,26.55
+2019,Northern Ireland,Onshore Wind,Wind,25.47
+2020,Northern Ireland,Onshore Wind,Wind,28.02
+2021,Northern Ireland,Onshore Wind,Wind,27.43
+2022,Northern Ireland,Onshore Wind,Wind,26.91
+2023,Northern Ireland,Onshore Wind,Wind,23.17
+2024,Northern Ireland,Onshore Wind,Wind,21.2
+2009,Northern Ireland,Hydro,Hydro,35.39
+2010,Northern Ireland,Hydro,Hydro,45.66
+2011,Northern Ireland,Hydro,Hydro,26.98
+2012,Northern Ireland,Hydro,Hydro,34.2
+2013,Northern Ireland,Hydro,Hydro,28.87
+2014,Northern Ireland,Hydro,Hydro,35.68
+2015,Northern Ireland,Hydro,Hydro,37.11
+2016,Northern Ireland,Hydro,Hydro,28.72
+2017,Northern Ireland,Hydro,Hydro,33.74
+2018,Northern Ireland,Hydro,Hydro,32.17
+2019,Northern Ireland,Hydro,Hydro,36.84
+2020,Northern Ireland,Hydro,Hydro,39.44
+2021,Northern Ireland,Hydro,Hydro,33.19
+2022,Northern Ireland,Hydro,Hydro,27.62
+2023,Northern Ireland,Hydro,Hydro,40.75
+2024,Northern Ireland,Hydro,Hydro,36.29
+2009,Northern Ireland,Landfill gas,Other,55.81
+2010,Northern Ireland,Landfill gas,Other,73.57
+2011,Northern Ireland,Landfill gas,Other,65.18
+2012,Northern Ireland,Landfill gas,Other,60.57
+2013,Northern Ireland,Landfill gas,Other,56.35
+2014,Northern Ireland,Landfill gas,Other,48.16
+2015,Northern Ireland,Landfill gas,Other,53.33
+2016,Northern Ireland,Landfill gas,Other,56.31
+2017,Northern Ireland,Landfill gas,Other,57.37
+2018,Northern Ireland,Landfill gas,Other,42.07
+2019,Northern Ireland,Landfill gas,Other,40.01
+2020,Northern Ireland,Landfill gas,Other,35.68
+2021,Northern Ireland,Landfill gas,Other,33.67
+2022,Northern Ireland,Landfill gas,Other,35.65
+2023,Northern Ireland,Landfill gas,Other,34.84
+2024,Northern Ireland,Landfill gas,Other,33.62
