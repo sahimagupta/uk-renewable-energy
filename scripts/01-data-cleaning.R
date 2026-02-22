@@ -149,12 +149,15 @@ extract_country_data <- function(file, sheet_name, country_name, years_offset = 
   yr <- yr[!is.na(yr)]
   yr <- as.integer(as.numeric(yr))
   
-  # Country sheets have slightly different structure
-  # Capacity: rows 8-18, Generation: rows 20-30
-  cap <- extract_section(raw, 8, 18, yr, "Installed Capacity (MW)")
-  gen <- extract_section(raw, 20, 30, yr, "Electricity Generated (GWh)")
+  # Country sheets (0-indexed in Python, +1 for R):
+  # Capacity: rows 8-15 (Wind to TOTAL)
+  # Generation: rows 18-25 (Wind to TOTAL)
+  cap <- extract_section(raw, 8, 15, yr, "Installed Capacity (MW)")
+  gen <- extract_section(raw, 18, 25, yr, "Electricity Generated (GWh)")
   
   bind_rows(cap, gen) %>%
+    # Remove any leaked headers like "LOAD FACTORS" or "ELECTRICITY GENERATED"
+    filter(!str_detect(source, "(?i)load factor|electricity generated|cumulative|installed capacity")) %>%
     mutate(
       country = country_name,
       source_clean = case_when(
@@ -215,9 +218,9 @@ uk_loadfactors <- uk_data %>%
 
 cat("UK load factors:", nrow(uk_loadfactors), "rows\n")
 
-# --- Country comparison (generation totals by source) ---
+# --- Country comparison (generation by source, including TOTAL) ---
 country_comparison <- country_data %>%
-  filter(source_clean != "TOTAL", metric == "Electricity Generated (GWh)") %>%
+  filter(metric == "Electricity Generated (GWh)") %>%
   select(year, country, source = source_clean, category = energy_category, generation_gwh = value)
 
 cat("Country comparison:", nrow(country_comparison), "rows\n")

@@ -1,4 +1,38 @@
 year,country,source,category,generation_gwh
+2008,England,Onshore Wind,Wind,2205
+2009,England,Onshore Wind,Wind,3062
+2010,England,Onshore Wind,Wind,3660
+2011,England,Onshore Wind,Wind,6246.870000000001
+2012,England,Onshore Wind,Wind,9066.94
+2013,England,Onshore Wind,Wind,14231.77
+2014,England,Onshore Wind,Wind,16510.02
+2015,England,Onshore Wind,Wind,20975.59
+2016,England,Onshore Wind,Wind,19580.589999999997
+2017,England,Onshore Wind,Wind,25084.05
+2018,England,Onshore Wind,Wind,30056.23
+2019,England,Onshore Wind,Wind,33720.58
+2020,England,Onshore Wind,Wind,43780.009999999995
+2021,England,Onshore Wind,Wind,37911.62
+2022,England,Onshore Wind,Wind,43894.28
+2023,England,Onshore Wind,Wind,47875.07000000001
+2024,England,Onshore Wind,Wind,46258.56
+2008,England,Marine,Marine,0
+2009,England,Marine,Marine,0
+2010,England,Marine,Marine,0
+2011,England,Marine,Marine,0.02
+2012,England,Marine,Marine,0.13
+2013,England,Marine,Marine,0.18000000000000002
+2014,England,Marine,Marine,0.04
+2015,England,Marine,Marine,0
+2016,England,Marine,Marine,0
+2017,England,Marine,Marine,0
+2018,England,Marine,Marine,0
+2019,England,Marine,Marine,0
+2020,England,Marine,Marine,0
+2021,England,Marine,Marine,0
+2022,England,Marine,Marine,0
+2023,England,Marine,Marine,0
+2024,England,Marine,Marine,0
 2008,England,Solar PV,Solar,0
 2009,England,Solar PV,Solar,1
 2010,England,Solar PV,Solar,23
@@ -84,71 +118,57 @@ year,country,source,category,generation_gwh
 2022,England,Bioenergy,Bioenergy,27647.15
 2023,England,Bioenergy,Bioenergy,26320.76
 2024,England,Bioenergy,Bioenergy,32120.64
-2008,England,LOAD FACTORS (%),Other,2008
-2009,England,LOAD FACTORS (%),Other,2009
-2010,England,LOAD FACTORS (%),Other,2010
-2011,England,LOAD FACTORS (%),Other,2011
-2012,England,LOAD FACTORS (%),Other,2012
-2013,England,LOAD FACTORS (%),Other,2013
-2014,England,LOAD FACTORS (%),Other,2014
-2015,England,LOAD FACTORS (%),Other,2015
-2016,England,LOAD FACTORS (%),Other,2016
-2017,England,LOAD FACTORS (%),Other,2017
-2018,England,LOAD FACTORS (%),Other,2018
-2019,England,LOAD FACTORS (%),Other,2019
-2020,England,LOAD FACTORS (%),Other,2020
-2021,England,LOAD FACTORS (%),Other,2021
-2022,England,LOAD FACTORS (%),Other,2022
-2023,England,LOAD FACTORS (%),Other,2023
-2024,England,LOAD FACTORS (%),Other,2024
-2009,England,Onshore Wind,Wind,27.54
-2010,England,Onshore Wind,Wind,25.26
-2011,England,Onshore Wind,Wind,32.55
-2012,England,Onshore Wind,Wind,31.8
-2013,England,Onshore Wind,Wind,35.61
-2014,England,Onshore Wind,Wind,34.06
-2015,England,Onshore Wind,Wind,38.21
-2016,England,Onshore Wind,Wind,32.25
-2017,England,Onshore Wind,Wind,35.16
-2018,England,Onshore Wind,Wind,36.09
-2019,England,Onshore Wind,Wind,36.19
-2020,England,Onshore Wind,Wind,42.99
-2021,England,Onshore Wind,Wind,35.3
-2022,England,Onshore Wind,Wind,37.4
-2023,England,Onshore Wind,Wind,38.68
-2024,England,Onshore Wind,Wind,37.15
-2009,England,Hydro,Hydro,34.25
-2010,England,Hydro,Hydro,27.31
-2011,England,Hydro,Hydro,30.11
-2012,England,Hydro,Hydro,33.77
-2013,England,Hydro,Hydro,29.41
-2014,England,Hydro,Hydro,34.59
-2015,England,Hydro,Hydro,34.02
-2016,England,Hydro,Hydro,29.73
-2017,England,Hydro,Hydro,36.86
-2018,England,Hydro,Hydro,33.59
-2019,England,Hydro,Hydro,36.36
-2020,England,Hydro,Hydro,40.25
-2021,England,Hydro,Hydro,35.07
-2022,England,Hydro,Hydro,28.46
-2023,England,Hydro,Hydro,36.38
-2024,England,Hydro,Hydro,39.09
-2009,England,Landfill gas,Other,60.52
-2010,England,Landfill gas,Other,58.35
-2011,England,Landfill gas,Other,59.57
-2012,England,Landfill gas,Other,56.83
-2013,England,Landfill gas,Other,56.85
-2014,England,Landfill gas,Other,55.24
-2015,England,Landfill gas,Other,53.39
-2016,England,Landfill gas,Other,51.3
-2017,England,Landfill gas,Other,46.59
-2018,England,Landfill gas,Other,42.63
-2019,England,Landfill gas,Other,39.45
-2020,England,Landfill gas,Other,37.97
-2021,England,Landfill gas,Other,36.16
-2022,England,Landfill gas,Other,33.91
-2023,England,Landfill gas,Other,32.47
-2024,England,Landfill gas,Other,31.39
+2008,England,TOTAL,Total,10429
+2009,England,TOTAL,Total,12009
+2010,England,TOTAL,Total,13835
+2011,England,TOTAL,Total,17869.21
+2012,England,TOTAL,Total,22907.33
+2013,England,TOTAL,Total,32067.690000000002
+2014,England,TOTAL,Total,40398.03
+2015,England,TOTAL,Total,54185.21
+2016,England,TOTAL,Total,55874.14
+2017,England,TOTAL,Total,63202.55
+2018,England,TOTAL,Total,72351.51999999999
+2019,England,TOTAL,Total,77813.2
+2020,England,TOTAL,Total,88771.87
+2021,England,TOTAL,Total,83660.70999999999
+2022,England,TOTAL,Total,87212.08
+2023,England,TOTAL,Total,90271.68000000001
+2024,England,TOTAL,Total,94265.65
+2008,Scotland,Onshore Wind,Wind,3362
+2009,Scotland,Onshore Wind,Wind,4555
+2010,Scotland,Onshore Wind,Wind,4873
+2011,Scotland,Onshore Wind,Wind,7256.16
+2012,Scotland,Onshore Wind,Wind,8291.67
+2013,Scotland,Onshore Wind,Wind,11151.2
+2014,Scotland,Onshore Wind,Wind,11700.02
+2015,Scotland,Onshore Wind,Wind,13878.000000000002
+2016,Scotland,Onshore Wind,Wind,12415.7
+2017,Scotland,Onshore Wind,Wind,17201.150000000005
+2018,Scotland,Onshore Wind,Wind,19111.1
+2019,Scotland,Onshore Wind,Wind,22009.760000000002
+2020,Scotland,Onshore Wind,Wind,22505.929999999997
+2021,Scotland,Onshore Wind,Wind,18846.25
+2022,Scotland,Onshore Wind,Wind,27747.490000000005
+2023,Scotland,Onshore Wind,Wind,25953.710000000003
+2024,Scotland,Onshore Wind,Wind,29493.45
+2008,Scotland,Marine,Marine,0
+2009,Scotland,Marine,Marine,0
+2010,Scotland,Marine,Marine,0
+2011,Scotland,Marine,Marine,0.45999999999999996
+2012,Scotland,Marine,Marine,0.73
+2013,Scotland,Marine,Marine,1.3900000000000001
+2014,Scotland,Marine,Marine,2.14
+2015,Scotland,Marine,Marine,1.99
+2016,Scotland,Marine,Marine,0.01
+2017,Scotland,Marine,Marine,4.19
+2018,Scotland,Marine,Marine,9.299999999999999
+2019,Scotland,Marine,Marine,13.99
+2020,Scotland,Marine,Marine,11.280000000000001
+2021,Scotland,Marine,Marine,5.4799999999999995
+2022,Scotland,Marine,Marine,11.219999999999999
+2023,Scotland,Marine,Marine,12.639999999999999
+2024,Scotland,Marine,Marine,13.01
 2008,Scotland,Solar PV,Solar,0
 2009,Scotland,Solar PV,Solar,0
 2010,Scotland,Solar PV,Solar,1
@@ -234,71 +254,57 @@ year,country,source,category,generation_gwh
 2022,Scotland,Bioenergy,Bioenergy,2188.17
 2023,Scotland,Bioenergy,Bioenergy,2233.89
 2024,Scotland,Bioenergy,Bioenergy,2264.35
-2008,Scotland,LOAD FACTORS (%),Other,2008
-2009,Scotland,LOAD FACTORS (%),Other,2009
-2010,Scotland,LOAD FACTORS (%),Other,2010
-2011,Scotland,LOAD FACTORS (%),Other,2011
-2012,Scotland,LOAD FACTORS (%),Other,2012
-2013,Scotland,LOAD FACTORS (%),Other,2013
-2014,Scotland,LOAD FACTORS (%),Other,2014
-2015,Scotland,LOAD FACTORS (%),Other,2015
-2016,Scotland,LOAD FACTORS (%),Other,2016
-2017,Scotland,LOAD FACTORS (%),Other,2017
-2018,Scotland,LOAD FACTORS (%),Other,2018
-2019,Scotland,LOAD FACTORS (%),Other,2019
-2020,Scotland,LOAD FACTORS (%),Other,2020
-2021,Scotland,LOAD FACTORS (%),Other,2021
-2022,Scotland,LOAD FACTORS (%),Other,2022
-2023,Scotland,LOAD FACTORS (%),Other,2023
-2024,Scotland,LOAD FACTORS (%),Other,2024
-2009,Scotland,Onshore Wind,Wind,26.9
-2010,Scotland,Onshore Wind,Wind,23.19
-2011,Scotland,Onshore Wind,Wind,28.74
-2012,Scotland,Onshore Wind,Wind,26.81
-2013,Scotland,Onshore Wind,Wind,29.15
-2014,Scotland,Onshore Wind,Wind,26.56
-2015,Scotland,Onshore Wind,Wind,29.17
-2016,Scotland,Onshore Wind,Wind,23.43
-2017,Scotland,Onshore Wind,Wind,27.94
-2018,Scotland,Onshore Wind,Wind,27.18
-2019,Scotland,Onshore Wind,Wind,28.43
-2020,Scotland,Onshore Wind,Wind,27.77
-2021,Scotland,Onshore Wind,Wind,22.78
-2022,Scotland,Onshore Wind,Wind,30.54
-2023,Scotland,Onshore Wind,Wind,25.04
-2024,Scotland,Onshore Wind,Wind,24.95
-2009,Scotland,Hydro,Hydro,38.36
-2010,Scotland,Hydro,Hydro,25.61
-2011,Scotland,Hydro,Hydro,41.4
-2012,Scotland,Hydro,Hydro,37.01
-2013,Scotland,Hydro,Hydro,33.18
-2014,Scotland,Hydro,Hydro,41.22
-2015,Scotland,Hydro,Hydro,42.83
-2016,Scotland,Hydro,Hydro,35
-2017,Scotland,Hydro,Hydro,37.33
-2018,Scotland,Hydro,Hydro,34.56
-2019,Scotland,Hydro,Hydro,37.16
-2020,Scotland,Hydro,Hydro,43.15
-2021,Scotland,Hydro,Hydro,33.59
-2022,Scotland,Hydro,Hydro,31.89
-2023,Scotland,Hydro,Hydro,33.81
-2024,Scotland,Hydro,Hydro,36.01
-2009,Scotland,Landfill gas,Other,60.35
-2010,Scotland,Landfill gas,Other,56.7
-2011,Scotland,Landfill gas,Other,54.57
-2012,Scotland,Landfill gas,Other,55.29
-2013,Scotland,Landfill gas,Other,55.83
-2014,Scotland,Landfill gas,Other,52.53
-2015,Scotland,Landfill gas,Other,49.4
-2016,Scotland,Landfill gas,Other,48.23
-2017,Scotland,Landfill gas,Other,43.81
-2018,Scotland,Landfill gas,Other,41.59
-2019,Scotland,Landfill gas,Other,40.62
-2020,Scotland,Landfill gas,Other,39.97
-2021,Scotland,Landfill gas,Other,37.52
-2022,Scotland,Landfill gas,Other,33.83
-2023,Scotland,Landfill gas,Other,33.67
-2024,Scotland,Landfill gas,Other,32.36
+2008,Scotland,TOTAL,Total,9058
+2009,Scotland,TOTAL,Total,10582
+2010,Scotland,TOTAL,Total,9420
+2011,Scotland,TOTAL,Total,13868.8
+2012,Scotland,TOTAL,Total,14667.18
+2013,Scotland,TOTAL,Total,16989.649999999998
+2014,Scotland,TOTAL,Total,19045.039999999997
+2015,Scotland,TOTAL,Total,21742.82
+2016,Scotland,TOTAL,Total,19475.590000000004
+2017,Scotland,TOTAL,Total,25301.4
+2018,Scotland,TOTAL,Total,26596.979999999996
+2019,Scotland,TOTAL,Total,30203.540000000005
+2020,Scotland,TOTAL,Total,31565.18
+2021,Scotland,TOTAL,Total,26576.730000000003
+2022,Scotland,TOTAL,Total,35444.350000000006
+2023,Scotland,TOTAL,Total,33994.89000000001
+2024,Scotland,TOTAL,Total,37897.619999999995
+2008,Wales,Onshore Wind,Wind,989
+2009,Wales,Onshore Wind,Wind,905
+2010,Wales,Onshore Wind,Wind,986
+2011,Wales,Onshore Wind,Wind,1458.1
+2012,Wales,Onshore Wind,Wind,1446.5100000000002
+2013,Wales,Onshore Wind,Wind,1668.9999999999995
+2014,Wales,Onshore Wind,Wind,2290.7799999999997
+2015,Wales,Onshore Wind,Wind,3560.7400000000002
+2016,Wales,Onshore Wind,Wind,3429.58
+2017,Wales,Onshore Wind,Wind,4850.71
+2018,Wales,Onshore Wind,Wind,4807.049999999999
+2019,Wales,Onshore Wind,Wind,5104.580000000001
+2020,Wales,Onshore Wind,Wind,6009.800000000001
+2021,Wales,Onshore Wind,Wind,4820.639999999999
+2022,Wales,Onshore Wind,Wind,5201.18
+2023,Wales,Onshore Wind,Wind,5396.04
+2024,Wales,Onshore Wind,Wind,4812.8
+2008,Wales,Marine,Marine,0
+2009,Wales,Marine,Marine,0
+2010,Wales,Marine,Marine,0
+2011,Wales,Marine,Marine,0
+2012,Wales,Marine,Marine,0
+2013,Wales,Marine,Marine,0
+2014,Wales,Marine,Marine,0
+2015,Wales,Marine,Marine,0
+2016,Wales,Marine,Marine,0
+2017,Wales,Marine,Marine,0
+2018,Wales,Marine,Marine,0
+2019,Wales,Marine,Marine,0
+2020,Wales,Marine,Marine,0
+2021,Wales,Marine,Marine,0
+2022,Wales,Marine,Marine,0
+2023,Wales,Marine,Marine,0
+2024,Wales,Marine,Marine,0
 2008,Wales,Solar PV,Solar,0
 2009,Wales,Solar PV,Solar,0
 2010,Wales,Solar PV,Solar,1
@@ -384,71 +390,57 @@ year,country,source,category,generation_gwh
 2022,Wales,Bioenergy,Bioenergy,1183.2900000000002
 2023,Wales,Bioenergy,Bioenergy,1153.2
 2024,Wales,Bioenergy,Bioenergy,1175.5700000000002
-2008,Wales,LOAD FACTORS (%),Other,2008
-2009,Wales,LOAD FACTORS (%),Other,2009
-2010,Wales,LOAD FACTORS (%),Other,2010
-2011,Wales,LOAD FACTORS (%),Other,2011
-2012,Wales,LOAD FACTORS (%),Other,2012
-2013,Wales,LOAD FACTORS (%),Other,2013
-2014,Wales,LOAD FACTORS (%),Other,2014
-2015,Wales,LOAD FACTORS (%),Other,2015
-2016,Wales,LOAD FACTORS (%),Other,2016
-2017,Wales,LOAD FACTORS (%),Other,2017
-2018,Wales,LOAD FACTORS (%),Other,2018
-2019,Wales,LOAD FACTORS (%),Other,2019
-2020,Wales,LOAD FACTORS (%),Other,2020
-2021,Wales,LOAD FACTORS (%),Other,2021
-2022,Wales,LOAD FACTORS (%),Other,2022
-2023,Wales,LOAD FACTORS (%),Other,2023
-2024,Wales,LOAD FACTORS (%),Other,2024
-2009,Wales,Onshore Wind,Wind,22.76
-2010,Wales,Onshore Wind,Wind,21.02
-2011,Wales,Onshore Wind,Wind,29.81
-2012,Wales,Onshore Wind,Wind,26.94
-2013,Wales,Onshore Wind,Wind,26.96
-2014,Wales,Onshore Wind,Wind,26.75
-2015,Wales,Onshore Wind,Wind,31.81
-2016,Wales,Onshore Wind,Wind,26.69
-2017,Wales,Onshore Wind,Wind,33.57
-2018,Wales,Onshore Wind,Wind,30.47
-2019,Wales,Onshore Wind,Wind,30.21
-2020,Wales,Onshore Wind,Wind,34.19
-2021,Wales,Onshore Wind,Wind,27.42
-2022,Wales,Onshore Wind,Wind,29.45
-2023,Wales,Onshore Wind,Wind,30.45
-2024,Wales,Onshore Wind,Wind,27.03
-2009,Wales,Hydro,Hydro,20.52
-2010,Wales,Hydro,Hydro,16.32
-2011,Wales,Hydro,Hydro,20.22
-2012,Wales,Hydro,Hydro,25.41
-2013,Wales,Hydro,Hydro,16.6
-2014,Wales,Hydro,Hydro,19.95
-2015,Wales,Hydro,Hydro,25.05
-2016,Wales,Hydro,Hydro,23.96
-2017,Wales,Hydro,Hydro,25.73
-2018,Wales,Hydro,Hydro,19.53
-2019,Wales,Hydro,Hydro,25.12
-2020,Wales,Hydro,Hydro,26.81
-2021,Wales,Hydro,Hydro,24
-2022,Wales,Hydro,Hydro,18.6
-2023,Wales,Hydro,Hydro,26.56
-2024,Wales,Hydro,Hydro,25.19
-2009,Wales,Landfill gas,Other,60.03
-2010,Wales,Landfill gas,Other,55.95
-2011,Wales,Landfill gas,Other,55.1
-2012,Wales,Landfill gas,Other,54.18
-2013,Wales,Landfill gas,Other,50.46
-2014,Wales,Landfill gas,Other,47.62
-2015,Wales,Landfill gas,Other,43.31
-2016,Wales,Landfill gas,Other,37.44
-2017,Wales,Landfill gas,Other,34.38
-2018,Wales,Landfill gas,Other,30.84
-2019,Wales,Landfill gas,Other,27.48
-2020,Wales,Landfill gas,Other,28.44
-2021,Wales,Landfill gas,Other,26.73
-2022,Wales,Landfill gas,Other,25.4
-2023,Wales,Landfill gas,Other,23.87
-2024,Wales,Landfill gas,Other,22.5
+2008,Wales,TOTAL,Total,1711
+2009,Wales,TOTAL,Total,1761
+2010,Wales,TOTAL,Total,1732
+2011,Wales,TOTAL,Total,2369.5299999999997
+2012,Wales,TOTAL,Total,2490.19
+2013,Wales,TOTAL,Total,2639.1999999999994
+2014,Wales,TOTAL,Total,3379.7999999999993
+2015,Wales,TOTAL,Total,5198.570000000001
+2016,Wales,TOTAL,Total,5303.11
+2017,Wales,TOTAL,Total,7074.08
+2018,Wales,TOTAL,Total,7273.149999999999
+2019,Wales,TOTAL,Total,7629.200000000001
+2020,Wales,TOTAL,Total,8819.99
+2021,Wales,TOTAL,Total,7678.139999999999
+2022,Wales,TOTAL,Total,7983.5
+2023,Wales,TOTAL,Total,8372.710000000001
+2024,Wales,TOTAL,Total,7679.1
+2008,Northern Ireland,Onshore Wind,Wind,565
+2009,Northern Ireland,Onshore Wind,Wind,744
+2010,Northern Ireland,Onshore Wind,Wind,638
+2011,Northern Ireland,Onshore Wind,Wind,1001.8599999999999
+2012,Northern Ireland,Onshore Wind,Wind,1042
+2013,Northern Ireland,Onshore Wind,Wind,1345.19
+2014,Northern Ireland,Onshore Wind,Wind,1458.42
+2015,Northern Ireland,Onshore Wind,Wind,1860.38
+2016,Northern Ireland,Onshore Wind,Wind,1733.55
+2017,Northern Ireland,Onshore Wind,Wind,2505.24
+2018,Northern Ireland,Onshore Wind,Wind,2933.23
+2019,Northern Ireland,Onshore Wind,Wind,2999.9700000000003
+2020,Northern Ireland,Onshore Wind,Wind,3327.42
+2021,Northern Ireland,Onshore Wind,Wind,3345.4
+2022,Northern Ireland,Onshore Wind,Wind,3371.43
+2023,Northern Ireland,Onshore Wind,Wind,2921.0099999999998
+2024,Northern Ireland,Onshore Wind,Wind,2717.81
+2008,Northern Ireland,Marine,Marine,0
+2009,Northern Ireland,Marine,Marine,1
+2010,Northern Ireland,Marine,Marine,2
+2011,Northern Ireland,Marine,Marine,0.46
+2012,Northern Ireland,Marine,Marine,3.28
+2013,Northern Ireland,Marine,Marine,3.1300000000000003
+2014,Northern Ireland,Marine,Marine,0.02
+2015,Northern Ireland,Marine,Marine,0
+2016,Northern Ireland,Marine,Marine,0
+2017,Northern Ireland,Marine,Marine,0
+2018,Northern Ireland,Marine,Marine,0
+2019,Northern Ireland,Marine,Marine,0
+2020,Northern Ireland,Marine,Marine,0
+2021,Northern Ireland,Marine,Marine,0
+2022,Northern Ireland,Marine,Marine,0
+2023,Northern Ireland,Marine,Marine,0
+2024,Northern Ireland,Marine,Marine,0
 2008,Northern Ireland,Solar PV,Solar,0
 2009,Northern Ireland,Solar PV,Solar,0
 2010,Northern Ireland,Solar PV,Solar,0
@@ -534,68 +526,20 @@ year,country,source,category,generation_gwh
 2022,Northern Ireland,Bioenergy,Bioenergy,824.19
 2023,Northern Ireland,Bioenergy,Bioenergy,807.01
 2024,Northern Ireland,Bioenergy,Bioenergy,804.1600000000001
-2008,Northern Ireland,LOAD FACTORS (%),Other,2008
-2009,Northern Ireland,LOAD FACTORS (%),Other,2009
-2010,Northern Ireland,LOAD FACTORS (%),Other,2010
-2011,Northern Ireland,LOAD FACTORS (%),Other,2011
-2012,Northern Ireland,LOAD FACTORS (%),Other,2012
-2013,Northern Ireland,LOAD FACTORS (%),Other,2013
-2014,Northern Ireland,LOAD FACTORS (%),Other,2014
-2015,Northern Ireland,LOAD FACTORS (%),Other,2015
-2016,Northern Ireland,LOAD FACTORS (%),Other,2016
-2017,Northern Ireland,LOAD FACTORS (%),Other,2017
-2018,Northern Ireland,LOAD FACTORS (%),Other,2018
-2019,Northern Ireland,LOAD FACTORS (%),Other,2019
-2020,Northern Ireland,LOAD FACTORS (%),Other,2020
-2021,Northern Ireland,LOAD FACTORS (%),Other,2021
-2022,Northern Ireland,LOAD FACTORS (%),Other,2022
-2023,Northern Ireland,LOAD FACTORS (%),Other,2023
-2024,Northern Ireland,LOAD FACTORS (%),Other,2024
-2009,Northern Ireland,Onshore Wind,Wind,33.11
-2010,Northern Ireland,Onshore Wind,Wind,23.53
-2011,Northern Ireland,Onshore Wind,Wind,31.37
-2012,Northern Ireland,Onshore Wind,Wind,27.29
-2013,Northern Ireland,Onshore Wind,Wind,29.49
-2014,Northern Ireland,Onshore Wind,Wind,26.05
-2015,Northern Ireland,Onshore Wind,Wind,29.73
-2016,Northern Ireland,Onshore Wind,Wind,24.4
-2017,Northern Ireland,Onshore Wind,Wind,27.65
-2018,Northern Ireland,Onshore Wind,Wind,26.55
-2019,Northern Ireland,Onshore Wind,Wind,25.47
-2020,Northern Ireland,Onshore Wind,Wind,28.02
-2021,Northern Ireland,Onshore Wind,Wind,27.43
-2022,Northern Ireland,Onshore Wind,Wind,26.91
-2023,Northern Ireland,Onshore Wind,Wind,23.17
-2024,Northern Ireland,Onshore Wind,Wind,21.2
-2009,Northern Ireland,Hydro,Hydro,35.39
-2010,Northern Ireland,Hydro,Hydro,45.66
-2011,Northern Ireland,Hydro,Hydro,26.98
-2012,Northern Ireland,Hydro,Hydro,34.2
-2013,Northern Ireland,Hydro,Hydro,28.87
-2014,Northern Ireland,Hydro,Hydro,35.68
-2015,Northern Ireland,Hydro,Hydro,37.11
-2016,Northern Ireland,Hydro,Hydro,28.72
-2017,Northern Ireland,Hydro,Hydro,33.74
-2018,Northern Ireland,Hydro,Hydro,32.17
-2019,Northern Ireland,Hydro,Hydro,36.84
-2020,Northern Ireland,Hydro,Hydro,39.44
-2021,Northern Ireland,Hydro,Hydro,33.19
-2022,Northern Ireland,Hydro,Hydro,27.62
-2023,Northern Ireland,Hydro,Hydro,40.75
-2024,Northern Ireland,Hydro,Hydro,36.29
-2009,Northern Ireland,Landfill gas,Other,55.81
-2010,Northern Ireland,Landfill gas,Other,73.57
-2011,Northern Ireland,Landfill gas,Other,65.18
-2012,Northern Ireland,Landfill gas,Other,60.57
-2013,Northern Ireland,Landfill gas,Other,56.35
-2014,Northern Ireland,Landfill gas,Other,48.16
-2015,Northern Ireland,Landfill gas,Other,53.33
-2016,Northern Ireland,Landfill gas,Other,56.31
-2017,Northern Ireland,Landfill gas,Other,57.37
-2018,Northern Ireland,Landfill gas,Other,42.07
-2019,Northern Ireland,Landfill gas,Other,40.01
-2020,Northern Ireland,Landfill gas,Other,35.68
-2021,Northern Ireland,Landfill gas,Other,33.67
-2022,Northern Ireland,Landfill gas,Other,35.65
-2023,Northern Ireland,Landfill gas,Other,34.84
-2024,Northern Ireland,Landfill gas,Other,33.62
+2008,Northern Ireland,TOTAL,Total,606
+2009,Northern Ireland,TOTAL,Total,818
+2010,Northern Ireland,TOTAL,Total,763
+2011,Northern Ireland,TOTAL,Total,1104.8500000000001
+2012,Northern Ireland,TOTAL,Total,1183.8899999999999
+2013,Northern Ireland,TOTAL,Total,1517.2
+2014,Northern Ireland,TOTAL,Total,1699.5
+2015,Northern Ireland,TOTAL,Total,2237.21
+2016,Northern Ireland,TOTAL,Total,2337.6299999999997
+2017,Northern Ireland,TOTAL,Total,3300.6099999999997
+2018,Northern Ireland,TOTAL,Total,3908.6899999999996
+2019,Northern Ireland,TOTAL,Total,4080.0300000000007
+2020,Northern Ireland,TOTAL,Total,4467.8499999999995
+2021,Northern Ireland,TOTAL,Total,4561.7300000000005
+2022,Northern Ireland,TOTAL,Total,4587.880000000001
+2023,Northern Ireland,TOTAL,Total,4118.509999999999
+2024,Northern Ireland,TOTAL,Total,3865.3500000000004
