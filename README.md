@@ -11,7 +11,7 @@
 
 The United Kingdom has been at the forefront of the global renewable energy transition. From the windswept coasts of Scotland to the solar farms of southern England, the UK's energy landscape has been transformed over the past 15 years.
 
-This dashboard analyzes **official government data** from the **Department for Energy Security & Net Zero (DESNZ)**, tracking every megawatt of renewable electricity installed and every gigawatt-hour generated across the UK from **2009 to 2024**. The data covers all major renewable sources — wind (onshore and offshore), solar PV, hydropower, bioenergy, and marine energy — and breaks down performance across England, Scotland, Wales, and Northern Ireland.
+This dashboard analyzes **official government data** from the **Department for Energy Security & Net Zero (DESNZ)**, tracking every megawatt of renewable electricity installed and every gigawatt-hour generated across the UK from **2009 to 2024**. The data covers all major renewable sources  wind (onshore and offshore), solar PV, hydropower, bioenergy, and marine energy and breaks down performance across England, Scotland, Wales, and Northern Ireland.
 
 The story that emerges is one of **remarkable growth**: the UK has more than quadrupled its renewable electricity generation in just 15 years, driven primarily by the explosive expansion of offshore wind and solar PV.
 
@@ -20,19 +20,19 @@ The story that emerges is one of **remarkable growth**: the UK has more than qua
 ## 🔍 Key Findings
 
 ### 📈 Explosive Growth
-- UK renewable generation grew from **~25 TWh in 2009 to over 135 TWh in 2024** — a 5x increase
+- UK renewable generation grew from **~25 TWh in 2009 to over 135 TWh in 2024**  a 5x increase
 - Installed capacity expanded from **8 GW to over 60 GW** in the same period
 - Renewables now account for over **40% of UK electricity generation**
 
 ### 🌊 Wind Dominates
 - **Wind energy** (onshore + offshore combined) is the single largest renewable source
-- **Offshore wind** has grown from just 1.7 TWh in 2009 to over 45 TWh — a 25x increase
+- **Offshore wind** has grown from just 1.7 TWh in 2009 to over 45 TWh  a 25x increase
 - The UK has one of the world's largest offshore wind fleets, with over 14 GW installed
 - Offshore wind load factors consistently exceed 35%, making it highly productive
 
 ### ☀️ Solar Surge
 - Solar PV capacity grew from a mere **27 MW in 2009 to over 17 GW in 2024**
-- Generation increased from 20 GWh to over 15 TWh — effectively from zero to a major contributor
+- Generation increased from 20 GWh to over 15 TWh effectively from zero to a major contributor
 - Most growth occurred between 2011-2016 during the feed-in tariff era
 
 ### 🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland Punches Above Its Weight
@@ -42,7 +42,7 @@ The story that emerges is one of **remarkable growth**: the UK has more than qua
 
 ### 🔋 Bioenergy's Quiet Contribution
 - Plant biomass, landfill gas, and anaerobic digestion collectively generate over 30 TWh
-- While less glamorous than wind and solar, bioenergy provides **baseload renewable power** — producing electricity regardless of weather conditions
+- While less glamorous than wind and solar, bioenergy provides **baseload renewable power** producing electricity regardless of weather conditions
 
 ### 📉 Declining Load Factors for Legacy Sources
 - Landfill gas load factors have steadily declined from ~58% to ~46% as sites mature
@@ -56,13 +56,13 @@ The story that emerges is one of **remarkable growth**: the UK has more than qua
 The big picture — total generation and capacity growth over 15 years, generation mix breakdown, top 6 source trends, and capacity vs generation scatter plot.
 
 ### Page 2: 🌊 Wind & Solar
-Deep dive into the UK's two fastest-growing sources — onshore vs offshore wind comparison, solar PV capacity and generation growth (dual-axis chart), load factor trends, and efficiency analysis.
+Deep dive into the UK's two fastest-growing sources  onshore vs offshore wind comparison, solar PV capacity and generation growth (dual-axis chart), load factor trends, and efficiency analysis.
 
 ### Page 3: 🏴󠁧󠁢󠁥󠁮󠁧󠁿 Nations
-Country-level breakdown — renewable generation by UK nation (stacked area), nation share pie chart, and energy mix comparison showing how each nation's renewable portfolio differs.
+Country-level breakdown renewable generation by UK nation (stacked area), nation share pie chart, and energy mix comparison showing how each nation's renewable portfolio differs.
 
 ### Page 4: 📋 Data Explorer
-Full dataset with generation, capacity, and load factors — searchable, sortable, and exportable to CSV/Excel.
+Full dataset with generation, capacity, and load factors searchable, sortable, and exportable to CSV/Excel.
 
 ---
 
@@ -130,8 +130,8 @@ Published by the **Department for Energy Security & Net Zero (DESNZ)**, UK Gover
 
 ## 💡 Policy Insights
 
-1. **Offshore wind is the UK's renewable powerhouse** — continued investment in seabed leasing and grid connection is critical
-2. **Solar PV growth has plateaued** since the end of feed-in tariffs — new incentive mechanisms may be needed
+1. **Offshore wind is the UK's renewable powerhouse** continued investment in seabed leasing and grid connection is critical
+2. **Solar PV growth has plateaued** since the end of feed-in tariffs  new incentive mechanisms may be needed
 3. **Scotland's dominance** in renewable generation creates opportunities for green hydrogen production and energy export
 4. **Bioenergy provides baseload stability** that variable sources (wind/solar) cannot — its role in grid balancing deserves recognition
 5. **Marine energy (wave/tidal)** remains negligible despite the UK's coastline advantage — breakthrough technology needed
