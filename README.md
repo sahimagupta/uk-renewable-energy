@@ -53,7 +53,7 @@ The story that emerges is one of **remarkable growth**: the UK has more than qua
 ## 📊 Dashboard Pages
 
 ### Page 1: ⚡ Overview
-The big picture — total generation and capacity growth over 15 years, generation mix breakdown, top 6 source trends, and capacity vs generation scatter plot.
+The big picture  total generation and capacity growth over 15 years, generation mix breakdown, top 6 source trends, and capacity vs generation scatter plot.
 
 ### Page 2: 🌊 Wind & Solar
 Deep dive into the UK's two fastest-growing sources  onshore vs offshore wind comparison, solar PV capacity and generation growth (dual-axis chart), load factor trends, and efficiency analysis.
@@ -123,7 +123,7 @@ Published by the **Department for Energy Security & Net Zero (DESNZ)**, UK Gover
 
 - Source: [GOV.UK — Energy Trends Section 6: Renewables](https://www.gov.uk/government/statistics/energy-trends-section-6-renewables)
 - Published: December 2025 (latest available)
-- Coverage: 2009–2024 (quarterly and annual)
+- Coverage: 2009-2024 (quarterly and annual)
 - Accredited Official Statistics
 
 ---
@@ -133,8 +133,8 @@ Published by the **Department for Energy Security & Net Zero (DESNZ)**, UK Gover
 1. **Offshore wind is the UK's renewable powerhouse** continued investment in seabed leasing and grid connection is critical
 2. **Solar PV growth has plateaued** since the end of feed-in tariffs  new incentive mechanisms may be needed
 3. **Scotland's dominance** in renewable generation creates opportunities for green hydrogen production and energy export
-4. **Bioenergy provides baseload stability** that variable sources (wind/solar) cannot — its role in grid balancing deserves recognition
-5. **Marine energy (wave/tidal)** remains negligible despite the UK's coastline advantage — breakthrough technology needed
+4. **Bioenergy provides baseload stability** that variable sources (wind/solar) cannot  its role in grid balancing deserves recognition
+5. **Marine energy (wave/tidal)** remains negligible despite the UK's coastline advantage breakthrough technology needed
 
 ---
 
