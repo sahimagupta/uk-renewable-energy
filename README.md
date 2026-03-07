@@ -16,13 +16,9 @@ This dashboard analyzes **official government data** from the **Department for E
 The story that emerges is one of **remarkable growth**: the UK has more than quadrupled its renewable electricity generation in just 15 years, driven primarily by the explosive expansion of offshore wind and solar PV.
 
 ---
-## ❓ Questions & Considerations
+## 📌 Research Question
 
-### Data & Methodology
-- **Missing Data Handling**: How are gaps in quarterly data treated? Is interpolation used?
-- **Seasonality**: Are wind/solar outputs adjusted for seasonal variations?
-- **Capacity Factors**: Are these calculated using nameplate capacity or derated values?
-- **Confidence Intervals**: What's the uncertainty range for generation estimates?
+> **How has the UK's renewable energy sector grown and evolved from 2009 to 2024, and which sources and regions are driving that transformation?**
 
 ### Technical Setup
 - **Local Development**: How to run the dashboard locally?
